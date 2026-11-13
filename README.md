@@ -24,6 +24,14 @@ AniPick/
 └── README.md
 ```
 
+## 배포 서비스
+
+- **서비스:** [AniPick 웹 앱](https://d1er2zzc6dmy3u.cloudfront.net)
+- **상태 확인:** [헬스 체크](https://d1er2zzc6dmy3u.cloudfront.net/health)
+- **구성:** CloudFront → API Gateway HTTP API → 내부 ALB → EC2 앱 서버 → 비공개 RDS MySQL
+
+AWS 실습 환경에 따라 서버가 중지된 동안에는 서비스 링크에 접속할 수 없습니다.
+
 ## 앱 실행
 
 로컬 개발에는 Python 3.10 이상과 MySQL 8.0이 필요합니다. 로컬 개발과 운영 환경 모두 MySQL을 사용하며, SQLite 대체 기능은 제공하지 않습니다.
