@@ -2,6 +2,28 @@
 
 AniPick은 장르별 애니메이션을 탐색하고, 작품 정보를 확인하며, 계정별로 즐겨찾기를 저장할 수 있는 프로토타입입니다. 작품 이미지가 강조된 헤더, 포스터 카드, 간결한 메타데이터를 사용하는 데스크톱 애니메이션/OTT 카탈로그 UI에서 영감을 얻었습니다. 포스터나 카드를 선택하면 상세 화면이 열립니다. 해당 작품의 Jikan 데이터가 있으면 예고편을 미리 볼 수 있고, 현재 합법적으로 시청할 수 있는 서비스를 JustWatch에서 검색할 수 있습니다. 본 서비스는 에피소드를 스트리밍하지 않습니다.
 
+## 프로젝트 구조
+
+```text
+AniPick/
+├── server.py                 # HTTP 서버와 API
+├── index.html                # 웹 화면
+├── database.py               # MySQL 접근과 스키마
+├── recommender.py             # 콘텐츠 기반 추천
+├── airing_schedule.py         # 주간 방영 일정
+├── character_info.py          # 등장 캐릭터 정보
+├── api_key_store.py           # 계정별 AI API 키 저장
+├── ai_*.py                    # AI 추천·요약·태그·캐릭터 기능
+├── data/                      # 공개 애니메이션 카탈로그 JSON
+├── scripts/                   # DB 설정과 카탈로그 수집
+│   └── aws/                   # AWS 배포 스크립트와 인프라 템플릿
+├── tests/                     # 자동화 테스트
+├── Dockerfile
+├── compose.yaml
+├── requirements.txt
+└── README.md
+```
+
 ## 앱 실행
 
 로컬 개발에는 Python 3.10 이상과 MySQL 8.0이 필요합니다. 로컬 개발과 운영 환경 모두 MySQL을 사용하며, SQLite 대체 기능은 제공하지 않습니다.
@@ -34,7 +56,7 @@ python server.py
 
 `anime`, `genre`, `anime_genre`, `ai_synopsis_cache`, `ai_tags_cache`, `user_account`, `user_session`, `user_ai_api_key`, `favorite`, `ai_curator_conversation`, `ai_curator_message`
 
-**AWS 배포:** CloudFormation 배포는 EC2, RDS MySQL, 내부 ALB, API Gateway VPC Link, CloudFront로 구성합니다. 기존 `anipick-ec2-role` 인스턴스 프로파일을 사용하며 IAM 리소스는 생성하지 않습니다. CloudFront는 AWS 관리형 `CachingDisabled` 및 `AllViewerExceptHostHeader` 정책을 사용합니다. 배포 절차와 실제 리소스 상태는 [AWS_DEPLOYMENT_GUIDE.txt](./AWS_DEPLOYMENT_GUIDE.txt)를 참조하세요. 이 구성은 EC2 단독 배포와 다른 AWS 비용을 발생시킵니다.
+**AWS 배포:** CloudFormation 배포는 EC2, RDS MySQL, 내부 ALB, API Gateway VPC Link, CloudFront로 구성합니다. 기존 `anipick-ec2-role` 인스턴스 프로파일을 사용하며 IAM 리소스는 생성하지 않습니다. CloudFront는 AWS 관리형 `CachingDisabled` 및 `AllViewerExceptHostHeader` 정책을 사용합니다. 배포 스크립트와 인프라 템플릿은 [scripts/aws](./scripts/aws/)에서 확인할 수 있습니다. 이 구성은 EC2 단독 배포와 다른 AWS 비용을 발생시킵니다.
 
 **운영 환경 변수:** 로컬에서는 위 설정 도구가 `.env`를 구성합니다. AWS에서는 호스팅 환경 또는 시크릿 관리자에 다음 설정을 구성하세요.
 
