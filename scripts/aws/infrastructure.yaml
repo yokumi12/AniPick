@@ -1,0 +1,383 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Isolated AniPick production stack for ap-northeast-2.
+
+Parameters:
+  ArtifactBucket:
+    Type: String
+  ArtifactKey:
+    Type: String
+  OriginSecret:
+    Type: String
+    NoEcho: true
+    MinLength: 32
+  EncryptionKey:
+    Type: String
+    NoEcho: true
+    MinLength: 32
+  InstanceType:
+    Type: String
+    Default: t3.small
+    AllowedValues: [t3.small, t3.medium]
+  DatabaseInstanceClass:
+    Type: String
+    Default: db.t4g.micro
+    AllowedValues: [db.t4g.micro, db.t4g.small]
+
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.77.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags: [{Key: Name, Value: anipick-vpc}, {Key: Project, Value: AniPick}]
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags: [{Key: Name, Value: anipick-igw}, {Key: Project, Value: AniPick}]
+  AttachInternetGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags: [{Key: Name, Value: anipick-public}, {Key: Project, Value: AniPick}]
+  PublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: AttachInternetGateway
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+  PublicSubnetA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.77.1.0/24
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      MapPublicIpOnLaunch: true
+      Tags: [{Key: Name, Value: anipick-public-a}, {Key: Project, Value: AniPick}]
+  PublicSubnetB:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.77.2.0/24
+      AvailabilityZone: !Select [1, !GetAZs ""]
+      MapPublicIpOnLaunch: true
+      Tags: [{Key: Name, Value: anipick-public-b}, {Key: Project, Value: AniPick}]
+  PrivateSubnetA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.77.11.0/24
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      Tags: [{Key: Name, Value: anipick-private-a}, {Key: Project, Value: AniPick}]
+  PrivateSubnetB:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.77.12.0/24
+      AvailabilityZone: !Select [1, !GetAZs ""]
+      Tags: [{Key: Name, Value: anipick-private-b}, {Key: Project, Value: AniPick}]
+  PublicSubnetARoute:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnetA
+      RouteTableId: !Ref PublicRouteTable
+  PublicSubnetBRoute:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnetB
+      RouteTableId: !Ref PublicRouteTable
+
+  ApplicationSecret:
+    Type: AWS::SecretsManager::Secret
+    Properties:
+      Name: !Sub anipick/${AWS::StackName}/application
+      Description: AniPick application credentials.
+      GenerateSecretString:
+        SecretStringTemplate: !Sub
+          - '{"username":"anipick_app","database":"anipick","origin_secret":"${Origin}","encryption_key":"${Encryption}"}'
+          - Origin: !Ref OriginSecret
+            Encryption: !Ref EncryptionKey
+        GenerateStringKey: database_password
+        PasswordLength: 40
+        ExcludePunctuation: true
+      Tags: [{Key: Project, Value: AniPick}]
+  Database:
+    Type: AWS::RDS::DBInstance
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      DBInstanceIdentifier: !Sub anipick-${AWS::StackName}
+      Engine: mysql
+      DBInstanceClass: !Ref DatabaseInstanceClass
+      AllocatedStorage: 20
+      MaxAllocatedStorage: 100
+      StorageType: gp3
+      StorageEncrypted: true
+      DBName: anipick
+      MasterUsername: anipick_admin
+      ManageMasterUserPassword: true
+      PubliclyAccessible: false
+      MultiAZ: false
+      BackupRetentionPeriod: 7
+      AutoMinorVersionUpgrade: true
+      DBSubnetGroupName: !Ref DatabaseSubnetGroup
+      VPCSecurityGroups: [!GetAtt DatabaseSecurityGroup.GroupId]
+      Tags: [{Key: Name, Value: anipick-db}, {Key: Project, Value: AniPick}]
+  DatabaseSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: Private subnets for AniPick MySQL.
+      SubnetIds: [!Ref PrivateSubnetA, !Ref PrivateSubnetB]
+      Tags: [{Key: Name, Value: anipick-db-subnets}, {Key: Project, Value: AniPick}]
+
+  ApplicationLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /anipick/${AWS::StackName}
+      RetentionInDays: 30
+
+  ApplicationSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: AniPick instance, reachable only from its private load balancer.
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 8000
+          SourceSecurityGroupId: !Ref LoadBalancerSecurityGroup
+      Tags: [{Key: Name, Value: anipick-app}, {Key: Project, Value: AniPick}]
+  LoadBalancerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Private HTTP ingress from the API Gateway VPC link only.
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          SourceSecurityGroupId: !Ref VpcLinkSecurityGroup
+      Tags: [{Key: Name, Value: anipick-alb}, {Key: Project, Value: AniPick}]
+  VpcLinkSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: API Gateway private integration to AniPick.
+      VpcId: !Ref VPC
+      Tags: [{Key: Name, Value: anipick-vpclink}, {Key: Project, Value: AniPick}]
+  DatabaseSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: MySQL access from the AniPick application only.
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          SourceSecurityGroupId: !Ref ApplicationSecurityGroup
+      Tags: [{Key: Name, Value: anipick-rds}, {Key: Project, Value: AniPick}]
+
+  ApplicationInstance:
+    Type: AWS::EC2::Instance
+    DependsOn: [PublicRoute, ApplicationLogGroup]
+    Properties:
+      ImageId: !Sub "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64}}"
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: anipick-ec2-role
+      SubnetId: !Ref PublicSubnetA
+      SecurityGroupIds: [!Ref ApplicationSecurityGroup]
+      MetadataOptions:
+        HttpTokens: required
+        HttpEndpoint: enabled
+      BlockDeviceMappings:
+        - DeviceName: /dev/xvda
+          Ebs:
+            VolumeSize: 20
+            VolumeType: gp3
+            Encrypted: true
+            DeleteOnTermination: true
+      UserData:
+        Fn::Base64: !Sub
+          - |
+            #!/bin/bash
+            set -Eeuo pipefail
+            exec > >(tee -a /var/log/anipick-bootstrap.log | logger -t anipick-bootstrap -s 2>/dev/console) 2>&1
+            dnf install -y docker awscli
+            mkdir -p /usr/local/lib/docker/cli-plugins
+            curl --fail --silent --show-error --location https://github.com/docker/buildx/releases/download/v0.24.0/buildx-v0.24.0.linux-amd64 -o /usr/local/lib/docker/cli-plugins/docker-buildx
+            chmod 0755 /usr/local/lib/docker/cli-plugins/docker-buildx
+            docker buildx version
+            if ! docker compose version >/dev/null 2>&1; then
+              mkdir -p /usr/local/lib/docker/cli-plugins
+              curl --fail --silent --show-error --location https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose
+              chmod 0755 /usr/local/lib/docker/cli-plugins/docker-compose
+              docker compose version
+            fi
+            systemctl enable --now docker
+            mkdir -p /opt/anipick/app /etc/anipick/certs
+            curl --fail --silent --show-error https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem -o /etc/anipick/certs/rds-global-bundle.pem
+            chmod 0644 /etc/anipick/certs/rds-global-bundle.pem
+            aws s3 cp "s3://${Bucket}/${Key}" /tmp/anipick-source.tar.gz --region "${AWS::Region}"
+            tar -xzf /tmp/anipick-source.tar.gz -C /opt/anipick/app
+            aws secretsmanager get-secret-value --secret-id "${AppSecret}" --query SecretString --output text --region "${AWS::Region}" > /etc/anipick/app-secret.json
+            aws secretsmanager get-secret-value --secret-id "${DbSecret}" --query SecretString --output text --region "${AWS::Region}" > /etc/anipick/db-secret.json
+            chmod 0600 /etc/anipick/*-secret.json
+            cat > /etc/anipick/deployment.conf <<'CONFIG'
+            AWS_REGION=${AWS::Region}
+            DEPLOYMENT_BUCKET=${Bucket}
+            DEPLOYMENT_OBJECT_KEY=${Key}
+            ANIPICK_LOG_GROUP=${LogGroup}
+            CONFIG
+            chmod 0600 /etc/anipick/deployment.conf
+            python3 -c 'import json; a=json.load(open("/etc/anipick/app-secret.json")); d=json.load(open("/etc/anipick/db-secret.json")); f=open("/opt/anipick/app/.env","w"); f.write("ANIPICK_ENV=production\nANIPICK_HOST=0.0.0.0\nANIPICK_MYSQL_HOST=${DbHost}\nANIPICK_MYSQL_PORT=3306\nANIPICK_MYSQL_DATABASE=anipick\nANIPICK_MYSQL_USER="+a["username"]+"\nANIPICK_MYSQL_PASSWORD="+a["database_password"]+"\nANIPICK_MYSQL_SSL_CA=/etc/ssl/certs/rds-global-bundle.pem\nANIPICK_API_KEY_ENCRYPTION_KEY="+a["encryption_key"]+"\nANIPICK_CLOUDFRONT_ORIGIN_SECRET="+a["origin_secret"]+"\nAWS_REGION=${AWS::Region}\nANIPICK_LOG_GROUP=${LogGroup}\n"); f.close(); b=open("/etc/anipick/bootstrap.env","w"); b.write("ANIPICK_MYSQL_HOST=${DbHost}\nANIPICK_MYSQL_PORT=3306\nANIPICK_MYSQL_DATABASE=anipick\nANIPICK_MYSQL_SSL_CA=/etc/ssl/certs/rds-global-bundle.pem\nANIPICK_DB_ADMIN_USER="+d["username"]+"\nANIPICK_DB_ADMIN_PASSWORD="+d["password"]+"\nANIPICK_DB_APP_PASSWORD="+a["database_password"]+"\n"); b.close()'
+            chmod 0600 /opt/anipick/app/.env /etc/anipick/bootstrap.env
+            cd /opt/anipick/app
+            docker compose --project-name anipick build
+            set -a
+            . /etc/anipick/bootstrap.env
+            set +a
+            docker compose --project-name anipick run --rm --no-deps \
+              -e ANIPICK_DB_ADMIN_USER -e ANIPICK_DB_ADMIN_PASSWORD -e ANIPICK_DB_APP_PASSWORD \
+              app python scripts/bootstrap_db_user.py
+            docker compose --project-name anipick up -d
+            install -o root -g root -m 0755 scripts/aws/instance-deploy.sh /usr/local/bin/anipick-deploy
+          - Bucket: !Ref ArtifactBucket
+            Key: !Ref ArtifactKey
+            AppSecret: !Ref ApplicationSecret
+            DbSecret: !GetAtt Database.MasterUserSecret.SecretArn
+            DbHost: !GetAtt Database.Endpoint.Address
+            LogGroup: !Ref ApplicationLogGroup
+      Tags: [{Key: Name, Value: anipick-app}, {Key: Project, Value: AniPick}]
+
+  InternalLoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: !Sub anipick-${AWS::StackName}
+      Scheme: internal
+      Type: application
+      IpAddressType: ipv4
+      Subnets: [!Ref PrivateSubnetA, !Ref PrivateSubnetB]
+      SecurityGroups: [!Ref LoadBalancerSecurityGroup]
+      Tags: [{Key: Project, Value: AniPick}]
+  ApplicationTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: !Sub anipick-${AWS::StackName}
+      VpcId: !Ref VPC
+      Protocol: HTTP
+      Port: 8000
+      TargetType: instance
+      Targets:
+        - Id: !Ref ApplicationInstance
+          Port: 8000
+      HealthCheckEnabled: true
+      HealthCheckPath: /health
+      HealthCheckProtocol: HTTP
+      Matcher: {HttpCode: "200"}
+      Tags: [{Key: Project, Value: AniPick}]
+  InternalLoadBalancerListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref InternalLoadBalancer
+      Port: 80
+      Protocol: HTTP
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !Ref ApplicationTargetGroup
+
+  VpcLink:
+    Type: AWS::ApiGatewayV2::VpcLink
+    Properties:
+      Name: !Sub anipick-${AWS::StackName}
+      SubnetIds: [!Ref PrivateSubnetA, !Ref PrivateSubnetB]
+      SecurityGroupIds: [!Ref VpcLinkSecurityGroup]
+      Tags: {Project: AniPick}
+  HttpApi:
+    Type: AWS::ApiGatewayV2::Api
+    Properties:
+      Name: !Sub anipick-${AWS::StackName}
+      ProtocolType: HTTP
+      DisableExecuteApiEndpoint: false
+      Tags: {Project: AniPick}
+  HttpApiIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    DependsOn: InternalLoadBalancerListener
+    Properties:
+      ApiId: !Ref HttpApi
+      IntegrationType: HTTP_PROXY
+      IntegrationMethod: ANY
+      ConnectionType: VPC_LINK
+      ConnectionId: !Ref VpcLink
+      IntegrationUri: !Ref InternalLoadBalancerListener
+      PayloadFormatVersion: "1.0"
+      TimeoutInMillis: 29000
+  HttpApiRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref HttpApi
+      RouteKey: "$default"
+      Target: !Sub integrations/${HttpApiIntegration}
+  HttpApiStage:
+    Type: AWS::ApiGatewayV2::Stage
+    DependsOn: HttpApiRoute
+    Properties:
+      ApiId: !Ref HttpApi
+      StageName: "$default"
+      AutoDeploy: true
+      Tags: {Project: AniPick}
+
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    DependsOn: HttpApiStage
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Sub AniPick public HTTPS entry point (${AWS::StackName})
+        HttpVersion: http2and3
+        PriceClass: PriceClass_100
+        Origins:
+          - Id: AniPickHttpApi
+            DomainName: !Sub ${HttpApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}
+            CustomOriginConfig:
+              OriginProtocolPolicy: https-only
+              HTTPSPort: 443
+              OriginSSLProtocols: [TLSv1.2]
+            OriginCustomHeaders:
+              - HeaderName: X-AniPick-Origin-Secret
+                HeaderValue: !Ref OriginSecret
+        DefaultCacheBehavior:
+          TargetOriginId: AniPickHttpApi
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE]
+          CachedMethods: [GET, HEAD, OPTIONS]
+          Compress: true
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+          OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+        Restrictions:
+          GeoRestriction:
+            RestrictionType: none
+      Tags: [{Key: Project, Value: AniPick}]
+
+Outputs:
+  PublicUrl:
+    Description: Public AniPick HTTPS URL.
+    Value: !Sub https://${CloudFrontDistribution.DomainName}
+  DistributionId:
+    Value: !Ref CloudFrontDistribution
+  ApiGatewayUrl:
+    Value: !Sub https://${HttpApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}
+  InstanceId:
+    Value: !Ref ApplicationInstance
+  DatabaseEndpoint:
+    Value: !GetAtt Database.Endpoint.Address
+  ArtifactBucket:
+    Value: !Ref ArtifactBucket
+  ApplicationSecretArn:
+    Value: !Ref ApplicationSecret
