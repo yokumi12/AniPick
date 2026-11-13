@@ -1,0 +1,4490 @@
+{
+  "source": "Kitsu API (https://kitsu.io)",
+  "source_url": "https://kitsu.io/api/edge/anime",
+  "fetched_at": "2026-10-29T11:15:16+00:00",
+  "count": 68,
+  "items": [
+    {
+      "id": "7442",
+      "slug": "attack-on-titan",
+      "title": "Attack on Titan",
+      "titles": {
+        "en": "Attack on Titan",
+        "en_jp": "Shingeki no Kyojin",
+        "en_us": "Attack on Titan",
+        "ja_jp": "進撃の巨人"
+      },
+      "year": 2013,
+      "episodes": 25,
+      "score": 8.44,
+      "genres": [
+        "Action",
+        "Drama",
+        "Fantasy",
+        "Super Power",
+        "Mystery",
+        "Military"
+      ],
+      "synopsis": "Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly terrifying is that their taste for human flesh is not born out of hunger but what appears to be out of pleasure. To ensure their survival, the remnants of humanity began living within defensive barriers, resulting in one hundred years without a single titan encounter. However, that fragile calm is soon shattered when a colossal titan manages to breach the supposedly impregnable outer wall, reigniting the fight for survival against the man-eating abominations.\n\nAfter witnessing a horrific personal loss at the hands of the invading creatures, Eren Yeager dedicates his life to their eradication by enlisting into the Survey Corps, an elite military unit that combats the merciless humanoids outside the protection of the walls. Based on Hajime Isayama's award-winning manga, Shingeki no Kyojin follows Eren, along with his adopted sister Mikasa Ackerman and his childhood friend Armin Arlert, as they join the brutal war against the titans and race to discover a way of defeating them before the last walls are breached.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/7442/small.jpg",
+      "youtube_video_id": "LHtdKWJdif4",
+      "related_anime": [
+        {
+          "id": "7889",
+          "title": "Attack on Titan Chibi Theatre: Fly, Cadets, Fly!",
+          "role": "other",
+          "year": 2013,
+          "episodes": 9,
+          "url": "https://kitsu.io/api/edge/anime/7889"
+        },
+        {
+          "id": "7694",
+          "title": "Attack on Titan OVA",
+          "role": "side_story",
+          "year": 2013,
+          "episodes": 3,
+          "url": "https://kitsu.io/api/edge/anime/7694"
+        },
+        {
+          "id": "7838",
+          "title": "Attack on Titan: Since That Day",
+          "role": "summary",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7838"
+        },
+        {
+          "id": "8672",
+          "title": "Attack on Titan: Crimson Bow and Arrow",
+          "role": "alternative_version",
+          "year": 2014,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/8672"
+        },
+        {
+          "id": "8674",
+          "title": "Attack on Titan: No Regrets",
+          "role": "spinoff",
+          "year": 2014,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/8674"
+        },
+        {
+          "id": "11315",
+          "title": "Attack on Titan: Junior High",
+          "role": "spinoff",
+          "year": 2015,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/11315"
+        },
+        {
+          "id": "8673",
+          "title": "Attack on Titan: Wings of Freedom",
+          "role": "alternative_version",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/8673"
+        },
+        {
+          "id": "8671",
+          "title": "Attack on Titan Season 2",
+          "role": "sequel",
+          "year": 2017,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/8671"
+        },
+        {
+          "id": "13718",
+          "title": "Attack on Titan: Lost Girls",
+          "role": "spinoff",
+          "year": 2017,
+          "episodes": 3,
+          "url": "https://kitsu.io/api/edge/anime/13718"
+        },
+        {
+          "id": "42250",
+          "title": "Shingeki no Kyojin in the Dome: Heishi-tachi no Hoshizora",
+          "role": "side_story",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/42250"
+        },
+        {
+          "id": "47129",
+          "title": "10-pun de Oitsukeru: Shingeki no Kyojin",
+          "role": "summary",
+          "year": 2018,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47129"
+        },
+        {
+          "id": "46202",
+          "title": "Snickers x Shingeki no Kyojin",
+          "role": "character",
+          "year": 2019,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/46202"
+        },
+        {
+          "id": "47130",
+          "title": "15-pun de Oitsukeru: Shingeki no Kyojin",
+          "role": "summary",
+          "year": 2020,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47130"
+        },
+        {
+          "id": "47131",
+          "title": "20-pun de Oitsukeru: Shingeki no Kyojin",
+          "role": "summary",
+          "year": 2021,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47131"
+        },
+        {
+          "id": "47259",
+          "title": "25-pun de Oitsukeru: Shingeki no Kyojin",
+          "role": "summary",
+          "year": 2023,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47259"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/7442"
+    },
+    {
+      "id": "11469",
+      "slug": "boku-no-hero-academia",
+      "title": "Boku no Hero Academia",
+      "titles": {
+        "en": "My Hero Academia",
+        "en_jp": "Boku no Hero Academia",
+        "en_us": "My Hero Academia",
+        "ja_jp": "僕のヒーローアカデミア"
+      },
+      "year": 2016,
+      "episodes": 13,
+      "score": 8.3,
+      "genres": [
+        "School",
+        "Super Power",
+        "Comedy",
+        "Action"
+      ],
+      "synopsis": "What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless?\n\nMiddle school student Izuku Midoriya wants to be a hero more than anything, but he hasn't got an ounce of power in him. With no chance of ever getting into the prestigious U.A. High School for budding heroes, his life is looking more and more like a dead end. Then an encounter with All Might, the greatest hero of them all gives him a chance to change his destiny…\n\n(Source: Viz Media)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/11469/small.jpg",
+      "youtube_video_id": "D5fYOnwYkj4",
+      "related_anime": [
+        {
+          "id": "12268",
+          "title": "Boku no Hero Academia 2",
+          "role": "sequel",
+          "year": 2017,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/12268"
+        },
+        {
+          "id": "13313",
+          "title": "Boku no Hero Academia 2nd Season: Hero Note",
+          "role": "summary",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/13313"
+        },
+        {
+          "id": "12511",
+          "title": "Boku no Hero Academia: Sukue! Kyuujo Kunren!",
+          "role": "side_story",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/12511"
+        },
+        {
+          "id": "49435",
+          "title": "Vigilante: Boku no Hero Academia ILLEGALS",
+          "role": "spinoff",
+          "year": 2025,
+          "episodes": 13,
+          "url": "https://kitsu.io/api/edge/anime/49435"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/11469"
+    },
+    {
+      "id": "12268",
+      "slug": "boku-no-hero-academia-2nd-season",
+      "title": "Boku no Hero Academia 2",
+      "titles": {
+        "en": "My Hero Academia Season 2",
+        "en_jp": "Boku no Hero Academia 2",
+        "ja_jp": "僕のヒーローアカデミア２"
+      },
+      "year": 2017,
+      "episodes": 25,
+      "score": 8.32,
+      "genres": [
+        "Action",
+        "Comedy",
+        "School",
+        "Super Power"
+      ],
+      "synopsis": "Taking off right after the last episode of the first season. The school is temporarily closed due to security. When U.A. restarts, it is announced that the highly anticipated School Sports Festival will soon be taking place. All classes: Hero, Support, General and Business will be participating. Tournaments all around will decide who is the top Hero in training.\n\n(Source: Anime News Network)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/12268/small.jpg",
+      "youtube_video_id": "9ZIgCYSn3e8",
+      "related_anime": [
+        {
+          "id": "11469",
+          "title": "Boku no Hero Academia",
+          "role": "prequel",
+          "year": 2016,
+          "episodes": 13,
+          "url": "https://kitsu.io/api/edge/anime/11469"
+        },
+        {
+          "id": "13313",
+          "title": "Boku no Hero Academia 2nd Season: Hero Note",
+          "role": "prequel",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/13313"
+        },
+        {
+          "id": "14030",
+          "title": "Boku no Hero Academia: Training of the Dead",
+          "role": "side_story",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/14030"
+        },
+        {
+          "id": "41332",
+          "title": "Peace Sign",
+          "role": "side_story",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/41332"
+        },
+        {
+          "id": "13881",
+          "title": "Boku no Hero Academia 3",
+          "role": "sequel",
+          "year": 2018,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/13881"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/12268"
+    },
+    {
+      "id": "10740",
+      "slug": "one-punch-man",
+      "title": "One Punch Man",
+      "titles": {
+        "en_jp": "One Punch Man",
+        "en_us": "One Punch Man",
+        "ja_jp": "ワンパンマン"
+      },
+      "year": 2015,
+      "episodes": 12,
+      "score": 8.34,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Parody",
+        "Sci-Fi",
+        "Super Power",
+        "Supernatural"
+      ],
+      "synopsis": "The seemingly ordinary and unimpressive Saitama has a rather unique hobby: being a hero. In order to pursue his childhood dream, he trained relentlessly for three years—and lost all of his hair in the process. Now, Saitama is incredibly powerful, so much so that no enemy is able to defeat him in battle. In fact, all it takes to defeat evildoers with just one punch has led to an unexpected problem—he is no longer able to enjoy the thrill of battling and has become quite bored.\n\nThis all changes with the arrival of Genos, a 19-year-old cyborg, who wishes to be Saitama's disciple after seeing what he is capable of. Genos proposes that the two join the Hero Association in order to become certified heroes that will be recognized for their positive contributions to society, and Saitama, shocked that no one knows who he is, quickly agrees. And thus begins the story of One Punch Man, an action-comedy that follows an eccentric individual who longs to fight strong enemies that can hopefully give him the excitement he once felt and just maybe, he'll become popular in the process.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/10740/small.jpg",
+      "youtube_video_id": "tMblzsXwAKo",
+      "related_anime": [
+        {
+          "id": "11430",
+          "title": "One Punch Man Specials",
+          "role": "side_story",
+          "year": 2015,
+          "episodes": 6,
+          "url": "https://kitsu.io/api/edge/anime/11430"
+        },
+        {
+          "id": "11402",
+          "title": "One Punch Man: Road to Hero",
+          "role": "side_story",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/11402"
+        },
+        {
+          "id": "12566",
+          "title": "One Punch Man 2",
+          "role": "sequel",
+          "year": 2019,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/12566"
+        },
+        {
+          "id": "45238",
+          "title": "Go! Saitama",
+          "role": "side_story",
+          "year": 2021,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/45238"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/10740"
+    },
+    {
+      "id": "13881",
+      "slug": "boku-no-hero-academia-3rd-season",
+      "title": "Boku no Hero Academia 3",
+      "titles": {
+        "en": "My Hero Academia Season 3",
+        "en_jp": "Boku no Hero Academia 3",
+        "ja_jp": "僕のヒーローアカデミア３"
+      },
+      "year": 2018,
+      "episodes": 25,
+      "score": 8.34,
+      "genres": [
+        "Comedy",
+        "Super Power",
+        "School",
+        "Action"
+      ],
+      "synopsis": "Summer is here, and the heroes of Class 1-A and 1-B are in for the toughest training camp of their lives! A group of seasoned pros pushes everyone's Quirks to new heights as the students face one overwhelming challenge after another. Braving the elements in this secret location becomes the least of their worries when routine training turns into a critical struggle for survival.\n\n(Source: Crunchyroll)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/13881/small.jpg",
+      "youtube_video_id": "JezE6iZUWxo",
+      "related_anime": [
+        {
+          "id": "12268",
+          "title": "Boku no Hero Academia 2",
+          "role": "prequel",
+          "year": 2017,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/12268"
+        },
+        {
+          "id": "14084",
+          "title": "Boku no Hero Academia the Movie: Futari no Hero",
+          "role": "side_story",
+          "year": 2018,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/14084"
+        },
+        {
+          "id": "41971",
+          "title": "Boku no Hero Academia 4",
+          "role": "sequel",
+          "year": 2019,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/41971"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/13881"
+    },
+    {
+      "id": "1376",
+      "slug": "death-note",
+      "title": "Death Note",
+      "titles": {
+        "en": "Death Note",
+        "en_jp": "Death Note",
+        "en_us": "Death Note",
+        "ja_jp": "デスノート"
+      },
+      "year": 2006,
+      "episodes": 37,
+      "score": 8.3,
+      "genres": [
+        "Mystery",
+        "Supernatural",
+        "Police",
+        "Psychological",
+        "Thriller"
+      ],
+      "synopsis": "A shinigami, as a god of death, can kill any person—provided they see their victim's face and write their victim's name in a notebook called a Death Note. One day, Ryuk, bored by the shinigami lifestyle and interested in seeing how a human would use a Death Note, drops one into the human realm.\n\nHigh school student and prodigy Light Yagami stumbles upon the Death Note and—since he deplores the state of the world—tests the deadly notebook by writing a criminal's name in it. When the criminal dies immediately following his experiment with the Death Note, Light is greatly surprised and quickly recognizes how devastating the power that has fallen into his hands could be.\n\nWith this divine capability, Light decides to extinguish all criminals in order to build a new world where crime does not exist and people worship him as a god. Police, however, quickly discover that a serial killer is targeting criminals and, consequently, try to apprehend the culprit. To do this, the Japanese investigators count on the assistance of the best detective in the world: a young and eccentric man known only by the name of L.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/1376/small.jpg",
+      "youtube_video_id": "NlJZ-YgAt-c",
+      "related_anime": [
+        {
+          "id": "2707",
+          "title": "Death Note: Rewrite",
+          "role": "summary",
+          "year": 2007,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/2707"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/1376"
+    },
+    {
+      "id": "3936",
+      "slug": "fullmetal-alchemist-brotherhood",
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "titles": {
+        "en": "Fullmetal Alchemist: Brotherhood",
+        "en_jp": "Hagane no Renkinjutsushi: Fullmetal Alchemist",
+        "ja_jp": "鋼の錬金術師 FULLMETAL ALCHEMIST"
+      },
+      "year": 2009,
+      "episodes": 64,
+      "score": 8.3,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama",
+        "Fantasy",
+        "Magic",
+        "Military",
+        "Comedy"
+      ],
+      "synopsis": "\"In order for something to be obtained, something of equal value must be lost.\"\n\nAlchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize after attempting human transmutation: the one forbidden act of alchemy. They pay a terrible price for their transgression—Edward loses his left leg, Alphonse his physical body. It is only by the desperate sacrifice of Edward's right arm that he is able to affix Alphonse's soul to a suit of armor. Devastated and alone, it is the hope that they would both eventually return to their original bodies that gives Edward the inspiration to obtain metal limbs called \"automail\" and become a state alchemist, the Fullmetal Alchemist.\n\nThree years of searching later, the brothers seek the Philosopher's Stone, a mythical relic that allows an alchemist to overcome the Law of Equivalent Exchange. Even with military allies Colonel Roy Mustang, Lieutenant Riza Hawkeye, and Lieutenant Colonel Maes Hughes on their side, the brothers find themselves caught up in a nationwide conspiracy that leads them not only to the true nature of the elusive Philosopher's Stone, but their country's murky history as well. In between finding a serial killer and racing against time, Edward and Alphonse must ask themselves if what they are doing will make them human again... or take away their humanity.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/3936/small.jpg",
+      "youtube_video_id": "yb2R1l0O9Zs",
+      "related_anime": [
+        {
+          "id": "100",
+          "title": "Fullmetal Alchemist",
+          "role": "alternative_version",
+          "year": 2003,
+          "episodes": 51,
+          "url": "https://kitsu.io/api/edge/anime/100"
+        },
+        {
+          "id": "4555",
+          "title": "Fullmetal Alchemist: Brotherhood Specials",
+          "role": "side_story",
+          "year": 2009,
+          "episodes": 4,
+          "url": "https://kitsu.io/api/edge/anime/4555"
+        },
+        {
+          "id": "5154",
+          "title": "Fullmetal Alchemist: Brotherhood: 4-Koma Theater",
+          "role": "spinoff",
+          "year": 2009,
+          "episodes": 16,
+          "url": "https://kitsu.io/api/edge/anime/5154"
+        },
+        {
+          "id": "5613",
+          "title": "Fullmetal Alchemist: The Sacred Star of Milos",
+          "role": "side_story",
+          "year": 2011,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/5613"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/3936"
+    },
+    {
+      "id": "11614",
+      "slug": "kimi-no-na-wa",
+      "title": "Kimi no Na wa.",
+      "titles": {
+        "en": "Your Name.",
+        "en_jp": "Kimi no Na wa.",
+        "en_us": "Your Name.",
+        "ja_jp": "君の名は。"
+      },
+      "year": 2016,
+      "episodes": 1,
+      "score": 8.33,
+      "genres": [
+        "School",
+        "Supernatural",
+        "Romance",
+        "Drama",
+        "Friendship"
+      ],
+      "synopsis": "From director Makoto Shinkai, the innovative mind behind Voices of a Distant Star and 5 Centimeters Per Second, comes a beautiful masterpiece about time, the thread of fate, and the hearts of two young souls.\n\nThe day the stars fell, two lives changed forever. High schoolers Mitsuha and Taki are complete strangers living separate lives. But one night, they suddenly switch places. Mitsuha wakes up in Taki’s body, and he in hers. This bizarre occurrence continues to happen randomly, and the two must adjust their lives around each other. Yet, somehow, it works. They build a connection and communicate by leaving notes, messages, and more importantly, an imprint.\n\nWhen a dazzling comet lights up the night’s sky, it dawns on them. They want something more from this connection—a chance to meet, an opportunity to truly know each other. Tugging at the string of fate, they try to find a way to each other. But distance isn’t the only thing keeping them apart. Is their bond strong enough to face the cruel irony of time? Or is their meeting nothing more than a wish upon the stars?\n\n(Source: FUNimation Films)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/11614/small.jpg",
+      "youtube_video_id": "3KR8_igDs1Y",
+      "related_anime": [
+        {
+          "id": "12506",
+          "title": "Suntory Minami Alps no Tennen Mizu",
+          "role": "other",
+          "year": 2016,
+          "episodes": 3,
+          "url": "https://kitsu.io/api/edge/anime/12506"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/11614"
+    },
+    {
+      "id": "6448",
+      "slug": "hunter-x-hunter-2011",
+      "title": "Hunter x Hunter (2011)",
+      "titles": {
+        "en": "Hunter x Hunter (2011)",
+        "en_jp": "Hunter x Hunter (2011)",
+        "en_us": "Hunter x Hunter",
+        "ja_jp": "HUNTER×HUNTER ハンターハンター"
+      },
+      "year": 2011,
+      "episodes": 148,
+      "score": 8.42,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Super Power",
+        "Fantasy"
+      ],
+      "synopsis": "Hunter x Hunter is set in a world where Hunters exist to perform all manner of dangerous tasks like capturing criminals and bravely searching for lost treasures in uncharted territories. Twelve-year-old Gon Freecss is determined to become the best Hunter possible in hopes of finding his father, who was a Hunter himself and had long ago abandoned his young son. However, Gon soon realizes the path to achieving his goals is far more challenging than he could have ever imagined.\n\nAlong the way to becoming an official Hunter, Gon befriends the lively doctor-in-training Leorio, vengeful Kurapika, and rebellious ex-assassin Killua. To attain their own goals and desires, together the four of them take the Hunter Exam, notorious for its low success rate and high probability of death. Throughout their journey, Gon and his friends embark on an adventure that puts them through many hardships and struggles. They will meet a plethora of monsters, creatures, and characters—all while learning what being a Hunter truly means.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/6448/small.jpg",
+      "youtube_video_id": "fda6QzBA2mI",
+      "related_anime": [
+        {
+          "id": "115",
+          "title": "Hunter x Hunter",
+          "role": "alternative_version",
+          "year": 1999,
+          "episodes": 62,
+          "url": "https://kitsu.io/api/edge/anime/115"
+        },
+        {
+          "id": "116",
+          "title": "Hunter x Hunter: Yorkshin City Kanketsu-hen",
+          "role": "alternative_version",
+          "year": 2002,
+          "episodes": 8,
+          "url": "https://kitsu.io/api/edge/anime/116"
+        },
+        {
+          "id": "117",
+          "title": "Hunter x Hunter: Greed Island",
+          "role": "alternative_version",
+          "year": 2003,
+          "episodes": 8,
+          "url": "https://kitsu.io/api/edge/anime/117"
+        },
+        {
+          "id": "118",
+          "title": "Hunter x Hunter: Greed Island Final",
+          "role": "alternative_version",
+          "year": 2004,
+          "episodes": 14,
+          "url": "https://kitsu.io/api/edge/anime/118"
+        },
+        {
+          "id": "6930",
+          "title": "Hunter x Hunter Movie 1: Phantom Rouge",
+          "role": "side_story",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6930"
+        },
+        {
+          "id": "7908",
+          "title": "Hunter x Hunter Movie 2: The Last Mission",
+          "role": "side_story",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7908"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/6448"
+    },
+    {
+      "id": "10028",
+      "slug": "koe-no-katachi",
+      "title": "Koe no Katachi",
+      "titles": {
+        "en": "A Silent Voice",
+        "en_jp": "Koe no Katachi",
+        "en_us": "A Silent Voice",
+        "ja_jp": "聲の形"
+      },
+      "year": 2016,
+      "episodes": 1,
+      "score": 8.37,
+      "genres": [
+        "Drama",
+        "School",
+        "Romance"
+      ],
+      "synopsis": "Shoya is a bully. When Shoko, a girl who can't hear, enters his elementary school class, she becomes their favorite target, and Shoya and his friends goad each other into devising new tortures for her. But the children's cruelty goes too far. Shoko is forced to leave the school, and Shoya ends up shouldering all the blame. Six years later, the two meet again. Can Shoya make up for his past mistakes, or is it too late?\n\n(Source: Kodansha Comics)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/10028/small.jpg",
+      "youtube_video_id": "XBNWo25izJ8",
+      "related_anime": [
+        {
+          "id": "41567",
+          "title": "Koi wo Shita no wa",
+          "role": "other",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/41567"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/10028"
+    },
+    {
+      "id": "8671",
+      "slug": "shingeki-no-kyojin-2",
+      "title": "Attack on Titan Season 2",
+      "titles": {
+        "en": "Attack on Titan Season 2",
+        "en_jp": "Shingeki no Kyojin Season 2",
+        "ja_jp": "進撃の巨人 Season 2"
+      },
+      "year": 2017,
+      "episodes": 12,
+      "score": 8.36,
+      "genres": [
+        "Action",
+        "Drama",
+        "Fantasy",
+        "Super Power",
+        "Mystery",
+        "Military"
+      ],
+      "synopsis": "Eren Jaeger swore to wipe out every last Titan, but in a battle for his life he wound up becoming the thing he hates most. With his new powers, he fights for humanity's freedom facing the monsters that threaten his home. After a bittersweet victory against the Female Titan, Eren finds no time to rest—a horde of Titans is approaching Wall Rose and the battle for humanity continues!\n\n(Source: Funimation)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/8671/small.jpg",
+      "youtube_video_id": "MDrjS3ePLso",
+      "related_anime": [
+        {
+          "id": "7442",
+          "title": "Attack on Titan",
+          "role": "prequel",
+          "year": 2013,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/7442"
+        },
+        {
+          "id": "47129",
+          "title": "10-pun de Oitsukeru: Shingeki no Kyojin",
+          "role": "summary",
+          "year": 2018,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47129"
+        },
+        {
+          "id": "13569",
+          "title": "Attack on Titan Season 3",
+          "role": "sequel",
+          "year": 2018,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/13569"
+        },
+        {
+          "id": "41487",
+          "title": "Attack on Titan: Roar of Awakening",
+          "role": "alternative_version",
+          "year": 2018,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/41487"
+        },
+        {
+          "id": "47130",
+          "title": "15-pun de Oitsukeru: Shingeki no Kyojin",
+          "role": "summary",
+          "year": 2020,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47130"
+        },
+        {
+          "id": "47131",
+          "title": "20-pun de Oitsukeru: Shingeki no Kyojin",
+          "role": "summary",
+          "year": 2021,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47131"
+        },
+        {
+          "id": "47259",
+          "title": "25-pun de Oitsukeru: Shingeki no Kyojin",
+          "role": "summary",
+          "year": 2023,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47259"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/8671"
+    },
+    {
+      "id": "12",
+      "slug": "one-piece",
+      "title": "One Piece",
+      "titles": {
+        "en": "One Piece",
+        "en_jp": "One Piece",
+        "ja_jp": "ONE PIECE"
+      },
+      "year": 1999,
+      "episodes": null,
+      "score": 8.4,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Fantasy",
+        "Super Power",
+        "Drama",
+        "Friendship"
+      ],
+      "synopsis": "Gol D. Roger was known as the \"Pirate King,\" the strongest and most infamous being to have sailed the Grand Line. The capture and death of Roger by the World Government brought a change throughout the world. His last words before his death revealed the existence of the greatest treasure in the world, One Piece. It was this revelation that brought about the Grand Age of Pirates, men who dreamed of finding One Piece—which promises an unlimited amount of riches and fame—and quite possibly the pinnacle of glory and the title of the Pirate King.\nEnter Monkey D. Luffy, a 17-year-old boy who defies your standard definition of a pirate. Rather than the popular persona of a wicked, hardened, toothless pirate ransacking villages for fun, Luffy’s reason for being a pirate is one of pure wonder: the thought of an exciting adventure that leads him to intriguing people and ultimately, the promised treasure. Following in the footsteps of his childhood hero, Luffy and his crew travel across the Grand Line, experiencing crazy adventures, unveiling dark mysteries and battling strong enemies, all in order to reach the most coveted of all fortunes—One Piece.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/12/small.jpg",
+      "youtube_video_id": "CmTeYj2FmRc",
+      "related_anime": [
+        {
+          "id": "428",
+          "title": "One Piece: Taose! Kaizoku Ganzack",
+          "role": "side_story",
+          "year": 1998,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/428"
+        },
+        {
+          "id": "421",
+          "title": "One Piece Movie 1",
+          "role": "side_story",
+          "year": 2000,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/421"
+        },
+        {
+          "id": "979",
+          "title": "One Piece: Umi no Heso no Daibouken-hen",
+          "role": "side_story",
+          "year": 2000,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/979"
+        },
+        {
+          "id": "422",
+          "title": "One Piece Movie 2: Nejimaki-jima no Daibouken",
+          "role": "side_story",
+          "year": 2001,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/422"
+        },
+        {
+          "id": "2162",
+          "title": "One Piece: Jango no Dance Carnival",
+          "role": "side_story",
+          "year": 2001,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/2162"
+        },
+        {
+          "id": "423",
+          "title": "One Piece Movie 3: Chinjuu-jima no Chopper Oukoku",
+          "role": "side_story",
+          "year": 2002,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/423"
+        },
+        {
+          "id": "2163",
+          "title": "One Piece: Yume no Soccer Ou!",
+          "role": "side_story",
+          "year": 2002,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/2163"
+        },
+        {
+          "id": "424",
+          "title": "One Piece Movie 4: Dead End no Bouken",
+          "role": "side_story",
+          "year": 2003,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/424"
+        },
+        {
+          "id": "1114",
+          "title": "One Piece: Mamore! Saigo no Dai Butai",
+          "role": "side_story",
+          "year": 2003,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/1114"
+        },
+        {
+          "id": "1113",
+          "title": "One Piece: Oounabara ni Hirake! Dekkai Dekkai Chichi no Yume!",
+          "role": "side_story",
+          "year": 2003,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/1113"
+        },
+        {
+          "id": "425",
+          "title": "One Piece Movie 5: Norowareta Seiken",
+          "role": "side_story",
+          "year": 2004,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/425"
+        },
+        {
+          "id": "2260",
+          "title": "One Piece: Mezase! Kaizoku Yakyuu Ou",
+          "role": "side_story",
+          "year": 2004,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/2260"
+        },
+        {
+          "id": "426",
+          "title": "One Piece Movie 6: Omatsuri Danshaku to Himitsu no Shima",
+          "role": "side_story",
+          "year": 2005,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/426"
+        },
+        {
+          "id": "1819",
+          "title": "One Piece: Nenmatsu Tokubetsu Kikaku! Mugiwara no Luffy Oyabun Torimonochou",
+          "role": "side_story",
+          "year": 2005,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/1819"
+        },
+        {
+          "id": "427",
+          "title": "One Piece Movie 7: Karakuri-jou no Mecha Kyohei",
+          "role": "side_story",
+          "year": 2006,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/427"
+        },
+        {
+          "id": "46228",
+          "title": "One Piece: Otoshidama Special - Tokubetsu Hou Mugiwara Kaizoku-dan no Himitsu!",
+          "role": "summary",
+          "year": 2006,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/46228"
+        },
+        {
+          "id": "2443",
+          "title": "One Piece: Straw Hat Theater",
+          "role": "side_story",
+          "year": 2006,
+          "episodes": 5,
+          "url": "https://kitsu.io/api/edge/anime/2443"
+        },
+        {
+          "id": "1906",
+          "title": "One Piece Movie 8: Episode of Alabasta - Sabaku no Oujo to Kaizoku-tachi",
+          "role": "summary",
+          "year": 2007,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/1906"
+        },
+        {
+          "id": "48887",
+          "title": "One Piece: Uchuu tte Omoshiree! Hoshizora Jima-hen",
+          "role": "other",
+          "year": 2007,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/48887"
+        },
+        {
+          "id": "3300",
+          "title": "One Piece Movie 9: Episode of Chopper Plus - Fuyu ni Saku, Kiseki no Sakura",
+          "role": "alternative_version",
+          "year": 2008,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3300"
+        },
+        {
+          "id": "4014",
+          "title": "One Piece: Romance Dawn Story",
+          "role": "side_story",
+          "year": 2008,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/4014"
+        },
+        {
+          "id": "3492",
+          "title": "One Piece Film: Strong World",
+          "role": "side_story",
+          "year": 2009,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3492"
+        },
+        {
+          "id": "5469",
+          "title": "One Piece Film: Strong World Episode 0",
+          "role": "side_story",
+          "year": 2010,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/5469"
+        },
+        {
+          "id": "5225",
+          "title": "One Piece Recap",
+          "role": "summary",
+          "year": 2010,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/5225"
+        },
+        {
+          "id": "50719",
+          "title": "Schick x One Piece",
+          "role": "other",
+          "year": 2010,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/50719"
+        },
+        {
+          "id": "6641",
+          "title": "One Piece 3D: Gekisou! Trap Coaster",
+          "role": "side_story",
+          "year": 2011,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6641"
+        },
+        {
+          "id": "5987",
+          "title": "One Piece 3D: Mugiwara Chase",
+          "role": "side_story",
+          "year": 2011,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/5987"
+        },
+        {
+          "id": "6827",
+          "title": "One Piece Film: Z",
+          "role": "other",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6827"
+        },
+        {
+          "id": "6827",
+          "title": "One Piece Film: Z",
+          "role": "side_story",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6827"
+        },
+        {
+          "id": "7390",
+          "title": "One Piece: Episode of Luffy - Hand Island no Bouken",
+          "role": "side_story",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7390"
+        },
+        {
+          "id": "7240",
+          "title": "One Piece: Episode of Nami - Koukaishi no Namida to Nakama no Kizuna",
+          "role": "summary",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7240"
+        },
+        {
+          "id": "7434",
+          "title": "One Piece: Glorious Island",
+          "role": "side_story",
+          "year": 2012,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/7434"
+        },
+        {
+          "id": "7402",
+          "title": "One Piece: Romance Dawn",
+          "role": "side_story",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7402"
+        },
+        {
+          "id": "50721",
+          "title": "UHA Mikakutou x One Piece",
+          "role": "other",
+          "year": 2012,
+          "episodes": 7,
+          "url": "https://kitsu.io/api/edge/anime/50721"
+        },
+        {
+          "id": "7894",
+          "title": "One Piece: Episode of Merry - Mou Hitori no Nakama no Monogatari",
+          "role": "summary",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7894"
+        },
+        {
+          "id": "48888",
+          "title": "One Piece: The Planetarium",
+          "role": "other",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/48888"
+        },
+        {
+          "id": "8718",
+          "title": "One Piece 3D2Y: Ace no shi wo Koete! Luffy Nakama Tono Chikai",
+          "role": "side_story",
+          "year": 2014,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/8718"
+        },
+        {
+          "id": "11551",
+          "title": "One Piece: Adventure of Nebulandia",
+          "role": "side_story",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/11551"
+        },
+        {
+          "id": "11292",
+          "title": "One Piece: Episode of Sabo - 3 Kyoudai no Kizuna Kiseki no Saikai to Uketsugareru Ishi",
+          "role": "summary",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/11292"
+        },
+        {
+          "id": "13048",
+          "title": "One Piece: Long Ring Long Land-hen",
+          "role": "summary",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/13048"
+        },
+        {
+          "id": "50720",
+          "title": "Star Wars x One Piece",
+          "role": "other",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50720"
+        },
+        {
+          "id": "47841",
+          "title": "One Piece Characters Log",
+          "role": "full_story",
+          "year": 2016,
+          "episodes": 9,
+          "url": "https://kitsu.io/api/edge/anime/47841"
+        },
+        {
+          "id": "11351",
+          "title": "One Piece Film: Gold",
+          "role": "side_story",
+          "year": 2016,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/11351"
+        },
+        {
+          "id": "47206",
+          "title": "One Piece Water Spectacle",
+          "role": "character",
+          "year": 2016,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47206"
+        },
+        {
+          "id": "46584",
+          "title": "Tokyo One Piece Tower: Tongari Shima no Dai Hihou",
+          "role": "side_story",
+          "year": 2016,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/46584"
+        },
+        {
+          "id": "50493",
+          "title": "Xfit x One Piece",
+          "role": "character",
+          "year": 2016,
+          "episodes": 3,
+          "url": "https://kitsu.io/api/edge/anime/50493"
+        },
+        {
+          "id": "47207",
+          "title": "One Piece Water Spectacle 2",
+          "role": "character",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47207"
+        },
+        {
+          "id": "13623",
+          "title": "One Piece: Episode of East Blue - Luffy to 4-nin no Nakama no Daibouken",
+          "role": "summary",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/13623"
+        },
+        {
+          "id": "42061",
+          "title": "Gekijouban One Piece: Stampede",
+          "role": "other",
+          "year": 2019,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/42061"
+        },
+        {
+          "id": "45799",
+          "title": "Look Plus One Piece Special Movie",
+          "role": "character",
+          "year": 2019,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/45799"
+        },
+        {
+          "id": "43425",
+          "title": "A-ra-shi: Reborn",
+          "role": "other",
+          "year": 2020,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/43425"
+        },
+        {
+          "id": "45869",
+          "title": "One Piece: 5-fun de Wakaru Kore made no Wano Kuni-hen",
+          "role": "summary",
+          "year": 2020,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/45869"
+        },
+        {
+          "id": "44795",
+          "title": "One Piece - Annecy Festival 60th Anniversary",
+          "role": "character",
+          "year": 2021,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/44795"
+        },
+        {
+          "id": "45690",
+          "title": "One Piece: Luffy Senpai Ouen Kikaku! Barto no Himitsu no Heya!",
+          "role": "summary",
+          "year": 2021,
+          "episodes": 4,
+          "url": "https://kitsu.io/api/edge/anime/45690"
+        },
+        {
+          "id": "45513",
+          "title": "One Piece Film: Red",
+          "role": "other",
+          "year": 2022,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/45513"
+        },
+        {
+          "id": "47643",
+          "title": "One Piece: Dai Gekisen Tokushuu! Mugiwara no Ichimi vs. Tobi Roppou",
+          "role": "summary",
+          "year": 2022,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47643"
+        },
+        {
+          "id": "46629",
+          "title": "One Piece: Dai Tettei Kaibou! Gekitou! 5-nin no Shin Sedai",
+          "role": "summary",
+          "year": 2022,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/46629"
+        },
+        {
+          "id": "46215",
+          "title": "One Piece: Dai Tettei Kaibou! Kouzuki Oden Densetsu!",
+          "role": "summary",
+          "year": 2022,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/46215"
+        },
+        {
+          "id": "46447",
+          "title": "One Piece: Densetsu no Log! Akagami no Shanks!",
+          "role": "summary",
+          "year": 2022,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/46447"
+        },
+        {
+          "id": "47763",
+          "title": "Mirai Shima",
+          "role": "other",
+          "year": 2023,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47763"
+        },
+        {
+          "id": "47765",
+          "title": "Mirai Shima PV",
+          "role": "character",
+          "year": 2023,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47765"
+        },
+        {
+          "id": "47642",
+          "title": "One Piece: Dai Gekisen Tokushuu! Hangeki Doumei vs. Big Mom",
+          "role": "summary",
+          "year": 2023,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47642"
+        },
+        {
+          "id": "48291",
+          "title": "One Piece: Dai Gekisen Tokushuu! Zoro vs. Ookanban!",
+          "role": "summary",
+          "year": 2023,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/48291"
+        },
+        {
+          "id": "49259",
+          "title": "ONE PIECE FAN LETTER",
+          "role": "side_story",
+          "year": 2024,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/49259"
+        },
+        {
+          "id": "48738",
+          "title": "One Piece x Kawaisouni: Kono Boushi wo Omae ni Azukeru",
+          "role": "other",
+          "year": 2024,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/48738"
+        },
+        {
+          "id": "49133",
+          "title": "One Piece: Araburu Henkaku no Log: Anyaku Suru Kakumeigun!",
+          "role": "summary",
+          "year": 2024,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/49133"
+        },
+        {
+          "id": "48727",
+          "title": "One Piece: Dai Tannou Kikaku! \"Shi no Gekai\" Trafalgar Law",
+          "role": "summary",
+          "year": 2024,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/48727"
+        },
+        {
+          "id": "49212",
+          "title": "One Piece: Dai Tokushuu! Momonosuke no Mei Shougun e no Michi",
+          "role": "summary",
+          "year": 2024,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/49212"
+        },
+        {
+          "id": "49281",
+          "title": "One Piece: Gyojin Tou-hen",
+          "role": "summary",
+          "year": 2024,
+          "episodes": 21,
+          "url": "https://kitsu.io/api/edge/anime/49281"
+        },
+        {
+          "id": "48726",
+          "title": "One Piece: Innen no Log! Mugiwara no Ichimi to Cipher Pol",
+          "role": "summary",
+          "year": 2024,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/48726"
+        },
+        {
+          "id": "48969",
+          "title": "One Piece: Kizamareru Rekishi! Gekidou no Shinkyuu Yonkou!",
+          "role": "summary",
+          "year": 2024,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/48969"
+        },
+        {
+          "id": "49229",
+          "title": "One Piece: Yuruganu Seigi! Kaigun no Hokoritakaki Log!",
+          "role": "summary",
+          "year": 2024,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/49229"
+        },
+        {
+          "id": "49712",
+          "title": "Koisuru ONE PIECE",
+          "role": "other",
+          "year": 2025,
+          "episodes": 5,
+          "url": "https://kitsu.io/api/edge/anime/49712"
+        },
+        {
+          "id": "49600",
+          "title": "LOS ANGELES LAKERS x ONE PIECE",
+          "role": "character",
+          "year": 2025,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/49600"
+        },
+        {
+          "id": "49504",
+          "title": "Luffy, Law",
+          "role": "side_story",
+          "year": 2025,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/49504"
+        },
+        {
+          "id": "49878",
+          "title": "One Piece Egghead Arc Recap",
+          "role": "summary",
+          "year": 2025,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/49878"
+        },
+        {
+          "id": "49911",
+          "title": "One Piece: Dr. Chopper no Bouken Karte - Chichi to Musume no Ballad",
+          "role": "summary",
+          "year": 2025,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/49911"
+        },
+        {
+          "id": "50130",
+          "title": "One Piece: Dr. Chopper no Bouken Karte - Hokoritakaki Gigant Dream",
+          "role": "summary",
+          "year": 2025,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50130"
+        },
+        {
+          "id": "50022",
+          "title": "One Piece: Dr. Chopper no Bouken Karte - Shinyuu-tachi no Crossroad",
+          "role": "summary",
+          "year": 2025,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50022"
+        },
+        {
+          "id": "50372",
+          "title": "One Piece: Dr. Chopper no Bouken Karte - Tensai ga Nokoshita \"Last Records\"",
+          "role": "summary",
+          "year": 2025,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50372"
+        },
+        {
+          "id": "50262",
+          "title": "One Piece: Dr. Chopper no Bouken Karte - Uragirimono-tachi no Masquerade",
+          "role": "summary",
+          "year": 2025,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50262"
+        },
+        {
+          "id": "50722",
+          "title": "Tenshi to Akuma",
+          "role": "other",
+          "year": 2025,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50722"
+        },
+        {
+          "id": "50409",
+          "title": "CHOPPER's",
+          "role": "spinoff",
+          "year": 2026,
+          "episodes": null,
+          "url": "https://kitsu.io/api/edge/anime/50409"
+        },
+        {
+          "id": "50656",
+          "title": "LEGO ONE PIECE",
+          "role": "parent_story",
+          "year": 2026,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/50656"
+        },
+        {
+          "id": "50089",
+          "title": "ONE PIECE HEROINES",
+          "role": "side_story",
+          "year": 2026,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50089"
+        },
+        {
+          "id": "50922",
+          "title": "ONE PIECE FILM: GOD VALLEY",
+          "role": "side_story",
+          "year": 2027,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50922"
+        },
+        {
+          "id": "50923",
+          "title": "ONE PIECE FILM: BAAD",
+          "role": "other",
+          "year": 2029,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50923"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/12"
+    },
+    {
+      "id": "176",
+      "slug": "spirited-away",
+      "title": "Spirited Away",
+      "titles": {
+        "en": "Spirited Away",
+        "en_jp": "Sen to Chihiro no Kamikakushi",
+        "ja_jp": "千と千尋の神隠し"
+      },
+      "year": 2001,
+      "episodes": 1,
+      "score": 8.27,
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Supernatural"
+      ],
+      "synopsis": "Stubborn, spoiled, and naïve, 10-year-old Chihiro Ogino is less than pleased when she and her parents discover an abandoned amusement park on the way to their new house. Cautiously venturing inside, she realizes that there is more to this place than meets the eye, as strange things begin to happen once dusk falls. Ghostly apparitions and food that turns her parents into pigs are just the start—Chihiro has unwittingly crossed over into the spirit world. Now trapped, she must summon the courage to live and work amongst spirits, with the help of the enigmatic Haku and the cast of unique characters she meets along the way.\nVivid and intriguing, Sen to Chihiro no Kamikakushi tells the story of Chihiro's journey through an unfamiliar world as she strives to save her parents and return home.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/176/small.jpg",
+      "youtube_video_id": "ByXuk9QqQkk",
+      "related_anime": [
+        {
+          "id": "49310",
+          "title": "Piyopiyo Baba",
+          "role": "character",
+          "year": 2002,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/49310"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/176"
+    },
+    {
+      "id": "10877",
+      "slug": "ansatsu-kyoushitsu-tv-2",
+      "title": "Ansatsu Kyoushitsu 2nd Season",
+      "titles": {
+        "en": "Assassination Classroom Second Season",
+        "en_jp": "Ansatsu Kyoushitsu 2nd Season",
+        "en_us": "Assassination Classroom Second Season",
+        "ja_jp": "暗殺教室　第２期"
+      },
+      "year": 2016,
+      "episodes": 25,
+      "score": 8.31,
+      "genres": [
+        "Action",
+        "Comedy",
+        "School"
+      ],
+      "synopsis": "The students return as school is back in session for the second semester. Following their exploits on the island during summer vacation, Class 3-E continues to sharpen their blades with their sights set on their teacher, the slippery Koro-sensei. They have more to worry about than just their teacher, however, as enemy assassins, both old and new, are out for the increased bounty on the octopus' head.\n\nMoreover, their rivals in Class A, as well as Kunugigaoka Junior High's fearsome principal, stand to block Class E from achieving academic excellence. With all of these obstacles opposing them, the group must continue to work together in order to overcome their foes and accomplish their goal of successfully assassinating their teacher.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/10877/small.jpg",
+      "youtube_video_id": "tZiHgr0kd7E",
+      "related_anime": [
+        {
+          "id": "8640",
+          "title": "Ansatsu Kyoushitsu",
+          "role": "prequel",
+          "year": 2015,
+          "episodes": 22,
+          "url": "https://kitsu.io/api/edge/anime/8640"
+        },
+        {
+          "id": "11899",
+          "title": "Ansatsu Kyoushitsu 2nd Season: Kagaijugyou-hen",
+          "role": "side_story",
+          "year": 2016,
+          "episodes": 8,
+          "url": "https://kitsu.io/api/edge/anime/11899"
+        },
+        {
+          "id": "12292",
+          "title": "Ansatsu Kyoushitsu: 365-nichi no Jikan",
+          "role": "summary",
+          "year": 2016,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/12292"
+        },
+        {
+          "id": "12293",
+          "title": "Koro-sensei Q!",
+          "role": "other",
+          "year": 2016,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/12293"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/10877"
+    },
+    {
+      "id": "8133",
+      "slug": "haikyuu",
+      "title": "Haikyuu!!",
+      "titles": {
+        "en": "Haikyu!!",
+        "en_jp": "Haikyuu!!",
+        "en_us": "Haikyu!!",
+        "ja_jp": "ハイキュー!!"
+      },
+      "year": 2014,
+      "episodes": 25,
+      "score": 8.29,
+      "genres": [
+        "Sports",
+        "School",
+        "Drama",
+        "Comedy"
+      ],
+      "synopsis": "Inspired after watching a volleyball ace nicknamed \"Little Giant\" in action, small-statured Shouyou Hinata revives the volleyball club at his middle school. The newly-formed team even makes it to a tournament; however, their first match turns out to be their last when they are brutally squashed by the \"King of the Court,\" Tobio Kageyama. Hinata vows to surpass Kageyama, and so after graduating from middle school, he joins Karasuno High School's volleyball team—only to find that his sworn rival, Kageyama, is now his teammate.\n\nThanks to his short height, Hinata struggles to find his role on the team, even with his superior jumping power. Surprisingly, Kageyama has his own problems that only Hinata can help with, and learning to work together appears to be the only way for the team to be successful. Based on Haruichi Furudate's popular shounen manga of the same name, Haikyuu!! is an exhilarating and emotional sports comedy following two determined athletes as they attempt to patch a heated rivalry in order to make their high school volleyball team the best in Japan.\n\n(Source: MAL)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/8133/small.jpg",
+      "youtube_video_id": "JOGp2c7-cKc",
+      "related_anime": [
+        {
+          "id": "11395",
+          "title": "Haikyuu!! Quest Picture Drama",
+          "role": "other",
+          "year": 2014,
+          "episodes": 3,
+          "url": "https://kitsu.io/api/edge/anime/11395"
+        },
+        {
+          "id": "10347",
+          "title": "Haikyuu!! Movie 1: Owari to Hajimari",
+          "role": "summary",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/10347"
+        },
+        {
+          "id": "10847",
+          "title": "Haikyuu!! Movie 2: Shousha to Haisha",
+          "role": "summary",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/10847"
+        },
+        {
+          "id": "10076",
+          "title": "Haikyuu!! Second Season",
+          "role": "sequel",
+          "year": 2015,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/10076"
+        },
+        {
+          "id": "13655",
+          "title": "Haikyuu!! Movie 3: Sainou to Sense",
+          "role": "summary",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/13655"
+        },
+        {
+          "id": "42574",
+          "title": "Haikyuu!! (OVA)",
+          "role": "side_story",
+          "year": 2020,
+          "episodes": 10,
+          "url": "https://kitsu.io/api/edge/anime/42574"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/8133"
+    },
+    {
+      "id": "8640",
+      "slug": "ansatsu-kyoushitsu-tv",
+      "title": "Ansatsu Kyoushitsu",
+      "titles": {
+        "en": "Assassination Classroom",
+        "en_jp": "Ansatsu Kyoushitsu",
+        "en_us": "Assassination Classroom",
+        "ja_jp": "暗殺教室"
+      },
+      "year": 2015,
+      "episodes": 22,
+      "score": 8.28,
+      "genres": [
+        "Action",
+        "Comedy",
+        "School"
+      ],
+      "synopsis": "When a mysterious creature chops the moon down to a permanent crescent, the students of class 3-E of Kunugigaoka Middle School find themselves confronted with an enormous task: assassinate the creature responsible for the disaster before Earth suffers a similar fate. However, the monster, dubbed Koro-sensei (the indestructible teacher), is able to fly at speeds of up to Mach 20, which he demonstrates freely, leaving any attempt to subdue him in his extraterrestrial dust. Furthermore, the misfits of 3-E soon find that the strange, tentacled beast is more than just indomitable—he is the best teacher they have ever had!\n\nAdapted from the humorous hit manga by Yuusei Matsui, Ansatsu Kyoushitsu tells the story of these junior high pupils as they polish their assassination skills and grow in order to stand strong against the oppressive school system, their own life problems, and one day, Koro-sensei.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/8640/small.jpg",
+      "youtube_video_id": "kgNkGohA20k",
+      "related_anime": [
+        {
+          "id": "7973",
+          "title": "Ansatsu Kyoushitsu: Jump Festa 2013 Special",
+          "role": "alternative_version",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7973"
+        },
+        {
+          "id": "10020",
+          "title": "Ansatsu Kyoushitsu: Deai no Jikan",
+          "role": "prequel",
+          "year": 2014,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/10020"
+        },
+        {
+          "id": "10877",
+          "title": "Ansatsu Kyoushitsu 2nd Season",
+          "role": "sequel",
+          "year": 2016,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/10877"
+        },
+        {
+          "id": "12292",
+          "title": "Ansatsu Kyoushitsu: 365-nichi no Jikan",
+          "role": "summary",
+          "year": 2016,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/12292"
+        },
+        {
+          "id": "12293",
+          "title": "Koro-sensei Q!",
+          "role": "other",
+          "year": 2016,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/12293"
+        },
+        {
+          "id": "50568",
+          "title": "Ansatsu Kyoushitsu: Minna no Jikan",
+          "role": "side_story",
+          "year": 2026,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50568"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/8640"
+    },
+    {
+      "id": "5646",
+      "slug": "steins-gate",
+      "title": "Steins;Gate",
+      "titles": {
+        "en": "Steins;Gate",
+        "en_jp": "Steins;Gate",
+        "en_us": "Steins;Gate",
+        "ja_jp": "STEINS;GATE"
+      },
+      "year": 2011,
+      "episodes": 24,
+      "score": 8.23,
+      "genres": [
+        "Sci-Fi",
+        "Thriller"
+      ],
+      "synopsis": "The self-proclaimed mad scientist Rintarou Okabe rents out a room in a rickety old building in Akihabara, where he indulges himself in his hobby of inventing prospective \"future gadgets\" with fellow lab members: Mayuri Shiina, his air-headed childhood friend, and Hashida Itaru, a perverted hacker nicknamed \"Daru.\" The three pass the time by tinkering with their most promising contraption yet, a machine dubbed the \"Phone Microwave,\" which performs the strange function of morphing bananas into piles of green gel.\n\nThough miraculous in itself, the phenomenon doesn't provide anything concrete in Okabe's search for a scientific breakthrough; that is, until the lab members are spurred into action by a string of mysterious happenings before stumbling upon an unexpected success—the Phone Microwave can send emails to the past, altering the flow of history.\n\nAdapted from the critically acclaimed visual novel by 5pb. and Nitroplus, Steins;Gate takes Okabe through the depths of scientific theory and practicality. Forced across the diverging threads of past and present, Okabe must shoulder the burdens that come with holding the key to the realm of time.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/5646/small.jpg",
+      "youtube_video_id": "27OZc-ku6is",
+      "related_anime": [
+        {
+          "id": "3871",
+          "title": "ChäoS;HEAd",
+          "role": "alternative_setting",
+          "year": 2008,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/3871"
+        },
+        {
+          "id": "6999",
+          "title": "Robotics;Notes",
+          "role": "alternative_setting",
+          "year": 2012,
+          "episodes": 22,
+          "url": "https://kitsu.io/api/edge/anime/6999"
+        },
+        {
+          "id": "6389",
+          "title": "Steins;Gate: Egoistic Poriomania",
+          "role": "sequel",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6389"
+        },
+        {
+          "id": "9957",
+          "title": "Steins;Gate: Soumei Eichi no Cognitive Computing",
+          "role": "other",
+          "year": 2014,
+          "episodes": 4,
+          "url": "https://kitsu.io/api/edge/anime/9957"
+        },
+        {
+          "id": "11574",
+          "title": "Steins;Gate: Kyoukaimenjou no Missing Link - Divide By Zero",
+          "role": "alternative_version",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/11574"
+        },
+        {
+          "id": "11949",
+          "title": "Occultic;Nine",
+          "role": "alternative_setting",
+          "year": 2016,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/11949"
+        },
+        {
+          "id": "10786",
+          "title": "ChäoS;Child",
+          "role": "alternative_setting",
+          "year": 2017,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/10786"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/5646"
+    },
+    {
+      "id": "8403",
+      "slug": "shigatsu-wa-kimi-no-uso",
+      "title": "Shigatsu wa Kimi no Uso",
+      "titles": {
+        "en": "Your Lie in April",
+        "en_jp": "Shigatsu wa Kimi no Uso",
+        "en_us": "Your Lie in April",
+        "ja_jp": "四月は君の嘘"
+      },
+      "year": 2014,
+      "episodes": 22,
+      "score": 8.23,
+      "genres": [
+        "Music",
+        "School",
+        "Romance",
+        "Drama",
+        "Friendship"
+      ],
+      "synopsis": "Music accompanies the path of the human metronome, the prodigious pianist Kousei Arima. But after the passing of his mother, Saki Arima, Kousei falls into a downward spiral, rendering him unable to hear the sound of his own piano.\nTwo years later, Kousei still avoids the piano, leaving behind his admirers and rivals, and lives a colorless life alongside his friends Tsubaki Sawabe and Ryouta Watari. However, everything changes when he meets a beautiful violinist, Kaori Miyazono, who stirs up his world and sets him on a journey to face music again.\nBased on the manga series of the same name, Shigatsu wa Kimi no Uso approaches the story of Kousei's recovery as he discovers that music is more than playing each note perfectly, and a single melody can bring in the fresh spring air of April.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/8403/small.jpg",
+      "youtube_video_id": "AbTfMbmucpI",
+      "related_anime": [
+        {
+          "id": "9968",
+          "title": "Shigatsu wa Kimi no Uso: Moments",
+          "role": "prequel",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/9968"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/8403"
+    },
+    {
+      "id": "1555",
+      "slug": "naruto-shippuden",
+      "title": "Naruto: Shippuuden",
+      "titles": {
+        "en": "Naruto: Shippuden",
+        "en_jp": "Naruto: Shippuuden",
+        "en_us": "Naruto: Shippuden",
+        "ja_jp": "ナルト- 疾風伝"
+      },
+      "year": 2007,
+      "episodes": 500,
+      "score": 8.41,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Martial Arts",
+        "Super Power",
+        "Adventure"
+      ],
+      "synopsis": "It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the mysterious organization of elite rogue ninja, is closing in on their grand plan which may threaten the safety of the entire shinobi world.\n\nAlthough Naruto is older and sinister events loom on the horizon, he has changed little in personality—still rambunctious and childish—though he is now far more confident and possesses an even greater determination to protect his friends and home. Come whatever may, Naruto will carry on with the fight for what is important to him, even at the expense of his own body, in the continuation of the saga about the boy who wishes to become Hokage.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/1555/small.jpg",
+      "youtube_video_id": "1dy2zPPrKD0",
+      "related_anime": [
+        {
+          "id": "11",
+          "title": "Naruto",
+          "role": "prequel",
+          "year": 2002,
+          "episodes": 220,
+          "url": "https://kitsu.io/api/edge/anime/11"
+        },
+        {
+          "id": "2245",
+          "title": "Naruto: Shippuuden Movie 1",
+          "role": "side_story",
+          "year": 2007,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/2245"
+        },
+        {
+          "id": "3484",
+          "title": "Naruto Shippuuden: Shippuu! \"Konoha Gakuen\" Den",
+          "role": "spinoff",
+          "year": 2008,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3484"
+        },
+        {
+          "id": "3606",
+          "title": "Naruto: Shippuuden Movie 2 - Kizuna",
+          "role": "side_story",
+          "year": 2008,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3606"
+        },
+        {
+          "id": "4520",
+          "title": "Naruto: Shippuuden Movie 3 - Hi no Ishi wo Tsugu Mono",
+          "role": "side_story",
+          "year": 2009,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/4520"
+        },
+        {
+          "id": "5266",
+          "title": "Naruto: Shippuuden Movie 4 - The Lost Tower",
+          "role": "side_story",
+          "year": 2010,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/5266"
+        },
+        {
+          "id": "6022",
+          "title": "Naruto x UT",
+          "role": "other",
+          "year": 2011,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6022"
+        },
+        {
+          "id": "6256",
+          "title": "Naruto: Shippuuden Movie 5 - Blood Prison",
+          "role": "side_story",
+          "year": 2011,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6256"
+        },
+        {
+          "id": "6861",
+          "title": "Naruto SD: Rock Lee no Seishun Full-Power Ninden",
+          "role": "spinoff",
+          "year": 2012,
+          "episodes": 51,
+          "url": "https://kitsu.io/api/edge/anime/6861"
+        },
+        {
+          "id": "7008",
+          "title": "Naruto: Shippuuden Movie 6 - Road to Ninja",
+          "role": "side_story",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7008"
+        },
+        {
+          "id": "7975",
+          "title": "Naruto Shippuuden: Sunny Side Battle",
+          "role": "other",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7975"
+        },
+        {
+          "id": "7543",
+          "title": "The Last: Naruto the Movie",
+          "role": "side_story",
+          "year": 2014,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7543"
+        },
+        {
+          "id": "10089",
+          "title": "Boruto: Naruto the Movie",
+          "role": "sequel",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/10089"
+        },
+        {
+          "id": "11771",
+          "title": "Boruto: Naruto the Movie - Naruto ga Hokage ni Natta Hi",
+          "role": "side_story",
+          "year": 2016,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/11771"
+        },
+        {
+          "id": "13051",
+          "title": "Boruto: Naruto Next Generations",
+          "role": "sequel",
+          "year": 2017,
+          "episodes": 293,
+          "url": "https://kitsu.io/api/edge/anime/13051"
+        },
+        {
+          "id": "46581",
+          "title": "ROAD OF NARUTO",
+          "role": "summary",
+          "year": 2022,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/46581"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/1555"
+    },
+    {
+      "id": "41312",
+      "slug": "yakusoku-no-neverland",
+      "title": "Yakusoku no Neverland",
+      "titles": {
+        "en": "The Promised Neverland",
+        "en_jp": "Yakusoku no Neverland",
+        "ja_jp": "約束のネバーランド"
+      },
+      "year": 2019,
+      "episodes": 12,
+      "score": 8.28,
+      "genres": [
+        "Sci-Fi",
+        "Mystery",
+        "Horror"
+      ],
+      "synopsis": "The orphans at Grace Field House have only ever known peace. Their home is nice, their bellies stay full, and their caretaker, Mom, loves them very much. But their world turns upside down when the smartest children of the bunch—Emma, Ray, and Norman—learn what horror awaits them on adoption day. Now, their cultivated wit may be their only chance of survival.\n\n(Source: Funimation)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/41312/small.jpg",
+      "youtube_video_id": "JIcjo7XVlOY",
+      "related_anime": [
+        {
+          "id": "42220",
+          "title": "Yakusoku no Neverland 2nd Season",
+          "role": "sequel",
+          "year": 2021,
+          "episodes": 11,
+          "url": "https://kitsu.io/api/edge/anime/42220"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/41312"
+    },
+    {
+      "id": "3532",
+      "slug": "toradora",
+      "title": "Toradora!",
+      "titles": {
+        "en": "Toradora!",
+        "en_jp": "Toradora!",
+        "en_us": "Toradora!",
+        "ja_jp": "とらドラ！"
+      },
+      "year": 2008,
+      "episodes": 25,
+      "score": 8.19,
+      "genres": [
+        "Comedy",
+        "Romance",
+        "School",
+        "Slice of Life"
+      ],
+      "synopsis": "Ryuuji Takasu is a gentle high school student with a love for housework; but in contrast to his kind nature, he has an intimidating face that often gets him labeled as a delinquent. On the other hand is Taiga Aisaka, a small, doll-like student, who is anything but a cute and fragile girl. Equipped with a wooden katana and feisty personality, Taiga is known throughout the school as the \"Palmtop Tiger.\"\nOne day, an embarrassing mistake causes the two students to cross paths. Ryuuji discovers that Taiga actually has a sweet side: she has a crush on the popular vice president, Yuusaku Kitamura, who happens to be his best friend. But things only get crazier when Ryuuji reveals that he has a crush on Minori Kushieda—Taiga's best friend!Toradora! is a romantic comedy that follows this odd duo as they embark on a quest to help each other with their respective crushes, forming an unlikely alliance in the process.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/3532/small.jpg",
+      "youtube_video_id": "ya570uUgQNc",
+      "related_anime": [
+        {
+          "id": "48529",
+          "title": "Ami no Monomane 150 Renpatsu",
+          "role": "side_story",
+          "year": 2009,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/48529"
+        },
+        {
+          "id": "8621",
+          "title": "Toradora! Recap",
+          "role": "summary",
+          "year": 2009,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/8621"
+        },
+        {
+          "id": "4438",
+          "title": "Toradora!: SOS!",
+          "role": "side_story",
+          "year": 2009,
+          "episodes": 4,
+          "url": "https://kitsu.io/api/edge/anime/4438"
+        },
+        {
+          "id": "6536",
+          "title": "Toradora!: Bentou no Gokui",
+          "role": "side_story",
+          "year": 2011,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6536"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/3532"
+    },
+    {
+      "id": "10076",
+      "slug": "haikyuu-2",
+      "title": "Haikyuu!! Second Season",
+      "titles": {
+        "en": "Haikyu!! 2nd Season",
+        "en_jp": "Haikyuu!! Second Season",
+        "en_us": "Haikyu!! 2nd Season",
+        "ja_jp": "ハイキュー!! セカンドシーズン"
+      },
+      "year": 2015,
+      "episodes": 25,
+      "score": 8.28,
+      "genres": [
+        "Drama",
+        "School",
+        "Sports",
+        "Comedy"
+      ],
+      "synopsis": "Following their participation at the Inter-High, the Karasuno High School volleyball team attempts to refocus their efforts, aiming to conquer the Spring tournament instead. \n\nWhen they receive an invitation from long-standing rival Nekoma High, Karasuno agrees to take part in a large training camp alongside many notable volleyball teams in Tokyo and even some national level players. By playing with some of the toughest teams in Japan, they hope not only to sharpen their skills, but also come up with new attacks that would strengthen them. Moreover, Hinata and Kageyama attempt to devise a more powerful weapon, one that could possibly break the sturdiest of blocks. \n\nFacing what may be their last chance at victory before the senior players graduate, the members of Karasuno's volleyball team must learn to settle their differences and train harder than ever if they hope to overcome formidable opponents old and new—including their archrival Aoba Jousai and its world-class setter Tooru Oikawa.\n\n(Source: MAL)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/10076/small.jpg",
+      "youtube_video_id": "Z9qXOEwiTGQ",
+      "related_anime": [
+        {
+          "id": "8133",
+          "title": "Haikyuu!!",
+          "role": "prequel",
+          "year": 2014,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/8133"
+        },
+        {
+          "id": "8626",
+          "title": "Haikyuu!!: Lev Genzan!",
+          "role": "side_story",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/8626"
+        },
+        {
+          "id": "11935",
+          "title": "Haikyuu!!: Karasuno Koukou VS Shiratorizawa Gakuen Koukou",
+          "role": "sequel",
+          "year": 2016,
+          "episodes": 10,
+          "url": "https://kitsu.io/api/edge/anime/11935"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/10076"
+    },
+    {
+      "id": "6589",
+      "slug": "sword-art-online",
+      "title": "Sword Art Online",
+      "titles": {
+        "en": "Sword Art Online",
+        "en_jp": "Sword Art Online",
+        "en_us": "Sword Art Online",
+        "ja_jp": "ソードアート・オンライン"
+      },
+      "year": 2012,
+      "episodes": 25,
+      "score": 7.36,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "Game",
+        "Romance"
+      ],
+      "synopsis": "In the year 2022, virtual reality has progressed by leaps and bounds, and a massive online role-playing game called Sword Art Online (SAO) is launched. With the aid of \"NerveGear\" technology, players can control their avatars within the game using nothing but their own thoughts.\nKazuto Kirigaya, nicknamed \"Kirito,\" is among the lucky few enthusiasts who get their hands on the first shipment of the game. He logs in to find himself, with ten-thousand others, in the scenic and elaborate world of Aincrad, one full of fantastic medieval weapons and gruesome monsters. However, in a cruel turn of events, the players soon realize they cannot log out; the game's creator has trapped them in his new world until they complete all one hundred levels of the game.\nIn order to escape Aincrad, Kirito will now have to interact and cooperate with his fellow players. Some are allies, while others are foes, like Asuna Yuuki, who commands the leading group attempting to escape from the ruthless game. To make matters worse, Sword Art Online is not all fun and games: if they die in Aincrad, they die in real life. Kirito must adapt to his new reality, fight for his survival, and hopefully break free from his virtual hell.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/6589/small.jpg",
+      "youtube_video_id": "6ohYYtxfDCg",
+      "related_anime": [
+        {
+          "id": "7372",
+          "title": "Sword Art Online: Sword Art Offline",
+          "role": "other",
+          "year": 2012,
+          "episodes": 9,
+          "url": "https://kitsu.io/api/edge/anime/7372"
+        },
+        {
+          "id": "7914",
+          "title": "Sword Art Online: Extra Edition",
+          "role": "sequel",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7914"
+        },
+        {
+          "id": "47609",
+          "title": "Sword Art Online: FULLDIVE - Opening Eizou",
+          "role": "other",
+          "year": 2022,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/47609"
+        },
+        {
+          "id": "50775",
+          "title": "Unanswered//butterfly: Sword Art Online",
+          "role": "alternative_version",
+          "year": 2026,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50775"
+        },
+        {
+          "id": "46730",
+          "title": "Sword Art Online Movie",
+          "role": "other",
+          "year": null,
+          "episodes": null,
+          "url": "https://kitsu.io/api/edge/anime/46730"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/6589"
+    },
+    {
+      "id": "1415",
+      "slug": "code-geass-lelouch-of-the-rebellion",
+      "title": "Code Geass: Lelouch of the Rebellion",
+      "titles": {
+        "en": "Code Geass: Lelouch of the Rebellion",
+        "en_jp": "Code Geass: Hangyaku no Lelouch",
+        "en_us": "Code Geass: Lelouch of the Rebellion",
+        "ja_jp": "コードギアス 反逆のルルーシュ"
+      },
+      "year": 2006,
+      "episodes": 25,
+      "score": 8.23,
+      "genres": [
+        "Action",
+        "Mecha",
+        "School",
+        "Super Power",
+        "Military",
+        "Drama",
+        "Sci-Fi",
+        "Political"
+      ],
+      "synopsis": "On August 10th of the year 2010, the Holy Empire of Britannia began a campaign of conquest, its sights set on Japan. Operations were completed in one month thanks to Britannia's deployment of new mobile humanoid armor vehicles dubbed Knightmare Frames. Japan's rights and identity were stripped away, the once proud nation is now referred to as Area 11. Its citizens, Elevens, are forced to scratch out a living while the Britannian aristocracy lives comfortably within their settlements. Pockets of resistance appear throughout Area 11, working towards independence for Japan.\n\nLelouch, an exiled Imperial Prince of Britannia posing as a student, finds himself in the heart of the ongoing conflict for the island nation. Through a chance meeting with a mysterious girl named C.C., Lelouch gains his Geass, the power of the king. Now endowed with absolute dominance over any person, Lelouch may finally realize his goal of bringing down Britannia from within!\n\n(Source: Bandai Entertainment)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/1415/small.jpg",
+      "youtube_video_id": "DR1d_Pm729o",
+      "related_anime": [
+        {
+          "id": "1921",
+          "title": "Code Geass: Hangyaku no Lelouch Recaps",
+          "role": "summary",
+          "year": 2006,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/1921"
+        },
+        {
+          "id": "1759",
+          "title": "Code Geass: Hangyaku no Lelouch Picture Drama",
+          "role": "side_story",
+          "year": 2007,
+          "episodes": 9,
+          "url": "https://kitsu.io/api/edge/anime/1759"
+        },
+        {
+          "id": "2634",
+          "title": "Code Geass: Lelouch of the Rebellion R2",
+          "role": "sequel",
+          "year": 2008,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/2634"
+        },
+        {
+          "id": "3700",
+          "title": "Code Geass: Lelouch of the Rebellion Special Edition Black Rebellion",
+          "role": "summary",
+          "year": 2008,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3700"
+        },
+        {
+          "id": "5518",
+          "title": "Code Geass: Akito the Exiled 1 - The Wyvern Arrives",
+          "role": "other",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/5518"
+        },
+        {
+          "id": "6791",
+          "title": "Code Geass: Hangyaku no Lelouch - Nunnally in Wonderland",
+          "role": "spinoff",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6791"
+        },
+        {
+          "id": "7627",
+          "title": "Code Geass: Oz the Reflection Picture Drama",
+          "role": "spinoff",
+          "year": 2013,
+          "episodes": 5,
+          "url": "https://kitsu.io/api/edge/anime/7627"
+        },
+        {
+          "id": "13850",
+          "title": "Code Geass: Hangyaku no Lelouch I - Koudou",
+          "role": "alternative_version",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/13850"
+        },
+        {
+          "id": "42535",
+          "title": "Code Geass: Hangyaku no Lelouch Picture Drama - Kiseki no Anniversary",
+          "role": "side_story",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/42535"
+        },
+        {
+          "id": "50386",
+          "title": "Code Geass: Hoshi Oi no Aspar",
+          "role": "other",
+          "year": null,
+          "episodes": null,
+          "url": "https://kitsu.io/api/edge/anime/50386"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/1415"
+    },
+    {
+      "id": "8271",
+      "slug": "tokyo-ghoul",
+      "title": "Tokyo Ghoul",
+      "titles": {
+        "en": "Tokyo Ghoul",
+        "en_jp": "Tokyo Ghoul",
+        "en_us": "Tokyo Ghoul",
+        "ja_jp": "東京喰種-トーキョーグール-"
+      },
+      "year": 2014,
+      "episodes": 12,
+      "score": 8.01,
+      "genres": [
+        "Horror",
+        "Action",
+        "Mystery",
+        "Drama",
+        "Supernatural",
+        "Psychological",
+        "Gore"
+      ],
+      "synopsis": "The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight.\n\n(Source: Anime News Network)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/8271/small.jpg",
+      "youtube_video_id": "vGuQeQsoRgU",
+      "related_anime": [
+        {
+          "id": "9135",
+          "title": "Tokyo Ghoul √A",
+          "role": "sequel",
+          "year": 2015,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/9135"
+        },
+        {
+          "id": "10789",
+          "title": "Tokyo Ghoul: \"Jack\"",
+          "role": "side_story",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/10789"
+        },
+        {
+          "id": "11294",
+          "title": "Tokyo Ghoul: \"Pinto\"",
+          "role": "side_story",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/11294"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/8271"
+    },
+    {
+      "id": "7881",
+      "slug": "noragami",
+      "title": "Noragami",
+      "titles": {
+        "en": "Noragami",
+        "en_jp": "Noragami",
+        "en_us": "Noragami: Stray God",
+        "ja_jp": "ノラガミ"
+      },
+      "year": 2014,
+      "episodes": 12,
+      "score": 8.19,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Supernatural",
+        "Comedy"
+      ],
+      "synopsis": "In times of need, if you look in the right place, you just may see a strange telephone number scrawled in red. If you call this number, you will hear a young man introduce himself as the Yato God.\nYato is a minor deity and a self-proclaimed \"Delivery God,\" who dreams of having millions of worshippers. Without a single shrine dedicated to his name, however, his goals are far from being realized. He spends his days doing odd jobs for five yen apiece, until his weapon partner becomes fed up with her useless master and deserts him.\nJust as things seem to be looking grim for the god, his fortune changes when a middle school girl, Hiyori Iki, supposedly saves Yato from a car accident, taking the hit for him. Remarkably, she survives, but the event has caused her soul to become loose and hence able to leave her body. Hiyori demands that Yato return her to normal, but upon learning that he needs a new partner to do so, reluctantly agrees to help him find one. And with Hiyori's help, Yato's luck may finally be turning around.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/7881/small.jpg",
+      "youtube_video_id": "IQnnwUXd_0U",
+      "related_anime": [
+        {
+          "id": "11843",
+          "title": "Heart Realize",
+          "role": "other",
+          "year": 2014,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/11843"
+        },
+        {
+          "id": "8152",
+          "title": "Noragami OVA",
+          "role": "side_story",
+          "year": 2014,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/8152"
+        },
+        {
+          "id": "10800",
+          "title": "Noragami Aragoto",
+          "role": "sequel",
+          "year": 2015,
+          "episodes": 13,
+          "url": "https://kitsu.io/api/edge/anime/10800"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/7881"
+    },
+    {
+      "id": "395",
+      "slug": "howl-s-moving-castle",
+      "title": "Howl's Moving Castle",
+      "titles": {
+        "en": "Howl's Moving Castle",
+        "en_jp": "Howl no Ugoku Shiro",
+        "ja_jp": "ハウルの動く城"
+      },
+      "year": 2004,
+      "episodes": 1,
+      "score": 8.24,
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Fantasy",
+        "Romance"
+      ],
+      "synopsis": "Sophie, a quiet girl working in a hat shop, finds her life thrown into turmoil when she is literally swept off her feet by a handsome but mysterious wizard named Howl. The vain and vengeful Witch of the Waste, jealous of their friendship, puts a spell on Sophie. In a life-changing adventure, Sophie climbs aboard Howl's magnificent flying castle and enters a magical world on a quest to break the spell.\n\n(Source: Disney)",
+      "poster_image": "https://media.kitsu.app/anime/395/poster_image/small-3347e800c075fc7a90516667ff734b1b.jpeg",
+      "youtube_video_id": "iwROgK94zcM",
+      "related_anime": [
+        {
+          "id": "48540",
+          "title": "Ghibli Park: Yukkuri Kite Kudasai. Ugokushiro-hen",
+          "role": "other",
+          "year": 2024,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/48540"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/395"
+    },
+    {
+      "id": "11110",
+      "slug": "boku-dake-ga-inai-machi",
+      "title": "Boku dake ga Inai Machi",
+      "titles": {
+        "en": "ERASED",
+        "en_jp": "Boku dake ga Inai Machi",
+        "en_us": "ERASED",
+        "ja_jp": "僕だけがいない街"
+      },
+      "year": 2016,
+      "episodes": 12,
+      "score": 8.21,
+      "genres": [
+        "Supernatural",
+        "Psychological",
+        "Mystery"
+      ],
+      "synopsis": "When tragedy is about to strike, Satoru Fujinuma finds himself sent back several minutes before the accident occurs. The detached, 29-year-old manga artist has taken advantage of this powerful yet mysterious phenomenon, which he calls \"Revival,\" to save many lives.\nHowever, when he is wrongfully accused of murdering someone close to him, Satoru is sent back to the past once again, but this time to 1988, 18 years in the past. Soon, he realizes that the murder may be connected to the abduction and killing of one of his classmates, the solitary and mysterious Kayo Hinazuki, that took place when he was a child. This is his chance to make things right.Boku dake ga Inai Machi follows Satoru in his mission to uncover what truly transpired 18 years ago and prevent the death of his classmate while protecting those he cares about in the present.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/11110/small.jpg",
+      "youtube_video_id": "DwmxEAWjTQQ",
+      "related_anime": [
+        {
+          "id": "41416",
+          "title": "Boku dake ga Inai Machi Recaps",
+          "role": "summary",
+          "year": 2016,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/41416"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/11110"
+    },
+    {
+      "id": "10800",
+      "slug": "noragami-aragoto",
+      "title": "Noragami Aragoto",
+      "titles": {
+        "en": "Noragami Aragoto",
+        "en_jp": "Noragami Aragoto",
+        "en_us": "Noragami Aragoto",
+        "ja_jp": "ノラガミ ARAGOTO"
+      },
+      "year": 2015,
+      "episodes": 13,
+      "score": 8.21,
+      "genres": [
+        "Action",
+        "Supernatural",
+        "Adventure",
+        "Comedy"
+      ],
+      "synopsis": "Yato and Yukine have finally mended their relationship as god and Regalia, and everyone has returned to their daily life. Yato remains a minor and unknown deity who continues taking odd jobs for five yen apiece in the hopes of one day having millions of worshippers and his own grand shrine. Hiyori Iki has yet to have her loose soul fixed by Yato, but she enjoys life and prepares to attend high school nonetheless.\nTaking place immediately after the first season, Noragami Aragoto delves into the complicated past between Yato and the god of war Bishamon. The female god holds a mysterious grudge against Yato, which often results in violent clashes between them. It doesn't help that Bishamon's most trusted and beloved Regalia, Kazuma, appears to be indebted to Yato. When lives are on the line, unraveling these mysteries and others may be the only way to correct past mistakes.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/10800/small.jpg",
+      "youtube_video_id": "nI_2PqGZb-c",
+      "related_anime": [
+        {
+          "id": "7881",
+          "title": "Noragami",
+          "role": "prequel",
+          "year": 2014,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/7881"
+        },
+        {
+          "id": "11791",
+          "title": "Nirvana",
+          "role": "other",
+          "year": 2015,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/11791"
+        },
+        {
+          "id": "11243",
+          "title": "Noragami Aragoto OVA",
+          "role": "other",
+          "year": 2015,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/11243"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/10800"
+    },
+    {
+      "id": "11935",
+      "slug": "haikyuu-karasuno-koukou-vs-shiratorizawa-gakuen-koukou",
+      "title": "Haikyuu!!: Karasuno Koukou VS Shiratorizawa Gakuen Koukou",
+      "titles": {
+        "en": "Haikyu!! 3rd Season",
+        "en_jp": "Haikyuu!!: Karasuno Koukou VS Shiratorizawa Gakuen Koukou",
+        "en_us": "Haikyu!! 3rd Season",
+        "ja_jp": "ハイキュー!! 烏野高校 VS 白鳥沢学園高校"
+      },
+      "year": 2016,
+      "episodes": 10,
+      "score": 8.27,
+      "genres": [
+        "Comedy",
+        "Drama",
+        "School",
+        "Sports"
+      ],
+      "synopsis": "The third season of Haikyuu!!",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/11935/small.jpg",
+      "youtube_video_id": "EHYdxpvcBEs",
+      "related_anime": [
+        {
+          "id": "10076",
+          "title": "Haikyuu!! Second Season",
+          "role": "prequel",
+          "year": 2015,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/10076"
+        },
+        {
+          "id": "13656",
+          "title": "Haikyuu!! Movie 4: Concept no Tatakai",
+          "role": "summary",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/13656"
+        },
+        {
+          "id": "42059",
+          "title": "Haikyuu!!: To the Top",
+          "role": "sequel",
+          "year": 2020,
+          "episodes": 13,
+          "url": "https://kitsu.io/api/edge/anime/42059"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/11935"
+    },
+    {
+      "id": "11",
+      "slug": "naruto",
+      "title": "Naruto",
+      "titles": {
+        "en": "Naruto",
+        "en_jp": "Naruto",
+        "ja_jp": "ナルト"
+      },
+      "year": 2002,
+      "episodes": 220,
+      "score": 8.02,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Martial Arts",
+        "Super Power"
+      ],
+      "synopsis": "Moments prior to Naruto Uzumaki's birth, a huge demon known as the Kyuubi, the Nine-Tailed Fox, attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the village, the Fourth Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto.\nNow, Naruto is a hyperactive and knuckle-headed ninja still living in Konohagakure. Shunned because of the Kyuubi inside him, Naruto struggles to find his place in the village, while his burning desire to become the Hokage of Konohagakure leads him not only to some great new friends, but also some deadly foes.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/11/poster_image/small-db4debb693482e09f5d9615864b99b3d.jpeg",
+      "youtube_video_id": "j2hiC9BmJlQ",
+      "related_anime": [
+        {
+          "id": "683",
+          "title": "Naruto: Akaki Yotsuba no Clover wo Sagase",
+          "role": "side_story",
+          "year": 2003,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/683"
+        },
+        {
+          "id": "549",
+          "title": "Naruto: Takigakure no Shitou - Ore ga Eiyuu Dattebayo!",
+          "role": "side_story",
+          "year": 2003,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/549"
+        },
+        {
+          "id": "405",
+          "title": "Naruto the Movie: Ninja Clash in the Land of Snow",
+          "role": "side_story",
+          "year": 2004,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/405"
+        },
+        {
+          "id": "833",
+          "title": "Naruto Movie 2: Dai Gekitotsu! Maboroshi no Chiteiiseki Dattebayo!",
+          "role": "side_story",
+          "year": 2005,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/833"
+        },
+        {
+          "id": "960",
+          "title": "Naruto Narutimate Hero 3: Tsuini Gekitotsu! Jounin vs. Genin!! Musabetsu Dairansen taikai Kaisai!!",
+          "role": "side_story",
+          "year": 2005,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/960"
+        },
+        {
+          "id": "1941",
+          "title": "Naruto Movie 3: Dai Koufun! Mikazuki Jima no Animaru Panikku Dattebayo!",
+          "role": "side_story",
+          "year": 2006,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/1941"
+        },
+        {
+          "id": "1555",
+          "title": "Naruto: Shippuuden",
+          "role": "sequel",
+          "year": 2007,
+          "episodes": 500,
+          "url": "https://kitsu.io/api/edge/anime/1555"
+        },
+        {
+          "id": "4953",
+          "title": "Naruto: The Cross Roads",
+          "role": "side_story",
+          "year": 2009,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/4953"
+        },
+        {
+          "id": "46581",
+          "title": "ROAD OF NARUTO",
+          "role": "summary",
+          "year": 2022,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/46581"
+        },
+        {
+          "id": "47150",
+          "title": "NARUTO×NINKU",
+          "role": "character",
+          "year": null,
+          "episodes": 4,
+          "url": "https://kitsu.io/api/edge/anime/47150"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/11"
+    },
+    {
+      "id": "8147",
+      "slug": "kiseijuu",
+      "title": "Kiseijuu: Sei no Kakuritsu",
+      "titles": {
+        "en": "Parasyte -the maxim-",
+        "en_jp": "Kiseijuu: Sei no Kakuritsu",
+        "en_us": "Parasyte -the maxim-",
+        "ja_jp": "寄生獣 セイの格率"
+      },
+      "year": 2014,
+      "episodes": 24,
+      "score": 8.21,
+      "genres": [
+        "Horror",
+        "Sci-Fi",
+        "Psychological",
+        "Drama",
+        "Action"
+      ],
+      "synopsis": "All of a sudden, they arrived: parasitic aliens that descended upon Earth and quickly infiltrated humanity by burrowing into the brains of vulnerable targets. These insatiable beings acquire full control of their host and are able to morph into a variety of forms in order to feed on unsuspecting prey.\n\nSixteen-year-old high school student Shinichi Izumi falls victim to one of these parasites, but it fails to take over his brain, ending up in his right hand instead. Unable to relocate, the parasite, now named Migi, has no choice but to rely on Shinichi in order to stay alive. Thus, the pair is forced into an uneasy coexistence and must defend themselves from hostile parasites that hope to eradicate this new threat to their species.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/8147/small.jpg",
+      "youtube_video_id": "9Oe9umzw1Gc",
+      "related_anime": [],
+      "url": "https://kitsu.io/api/edge/anime/8147"
+    },
+    {
+      "id": "11578",
+      "slug": "mob-psycho-100",
+      "title": "Mob Psycho 100",
+      "titles": {
+        "en": "Mob Psycho 100",
+        "en_jp": "Mob Psycho 100",
+        "ja_jp": "モブサイコ100"
+      },
+      "year": 2016,
+      "episodes": 12,
+      "score": 8.24,
+      "genres": [
+        "Comedy",
+        "Slice of Life",
+        "Supernatural",
+        "Action"
+      ],
+      "synopsis": "Kageyama Shigeo, a.k.a. \"Mob,\" is a boy who has trouble expressing himself, but who happens to be a powerful esper. Mob is determined to live a normal life and keeps his ESP suppressed, but when his emotions surge to a level of 100%, something terrible happens to him! As he's surrounded by false espers, evil spirits, and mysterious organizations, what will Mob think? What choices will he make?\n\n(Source: Crunchyroll)",
+      "poster_image": "https://media.kitsu.app/anime/11578/poster_image/small-286944fe8e3610c8a8a68e70a5a8ec61.jpeg",
+      "youtube_video_id": "F8g3TuKsQHs",
+      "related_anime": [
+        {
+          "id": "46870",
+          "title": "Mob Psycho 100: Tankoubon Hatsubai Kinen Anime",
+          "role": "other",
+          "year": 2013,
+          "episodes": 3,
+          "url": "https://kitsu.io/api/edge/anime/46870"
+        },
+        {
+          "id": "41072",
+          "title": "Mob Psycho Mini",
+          "role": "side_story",
+          "year": 2016,
+          "episodes": 6,
+          "url": "https://kitsu.io/api/edge/anime/41072"
+        },
+        {
+          "id": "41073",
+          "title": "Mob Psycho 100: Reigen - Shirarezaru Kiseki no Reinouryokusha",
+          "role": "summary",
+          "year": 2018,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/41073"
+        },
+        {
+          "id": "41071",
+          "title": "Mob Psycho 100 II",
+          "role": "sequel",
+          "year": 2019,
+          "episodes": 13,
+          "url": "https://kitsu.io/api/edge/anime/41071"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/11578"
+    },
+    {
+      "id": "1",
+      "slug": "cowboy-bebop",
+      "title": "Cowboy Bebop",
+      "titles": {
+        "en": "Cowboy Bebop",
+        "en_jp": "Cowboy Bebop",
+        "ja_jp": "カウボーイビバップ"
+      },
+      "year": 1998,
+      "episodes": 26,
+      "score": 8.23,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Drama",
+        "Sci-Fi",
+        "Space"
+      ],
+      "synopsis": "In the year 2071, humanity has colonized several of the planets and moons of the solar system leaving the now uninhabitable surface of planet Earth behind. The Inter Solar System Police attempts to keep peace in the galaxy, aided in part by outlaw bounty hunters, referred to as \"Cowboys\". The ragtag team aboard the spaceship Bebop are two such individuals.\nMellow and carefree Spike Spiegel is balanced by his boisterous, pragmatic partner Jet Black as the pair makes a living chasing bounties and collecting rewards. Thrown off course by the addition of new members that they meet in their travels—Ein, a genetically engineered, highly intelligent Welsh Corgi; femme fatale Faye Valentine, an enigmatic trickster with memory loss; and the strange computer whiz kid Edward Wong—the crew embarks on thrilling adventures that unravel each member's dark and mysterious past little by little. \nWell-balanced with high density action and light-hearted comedy, Cowboy Bebop is a space Western classic and an homage to the smooth and improvised music it is named after.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/1/small.jpg",
+      "youtube_video_id": "qig4KOK2R2g",
+      "related_anime": [
+        {
+          "id": "3424",
+          "title": "Cowboy Bebop: Yose Atsume Blues",
+          "role": "summary",
+          "year": 1998,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3424"
+        },
+        {
+          "id": "2",
+          "title": "Cowboy Bebop: Knockin' on Heaven's Door",
+          "role": "side_story",
+          "year": 2001,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/2"
+        },
+        {
+          "id": "7604",
+          "title": "Cowboy Bebop: Ein no Natsuyasumi",
+          "role": "side_story",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7604"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/1"
+    },
+    {
+      "id": "11209",
+      "slug": "re-zero-kara-hajimeru-isekai-seikatsu",
+      "title": "Re:Zero kara Hajimeru Isekai Seikatsu",
+      "titles": {
+        "en": "Re:ZERO -Starting Life in Another World-",
+        "en_jp": "Re:Zero kara Hajimeru Isekai Seikatsu",
+        "en_us": "Re:ZERO -Starting Life in Another World-",
+        "ja_jp": "Re：ゼロから始める異世界生活"
+      },
+      "year": 2016,
+      "episodes": 25,
+      "score": 8.21,
+      "genres": [
+        "Fantasy",
+        "Psychological",
+        "Drama",
+        "Thriller"
+      ],
+      "synopsis": "When Subaru Natsuki leaves the convenience store, the last thing he expects is to be wrenched from his everyday life and dropped into a fantasy world. Things aren't looking good for the bewildered teenager; however, not long after his arrival, he is attacked by some thugs. Armed with only a bag of groceries and a now useless cell phone, he is quickly beaten to a pulp. Fortunately, a mysterious beauty named Satella, in hot pursuit after the one who stole her insignia, happens upon Subaru and saves him. In order to thank the honest and kindhearted girl, Subaru offers to help in her search, and later that night, he even finds the whereabouts of that which she seeks. But unbeknownst to them, a much darker force stalks the pair from the shadows, and just minutes after locating the insignia, Subaru and Satella are brutally murdered.\n\nHowever, Subaru immediately reawakens to a familiar scene—confronted by the same group of thugs, meeting Satella all over again—the enigma deepens as history inexplicably repeats itself.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/11209/small.jpg",
+      "youtube_video_id": "IvhgOe9BY5A",
+      "related_anime": [
+        {
+          "id": "12313",
+          "title": "Re:Petit kara Hajimeru Isekai Seikatsu",
+          "role": "spinoff",
+          "year": 2016,
+          "episodes": 14,
+          "url": "https://kitsu.io/api/edge/anime/12313"
+        },
+        {
+          "id": "12047",
+          "title": "Re:Zero kara Hajimeru Break Time",
+          "role": "spinoff",
+          "year": 2016,
+          "episodes": 11,
+          "url": "https://kitsu.io/api/edge/anime/12047"
+        },
+        {
+          "id": "42633",
+          "title": "He Wei Dao x Re:Cong Ling Kaishi De Yi Shijie Shenghuo",
+          "role": "other",
+          "year": 2018,
+          "episodes": 3,
+          "url": "https://kitsu.io/api/edge/anime/42633"
+        },
+        {
+          "id": "42448",
+          "title": "Isekai Quartet Relay PV",
+          "role": "character",
+          "year": 2018,
+          "episodes": 4,
+          "url": "https://kitsu.io/api/edge/anime/42448"
+        },
+        {
+          "id": "13882",
+          "title": "Re:Zero kara Hajimeru Isekai Seikatsu: Memory Snow",
+          "role": "other",
+          "year": 2018,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/13882"
+        },
+        {
+          "id": "42032",
+          "title": "Isekai Quartet",
+          "role": "character",
+          "year": 2019,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/42032"
+        },
+        {
+          "id": "42006",
+          "title": "Re:Zero kara Hajimeru Isekai Seikatsu: Hyouketsu no Kizuna",
+          "role": "prequel",
+          "year": 2019,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/42006"
+        },
+        {
+          "id": "42410",
+          "title": "Isekai Quartet 2",
+          "role": "character",
+          "year": 2020,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/42410"
+        },
+        {
+          "id": "42198",
+          "title": "Re:Zero kara Hajimeru Isekai Seikatsu 2",
+          "role": "sequel",
+          "year": 2020,
+          "episodes": 13,
+          "url": "https://kitsu.io/api/edge/anime/42198"
+        },
+        {
+          "id": "42903",
+          "title": "Re:Zero kara Hajimeru Isekai Seikatsu: Shin Henshuu-ban",
+          "role": "alternative_version",
+          "year": 2020,
+          "episodes": 13,
+          "url": "https://kitsu.io/api/edge/anime/42903"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/11209"
+    },
+    {
+      "id": "2634",
+      "slug": "code-geass-lelouch-of-the-rebellion-r2",
+      "title": "Code Geass: Lelouch of the Rebellion R2",
+      "titles": {
+        "en": "Code Geass: Lelouch of the Rebellion R2",
+        "en_jp": "Code Geass: Hangyaku no Lelouch R2",
+        "en_us": "Code Geass: Lelouch of the Rebellion R2",
+        "ja_jp": "コードギアス 反逆のルルーシュ 続編"
+      },
+      "year": 2008,
+      "episodes": 25,
+      "score": 8.23,
+      "genres": [
+        "Action",
+        "Mecha",
+        "Super Power",
+        "Military",
+        "Drama",
+        "Sci-Fi",
+        "Political"
+      ],
+      "synopsis": "One year has passed since the Black Rebellion, a failed uprising against the Holy Britannian Empire led by the masked vigilante Zero, who is now missing. At a loss without their revolutionary leader, Area 11's resistance group—the Black Knights—find themselves too powerless to combat the brutality inflicted upon the Elevens by Britannia, which has increased significantly in order to crush any hope of a future revolt. \n\nLelouch Lamperouge, having lost all memory of his double life, is living peacefully alongside his friends as a high school student at Ashford Academy. His former partner C.C., unable to accept this turn of events, takes it upon herself to remind him of his past purpose, hoping that the mastermind Zero will rise once again to finish what he started, in this thrilling conclusion to the series.\n\n(Source: MAL)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/2634/small.jpg",
+      "youtube_video_id": "dpYkVRyLC4o",
+      "related_anime": [
+        {
+          "id": "1415",
+          "title": "Code Geass: Lelouch of the Rebellion",
+          "role": "prequel",
+          "year": 2006,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/1415"
+        },
+        {
+          "id": "5801",
+          "title": "Code Geass: Hangyaku no Lelouch R2 Flash Specials",
+          "role": "side_story",
+          "year": 2008,
+          "episodes": 9,
+          "url": "https://kitsu.io/api/edge/anime/5801"
+        },
+        {
+          "id": "3960",
+          "title": "Code Geass: Hangyaku no Lelouch R2 Picture Drama",
+          "role": "side_story",
+          "year": 2008,
+          "episodes": 9,
+          "url": "https://kitsu.io/api/edge/anime/3960"
+        },
+        {
+          "id": "4705",
+          "title": "Code Geass: Lelouch of the Rebellion R2 Special Edition Zero Requiem",
+          "role": "summary",
+          "year": 2009,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/4705"
+        },
+        {
+          "id": "5463",
+          "title": "Code Geass: Hangyaku no Lelouch - Kiseki no Birthday Picture Drama",
+          "role": "side_story",
+          "year": 2010,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/5463"
+        },
+        {
+          "id": "12767",
+          "title": "Code Geass: Lelouch of the Re;surrection",
+          "role": "other",
+          "year": 2019,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/12767"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/2634"
+    },
+    {
+      "id": "12230",
+      "slug": "violet-evergarden",
+      "title": "Violet Evergarden",
+      "titles": {
+        "en": "Violet Evergarden",
+        "en_jp": "Violet Evergarden",
+        "ja_jp": "ヴァイオレット・エヴァーガーデン"
+      },
+      "year": 2018,
+      "episodes": 13,
+      "score": 8.24,
+      "genres": [
+        "Slice of Life",
+        "Drama",
+        "Fantasy"
+      ],
+      "synopsis": "There are words Violet heard on the battlefield, which she cannot forget. These words were given to her by someone she holds dear, more than anyone else. She does not yet know their meaning.\nA certain point in time, in the continent of Telesis. The great war which divided the continent into North and South has ended after four years, and the people are welcoming a new generation.\n\nViolet Evergarden, a young girl formerly known as “the weapon”, has left the battlefield to start a new life at CH Postal Service. There, she is deeply moved by the work of “Auto Memories Dolls”, who carry people's thoughts and convert them into words.\n\nViolet begins her journey as an Auto Memories Doll, and comes face to face with various people's emotions and differing shapes of love. All the while searching for the meaning of those words.\n\n(Source: Anime Expo)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/12230/small.jpg",
+      "youtube_video_id": "g5xWqjFglsk",
+      "related_anime": [
+        {
+          "id": "43347",
+          "title": "Violet Evergarden CM",
+          "role": "other",
+          "year": 2016,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/43347"
+        },
+        {
+          "id": "45331",
+          "title": "5-fun de Wakaru: Violet Evergarden",
+          "role": "summary",
+          "year": 2018,
+          "episodes": 3,
+          "url": "https://kitsu.io/api/edge/anime/45331"
+        },
+        {
+          "id": "41155",
+          "title": "Violet Evergarden Special",
+          "role": "side_story",
+          "year": 2018,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/41155"
+        },
+        {
+          "id": "42340",
+          "title": "Violet Evergarden Gaiden: Eien to Jidou Shuki Ningyou",
+          "role": "side_story",
+          "year": 2019,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/42340"
+        },
+        {
+          "id": "41450",
+          "title": "Violet Evergarden the Movie",
+          "role": "sequel",
+          "year": 2020,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/41450"
+        },
+        {
+          "id": "46780",
+          "title": "Violet Evergarden: Recollections",
+          "role": "summary",
+          "year": 2022,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/46780"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/12230"
+    },
+    {
+      "id": "100",
+      "slug": "fullmetal-alchemist",
+      "title": "Fullmetal Alchemist",
+      "titles": {
+        "en": "Fullmetal Alchemist",
+        "en_jp": "Hagane no Renkinjutsushi",
+        "ja_jp": "鋼の錬金術師"
+      },
+      "year": 2003,
+      "episodes": 51,
+      "score": 8.21,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Drama",
+        "Fantasy",
+        "Magic",
+        "Military"
+      ],
+      "synopsis": "Edward Elric, a young, brilliant alchemist, has lost much in his twelve-year life: when he and his brother Alphonse try to resurrect their dead mother through the forbidden act of human transmutation, Edward loses his brother as well as two of his limbs. With his supreme alchemy skills, Edward binds Alphonse's soul to a large suit of armor.\nA year later, Edward, now promoted to the fullmetal alchemist of the state, embarks on a journey with his younger brother to obtain the Philosopher's Stone. The fabled mythical object is rumored to be capable of amplifying an alchemist's abilities by leaps and bounds, thus allowing them to override the fundamental law of alchemy: to gain something, an alchemist must sacrifice something of equal value. Edward hopes to draw into the military's resources to find the fabled stone and restore his and Alphonse's bodies to normal. However, the Elric brothers soon discover that there is more to the legendary stone than meets the eye, as they are led to the epicenter of a far darker battle than they could have ever imagined.\n\n(Source: MAL)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/100/small.jpg",
+      "youtube_video_id": "NR5HHcLPulc",
+      "related_anime": [
+        {
+          "id": "609",
+          "title": "Fullmetal Alchemist: Reflections",
+          "role": "summary",
+          "year": 2005,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/609"
+        },
+        {
+          "id": "394",
+          "title": "Fullmetal Alchemist: The Movie - Conqueror of Shamballa",
+          "role": "sequel",
+          "year": 2005,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/394"
+        },
+        {
+          "id": "808",
+          "title": "Fullmetal Alchemist: Premium OVA Collection",
+          "role": "side_story",
+          "year": 2006,
+          "episodes": 3,
+          "url": "https://kitsu.io/api/edge/anime/808"
+        },
+        {
+          "id": "3936",
+          "title": "Fullmetal Alchemist: Brotherhood",
+          "role": "alternative_version",
+          "year": 2009,
+          "episodes": 64,
+          "url": "https://kitsu.io/api/edge/anime/3936"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/100"
+    },
+    {
+      "id": "6028",
+      "slug": "fate-zero",
+      "title": "Fate/Zero",
+      "titles": {
+        "en": "Fate/Zero",
+        "en_jp": "Fate/Zero",
+        "en_us": "Fate/Zero",
+        "ja_jp": "フェイト/ゼロ"
+      },
+      "year": 2011,
+      "episodes": 13,
+      "score": 8.21,
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Supernatural",
+        "Magic"
+      ],
+      "synopsis": "With the promise of granting any wish, the omnipotent Holy Grail triggered three wars in the past, each too cruel and fierce to leave a victor. In spite of that, the wealthy Einzbern family is confident that the Fourth Holy Grail War will be different; namely, with a vessel of the Holy Grail now in their grasp. Solely for this reason, the much hated \"Magus Killer\" Kiritsugu Emiya is hired by the Einzberns, with marriage to their only daughter Irisviel as binding contract.\nKiritsugu now stands at the center of a cutthroat game of survival, facing off against six other participants, each armed with an ancient familiar, and fueled by unique desires and ideals. Accompanied by his own familiar, Saber, the notorious mercenary soon finds his greatest opponent in Kirei Kotomine, a priest who seeks salvation from the emptiness within himself in pursuit of Kiritsugu.\nBased on the light novel written by Gen Urobuchi, Fate/Zero depicts the events of the Fourth Holy Grail War—10 years prior to Fate/stay night. Witness a battle royale in which no one is guaranteed to survive.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/6028/poster_image/small-5e122d42b3cb39b3e8d49b1882f7827b.jpeg",
+      "youtube_video_id": "2G3voiNK8z0",
+      "related_anime": [
+        {
+          "id": "7658",
+          "title": "Fate/Zero 2nd Season",
+          "role": "sequel",
+          "year": 2012,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/7658"
+        },
+        {
+          "id": "6906",
+          "title": "Fate/Zero Remix",
+          "role": "summary",
+          "year": 2012,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/6906"
+        },
+        {
+          "id": "6928",
+          "title": "Fate/Zero: Onegai! Einzbern Soudanshitsu",
+          "role": "side_story",
+          "year": 2012,
+          "episodes": 6,
+          "url": "https://kitsu.io/api/edge/anime/6928"
+        },
+        {
+          "id": "7873",
+          "title": "Fate/Zero Cafe",
+          "role": "other",
+          "year": 2013,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/7873"
+        },
+        {
+          "id": "42076",
+          "title": "Lord El-Melloi II Sei no Jikenbo: Rail Zeppelin Grace Note - Hakamori to Neko to Majutsushi",
+          "role": "character",
+          "year": 2018,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/42076"
+        },
+        {
+          "id": "42092",
+          "title": "Lord El-Melloi II Sei no Jikenbo: Rail Zeppelin Grace Note",
+          "role": "character",
+          "year": 2019,
+          "episodes": 13,
+          "url": "https://kitsu.io/api/edge/anime/42092"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/6028"
+    },
+    {
+      "id": "142",
+      "slug": "princess-mononoke",
+      "title": "Princess Mononoke",
+      "titles": {
+        "en": "Princess Mononoke",
+        "en_jp": "Mononoke Hime",
+        "ja_jp": "もののけ姫"
+      },
+      "year": 1997,
+      "episodes": 1,
+      "score": 8.23,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "synopsis": "A calm village residing in the mountains comes under attack from a demon-possessed boar one day.\n\nAshitaka, a young man and prince of the tribe, engages the creature in an attempt to save his village. During the battle, the boar bites him on the arm, leaving it blackened and cursed. Following his village's traditions, Ashitaka is exiled and becomes a wanderer, looking for a solution to the curse before it engulfs him.\n\nIron Town is a fortress under the leadership of Lady Eboshi. Through the clearing of the surrounding forests, Iron Town produces large amounts of Ironsand, used for gunpowder and other machinery. However, because of the forests destruction, nearby animal clans seek revenge led by a human girl of the Wolf clan called San.\n\nWhen Ashitaka comes to Iron Town, he discovers the area consumed in battle. Horrified, he attempts to create peace and befriend the Wolf Clan. However, after the forest's eradication and the ongoing war between Human and Beast, will the Spirit of the Forest be forgiving and accept Ashitaka's request to expel his curse?\n\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/142/poster_image/small-090f709296dfbca06792d09a59a22e35.jpeg",
+      "youtube_video_id": "4OiMOHRDs14",
+      "related_anime": [],
+      "url": "https://kitsu.io/api/edge/anime/142"
+    },
+    {
+      "id": "4604",
+      "slug": "angel-beats",
+      "title": "Angel Beats!",
+      "titles": {
+        "en": "Angel Beats!",
+        "en_jp": "Angel Beats!",
+        "en_us": "Angel Beats!",
+        "ja_jp": "Angel Beats!（エンジェルビーツ）"
+      },
+      "year": 2010,
+      "episodes": 13,
+      "score": 8.13,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Supernatural",
+        "Drama",
+        "School",
+        "Friendship"
+      ],
+      "synopsis": "Otonashi awakens only to learn he is dead. A rifle-toting girl named Yuri explains that they are in the afterlife, and Otonashi realizes the only thing he can remember about himself is his name. Yuri tells him that she leads the Shinda Sekai Sensen (Afterlife Battlefront) and wages war against a girl named Tenshi. Unable to believe Yuri's claims that Tenshi is evil, Otonashi attempts to speak with her, but the encounter doesn't go as he intended.\nOtonashi decides to join the SSS and battle Tenshi, but he finds himself oddly drawn to her. While trying to regain his memories and understand Tenshi, he gradually unravels the mysteries of the afterlife.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/4604/small.jpg",
+      "youtube_video_id": "zkY-sG6crKI",
+      "related_anime": [
+        {
+          "id": "5591",
+          "title": "Angel Beats! Specials",
+          "role": "side_story",
+          "year": 2010,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/5591"
+        },
+        {
+          "id": "6019",
+          "title": "Angel Beats!: Another Epilogue",
+          "role": "side_story",
+          "year": 2010,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6019"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/4604"
+    },
+    {
+      "id": "1801",
+      "slug": "tengen-toppa-gurren-lagann",
+      "title": "Tengen Toppa Gurren Lagann",
+      "titles": {
+        "en": "Gurren Lagann",
+        "en_jp": "Tengen Toppa Gurren Lagann",
+        "en_us": "Gurren Lagann",
+        "ja_jp": "天元突破グレンラガン"
+      },
+      "year": 2007,
+      "episodes": 27,
+      "score": 8.22,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Mecha",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "synopsis": "Simon and Kamina were born and raised in a deep, underground village, hidden from the fabled surface. Kamina is a free-spirited loose cannon bent on making a name for himself, while Simon is a timid young boy with no real aspirations. One day while excavating the earth, Simon stumbles upon a mysterious object that turns out to be the ignition key to an ancient artifact of war, which the duo dubs Lagann. Using their new weapon, Simon and Kamina fend off a surprise attack from the surface with the help of Yoko Littner, a hot-blooded redhead wielding a massive gun who wanders the world above.\nIn the aftermath of the battle, the sky is now in plain view, prompting Simon and Kamina to set off on a journey alongside Yoko to explore the wastelands of the surface. Soon, they join the fight against the \"Beastmen,\" humanoid creatures that terrorize the remnants of humanity in powerful robots called \"Gunmen.\" Although they face some challenges and setbacks, the trio bravely fights these new enemies alongside other survivors to reclaim the surface, while slowly unraveling a galaxy-sized mystery.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/1801/small.jpg",
+      "youtube_video_id": "rAQylCHv8Cw",
+      "related_anime": [
+        {
+          "id": "6267",
+          "title": "Tengen Toppa Gurren Lagann: Ore no Gurren wa Pikka-Pika!!",
+          "role": "side_story",
+          "year": 2007,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6267"
+        },
+        {
+          "id": "3471",
+          "title": "Tengen Toppa Gurren Lagann Movie 1: Gurren-hen",
+          "role": "alternative_version",
+          "year": 2008,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3471"
+        },
+        {
+          "id": "2950",
+          "title": "Tengen Toppa Gurren Lagann: Mitee Mono wa Miteen da!!",
+          "role": "side_story",
+          "year": 2008,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/2950"
+        },
+        {
+          "id": "3751",
+          "title": "Tengen Toppa Gurren Lagann: Parallel Works",
+          "role": "alternative_setting",
+          "year": 2008,
+          "episodes": 8,
+          "url": "https://kitsu.io/api/edge/anime/3751"
+        },
+        {
+          "id": "3689",
+          "title": "Tengen Toppa Gurren Lagann Movie 2: Lagann-hen",
+          "role": "alternative_version",
+          "year": 2009,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3689"
+        },
+        {
+          "id": "4358",
+          "title": "Tengen Toppa Gurren Lagann Movie: Lagann-hen Special - Viral no Amai Yume",
+          "role": "spinoff",
+          "year": 2009,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/4358"
+        },
+        {
+          "id": "5302",
+          "title": "Tengen Toppa Gurren Lagann: Parallel Works 2",
+          "role": "alternative_setting",
+          "year": 2010,
+          "episodes": 7,
+          "url": "https://kitsu.io/api/edge/anime/5302"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/1801"
+    },
+    {
+      "id": "7926",
+      "slug": "avatar-the-last-airbender-book-3-fire",
+      "title": "Avatar: The Last Airbender Book 3: Fire",
+      "titles": {
+        "en": "Avatar: The Last Airbender Book 3: Fire"
+      },
+      "year": 2007,
+      "episodes": 21,
+      "score": 8.24,
+      "genres": [
+        "Super Power",
+        "Martial Arts",
+        "Fantasy",
+        "Drama",
+        "Comedy",
+        "Adventure",
+        "Action",
+        "Anime Influenced"
+      ],
+      "synopsis": "Third and final season focuses on Aang's quest to defeat the tyrannical Fire Lord. In the season's beginning, Aang and his friends Sokka, Katara, and Toph are traveling through the Fire Nation, conjuring a plan for invading the Fire Nation and looking for a teacher to teach Aang Firebending. Time is against our heroes as Sozin's Comet fast approaches...",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/7926/small.jpg",
+      "youtube_video_id": "IprN2CynxNI",
+      "related_anime": [
+        {
+          "id": "7937",
+          "title": "Avatar: The Last Airbender Book 2: Earth",
+          "role": "prequel",
+          "year": 2006,
+          "episodes": 20,
+          "url": "https://kitsu.io/api/edge/anime/7937"
+        },
+        {
+          "id": "7927",
+          "title": "The Legend of Korra Book 1: Air",
+          "role": "sequel",
+          "year": 2012,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/7927"
+        },
+        {
+          "id": "50666",
+          "title": "Avatar Aang: The Last Airbender",
+          "role": "sequel",
+          "year": 2026,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50666"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/7926"
+    },
+    {
+      "id": "5981",
+      "slug": "anohana-the-flower-we-saw-that-day",
+      "title": "Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai.",
+      "titles": {
+        "en": "anohana: The Flower We Saw That Day",
+        "en_jp": "Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai.",
+        "en_us": "anohana: The Flower We Saw That Day",
+        "ja_jp": "あの日見た花の名前を僕達はまだ知らない。"
+      },
+      "year": 2011,
+      "episodes": 11,
+      "score": 8.2,
+      "genres": [
+        "Drama",
+        "Slice of Life",
+        "Supernatural",
+        "Friendship"
+      ],
+      "synopsis": "Jinta Yadomi is peacefully living as a recluse, spending his days away from school and playing video games at home instead. One hot summer day, his childhood friend, Meiko \"Menma\" Honma, appears and pesters him to grant a forgotten wish. He pays her no mind, which annoys her, but he doesn't really care. After all, Menma already died years ago.\nAt first, Jinta thinks that he is merely hallucinating due to the summer heat, but he is later on convinced that what he sees truly is the ghost of Menma. Jinta and his group of childhood friends grew apart after her untimely death, but they are drawn together once more as they try to lay Menma's spirit to rest. Re-living their pain and guilt, will they be able to find the strength to help not only Menma move on—but themselves as well?\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/5981/small.jpg",
+      "youtube_video_id": "3Kw7xjzs17E",
+      "related_anime": [
+        {
+          "id": "43606",
+          "title": "Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai.: Menma e no Tegami",
+          "role": "side_story",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/43606"
+        },
+        {
+          "id": "7200",
+          "title": "Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai. Movie",
+          "role": "sequel",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7200"
+        },
+        {
+          "id": "11196",
+          "title": "Meiji x Kokosake & anohana Receipt Oubo Campaign",
+          "role": "other",
+          "year": 2015,
+          "episodes": 2,
+          "url": "https://kitsu.io/api/edge/anime/11196"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/5981"
+    },
+    {
+      "id": "482",
+      "slug": "my-neighbor-totoro",
+      "title": "My Neighbor Totoro",
+      "titles": {
+        "en": "My Neighbor Totoro",
+        "en_jp": "Tonari no Totoro",
+        "ja_jp": "となりのトトロ"
+      },
+      "year": 1988,
+      "episodes": 1,
+      "score": 8.22,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Supernatural"
+      ],
+      "synopsis": "Follow the adventures of Satsuki and her four-year-old sister Mei when they move into a new home in the countryside. To their delight they discover that their new neighbor is a mysterious forest spirit called Totoro who can be seen only through the eyes of a child. Totoro introduces them to extraordinary characters, including a cat that doubles as a bus, takes them on a journey through the wonders of nature.\n\n(Source: Disney)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/482/small.jpg",
+      "youtube_video_id": "92a7Hj0ijLs",
+      "related_anime": [
+        {
+          "id": "2258",
+          "title": "Mei and the Baby Cat Bus",
+          "role": "spinoff",
+          "year": 2002,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/2258"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/482"
+    },
+    {
+      "id": "7000",
+      "slug": "psycho-pass",
+      "title": "Psycho-Pass",
+      "titles": {
+        "en": "Psycho-Pass",
+        "en_jp": "Psycho-Pass",
+        "en_us": "Psycho-Pass",
+        "ja_jp": "サイコパス"
+      },
+      "year": 2012,
+      "episodes": 22,
+      "score": 8.2,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Police",
+        "Psychological"
+      ],
+      "synopsis": "Justice, and the enforcement of it, has changed. In the 22nd century, Japan enforces the Sibyl System, an objective means of determining the threat level of each citizen by examining their mental state for signs of criminal intent, known as their Psycho-Pass. Inspectors uphold the law by subjugating, often with lethal force, anyone harboring the slightest ill-will; alongside them are Enforcers, jaded Inspectors that have become latent criminals, granted relative freedom in exchange for carrying out the Inspectors' dirty work.\nInto this world steps Akane Tsunemori, a young woman with an honest desire to uphold justice. However, as she works alongside veteran Enforcer Shinya Kougami, she soon learns that the Sibyl System's judgments are not as perfect as her fellow Inspectors assume. With everything she has known turned on its head, Akane wrestles with the question of what justice truly is, and whether it can be upheld through the use of a system that may already be corrupt.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/7000/small.jpg",
+      "youtube_video_id": "70zW21l5ZUU",
+      "related_anime": [
+        {
+          "id": "8601",
+          "title": "All Alone With You",
+          "role": "other",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/8601"
+        },
+        {
+          "id": "7863",
+          "title": "Psycho-Pass 2",
+          "role": "sequel",
+          "year": 2014,
+          "episodes": 11,
+          "url": "https://kitsu.io/api/edge/anime/7863"
+        },
+        {
+          "id": "8574",
+          "title": "Psycho-Pass RE:Start",
+          "role": "alternative_version",
+          "year": 2014,
+          "episodes": 11,
+          "url": "https://kitsu.io/api/edge/anime/8574"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/7000"
+    },
+    {
+      "id": "12566",
+      "slug": "one-punch-man-2",
+      "title": "One Punch Man 2",
+      "titles": {
+        "en": "One-Punch Man 2",
+        "en_jp": "One Punch Man 2",
+        "ja_jp": "ワンパンマン 2"
+      },
+      "year": 2019,
+      "episodes": 12,
+      "score": 7.95,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Parody",
+        "Sci-Fi",
+        "Super Power",
+        "Supernatural"
+      ],
+      "synopsis": "The second season of One Punch Man.\n\nSaitama is a hero who only became a hero for fun. After three years of “special training,” he’s become so strong that he’s practically invincible. In fact, he’s too strong—even his mightiest opponents are taken out with a single punch. Now, the great seer Madame Shibabawa’s prediction about the Earth being doomed seems to be coming true as the frequency of monster incidents escalates. Alongside Genos, his faithful disciple, Saitama begins his official hero duties as a member of the Hero Association, while Garou, a man utterly fascinated by monsters, makes his appearance.\n\n(Source: Anilist)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/12566/small.jpg",
+      "youtube_video_id": "wRAQxhDQMMY",
+      "related_anime": [
+        {
+          "id": "10740",
+          "title": "One Punch Man",
+          "role": "prequel",
+          "year": 2015,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/10740"
+        },
+        {
+          "id": "42315",
+          "title": "One Punch Man 2 Commemorative Special",
+          "role": "other",
+          "year": 2019,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/42315"
+        },
+        {
+          "id": "42703",
+          "title": "One Punch Man 2nd Season Specials",
+          "role": "side_story",
+          "year": 2019,
+          "episodes": 6,
+          "url": "https://kitsu.io/api/edge/anime/42703"
+        },
+        {
+          "id": "50239",
+          "title": "One Punch Man 2nd Season: Ichigeki de Wakaru! Maji Furikaeri!",
+          "role": "summary",
+          "year": 2025,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50239"
+        },
+        {
+          "id": "46360",
+          "title": "One Punch Man 3",
+          "role": "sequel",
+          "year": 2025,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/46360"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/12566"
+    },
+    {
+      "id": "9969",
+      "slug": "death-parade",
+      "title": "Death Parade",
+      "titles": {
+        "en": "Death Parade",
+        "en_jp": "Death Parade",
+        "en_us": "Death Parade",
+        "ja_jp": "デス・パレード"
+      },
+      "year": 2015,
+      "episodes": 12,
+      "score": 8.19,
+      "genres": [
+        "Game",
+        "Psychological",
+        "Mystery",
+        "Thriller",
+        "Drama"
+      ],
+      "synopsis": "After death, there is no heaven or hell, only a bar that stands between reincarnation and oblivion. There the attendant will, one after another, challenge pairs of the recently deceased to a random game in which their fate of either ascending into reincarnation or falling into the void will be wagered. Whether it's bowling, darts, air hockey, or anything in between, each person's true nature will be revealed in a ghastly parade of death and memories, dancing to the whims of the bar's master. Welcome to Quindecim, where Decim, arbiter of the afterlife, awaits!\n\nDeath Parade expands upon the original one-shot intended to train young animators. It follows yet more people receiving judgment—until a strange, black-haired guest causes Decim to begin questioning his own rulings.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/9969/small.jpg",
+      "youtube_video_id": "O1X6czI74UQ",
+      "related_anime": [
+        {
+          "id": "7116",
+          "title": "Death Billiards",
+          "role": "alternative_version",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7116"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/9969"
+    },
+    {
+      "id": "13658",
+      "slug": "fairy-tail-2018",
+      "title": "FAIRY TAIL (2018)",
+      "titles": {
+        "en": "Fairy Tail Final Season",
+        "en_jp": "FAIRY TAIL (2018)",
+        "ja_jp": "FAIRY TAIL (2018)"
+      },
+      "year": 2018,
+      "episodes": 51,
+      "score": 8.21,
+      "genres": [
+        "Comedy",
+        "Magic",
+        "Fantasy",
+        "Action",
+        "Adventure"
+      ],
+      "synopsis": "The final season of Fairy Tail.\n\nFairy Tail has been disbanded. A year later, Lucy comes into contact with Natsu and Happy. The three of them try to find the other former members' whereabouts to reconstruct the guild as they seek the real reason behind the guild's disbandment.\n\n(Source: Anime News Network)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/13658/small.jpg",
+      "youtube_video_id": "RAcl2s-T6ik",
+      "related_anime": [
+        {
+          "id": "8203",
+          "title": "Fairy Tail Series 2",
+          "role": "prequel",
+          "year": 2014,
+          "episodes": 102,
+          "url": "https://kitsu.io/api/edge/anime/8203"
+        },
+        {
+          "id": "45159",
+          "title": "Fairy Tail: 100 Years Quest",
+          "role": "sequel",
+          "year": 2024,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/45159"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/13658"
+    },
+    {
+      "id": "6266",
+      "slug": "mirai-nikki-tv",
+      "title": "Mirai Nikki (TV)",
+      "titles": {
+        "en": "The Future Diary",
+        "en_jp": "Mirai Nikki (TV)",
+        "en_us": "The Future Diary",
+        "ja_jp": "未来日記"
+      },
+      "year": 2011,
+      "episodes": 26,
+      "score": 7.49,
+      "genres": [
+        "Action",
+        "Mystery",
+        "Supernatural",
+        "Psychological",
+        "Thriller"
+      ],
+      "synopsis": "Lonely high school student, Yukiteru Amano, spends his days writing a diary on his cellphone, while conversing with his two seemingly imaginary friends Deus Ex Machina, who is the god of time and space, and Murmur, the god's servant. Revealing himself to be an actual entity, Deus grants Yukiteru a \"Random Diary,\" which shows highly descriptive entries based on the future and forces him into a bloody battle royale with 11 other holders of similarly powerful future diaries.\n\nWith the last person standing designated as the new god of time and space, Yukiteru must find and kill the other 11 in order to survive. He reluctantly teams up with his obsessive stalker Yuno Gasai (who also possesses such a diary), and she takes it upon herself to ensure his safety. But there's more to the girl than meets the eye, as she might have other plans for her unrequited love...4\n\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/6266/small.jpg",
+      "youtube_video_id": "cOmW9c43QkA",
+      "related_anime": [
+        {
+          "id": "5344",
+          "title": "Mirai Nikki",
+          "role": "alternative_version",
+          "year": 2010,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/5344"
+        },
+        {
+          "id": "6750",
+          "title": "Mirai Nikki (TV): Ura Mirai Nikki",
+          "role": "side_story",
+          "year": 2012,
+          "episodes": 10,
+          "url": "https://kitsu.io/api/edge/anime/6750"
+        },
+        {
+          "id": "7510",
+          "title": "Mirai Nikki: Redial",
+          "role": "sequel",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7510"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/6266"
+    },
+    {
+      "id": "6711",
+      "slug": "wolf-children",
+      "title": "Wolf Children",
+      "titles": {
+        "en": "Wolf Children",
+        "en_jp": "Ookami Kodomo no Ame to Yuki",
+        "en_us": "Wolf Children",
+        "ja_jp": "おおかみこどもの雨と雪"
+      },
+      "year": 2012,
+      "episodes": 1,
+      "score": 8.22,
+      "genres": [
+        "Fantasy",
+        "Slice of Life",
+        "Family"
+      ],
+      "synopsis": "Hana, a hard-working college student, falls in love with a mysterious man who attends one of her classes though he is not an actual student. As it turns out, he is not truly human either. On a full moon night, he transforms, revealing that he is the last werewolf alive. Despite this, Hana's love remains strong, and the two ultimately decide to start a family.\nHana gives birth to two healthy children—Ame, born during rainfall, and Yuki, born during snowfall—both possessing the ability to turn into wolves, a trait inherited from their father. All too soon, however, the sudden death of her lover devastates Hana's life, leaving her to raise a peculiar family completely on her own. The stress of raising her wild-natured children in a densely populated city, all while keeping their identity a secret, culminates in a decision to move to the countryside, where she hopes Ame and Yuki can live a life free from the judgments of society. Wolf Children is the heartwarming story about the challenges of being a single mother in an unforgiving modern world.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/6711/small.jpg",
+      "youtube_video_id": "8SlB-SpDMKI",
+      "related_anime": [
+        {
+          "id": "41042",
+          "title": "House Foods Corporation x Wolf Children",
+          "role": "other",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/41042"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/6711"
+    },
+    {
+      "id": "5940",
+      "slug": "ao-no-exorcist",
+      "title": "Ao no Exorcist",
+      "titles": {
+        "en": "Blue Exorcist",
+        "en_jp": "Ao no Exorcist",
+        "en_us": "Blue Exorcist",
+        "ja_jp": "青の祓魔師(エクソシスト)"
+      },
+      "year": 2011,
+      "episodes": 25,
+      "score": 7.74,
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Supernatural",
+        "Demons"
+      ],
+      "synopsis": "Humans and demons are two sides of the same coin, as are Assiah and Gehenna, their respective worlds. The only way to travel between the realms is by the means of possession, like in ghost stories. However, Satan, the ruler of Gehenna, cannot find a suitable host to possess and therefore, remains imprisoned in his world. In a desperate attempt to conquer Assiah, he sends his son instead, intending for him to eventually grow into a vessel capable of possession by the demon king.Ao no Exorcist follows Rin Okumura who appears to be an ordinary, somewhat troublesome teenager—that is until one day he is ambushed by demons. His world turns upside down when he discovers that he is in fact the very son of Satan and that his demon father wishes for him to return so they can conquer Assiah together. Not wanting to join the king of Gehenna, Rin decides to begin training to become an exorcist so that he can fight to defend Assiah alongside his brother Yukio.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/5940/small.jpg",
+      "youtube_video_id": "ayLq7BKjQZU",
+      "related_anime": [
+        {
+          "id": "6484",
+          "title": "Ao no Exorcist: Kuro no Iede",
+          "role": "side_story",
+          "year": 2011,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6484"
+        },
+        {
+          "id": "6279",
+          "title": "Ao no Exorcist: Ura Ex",
+          "role": "side_story",
+          "year": 2011,
+          "episodes": 10,
+          "url": "https://kitsu.io/api/edge/anime/6279"
+        },
+        {
+          "id": "6580",
+          "title": "Ao no Exorcist Movie",
+          "role": "side_story",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/6580"
+        },
+        {
+          "id": "12275",
+          "title": "Ao no Exorcist: Kyoto Fujouou-hen",
+          "role": "sequel",
+          "year": 2017,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/12275"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/5940"
+    },
+    {
+      "id": "10941",
+      "slug": "kono-subarashii-sekai-ni-shukufuku-wo",
+      "title": "Kono Subarashii Sekai ni Shukufuku wo!",
+      "titles": {
+        "en": "KonoSuba: God's Blessing on This Wonderful World!",
+        "en_jp": "Kono Subarashii Sekai ni Shukufuku wo!",
+        "en_us": "KonoSuba: God's Blessing on This Wonderful World!",
+        "ja_jp": "この素晴らしい世界に祝福を！"
+      },
+      "year": 2016,
+      "episodes": 10,
+      "score": 8.19,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Fantasy",
+        "Supernatural",
+        "Magic",
+        "Parody"
+      ],
+      "synopsis": "After a traffic accident, Kazuma Sato's disappointingly brief life was supposed to be over, but he wakes up to see a beautiful girl before him. She claims to be a goddess, Aqua, and asks if he would like to go to another world and bring only one thing with him. Kazuma decides to bring the goddess herself, and they are transported to a fantasy world filled with adventure, ruled by a demon king. Now Kazuma only wants to live in peace, but Aqua wants to solve many of this world's problems, and the demon king will only turn a blind eye for so long...\n\n(Source: Crunchyroll)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/10941/small.jpg",
+      "youtube_video_id": "NU87y-38glA",
+      "related_anime": [
+        {
+          "id": "11752",
+          "title": "Kono Subarashii Sekai ni Shukufuku wo! OVA",
+          "role": "side_story",
+          "year": 2016,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/11752"
+        },
+        {
+          "id": "11937",
+          "title": "Kono Subarashii Sekai ni Shukufuku wo! 2",
+          "role": "sequel",
+          "year": 2017,
+          "episodes": 10,
+          "url": "https://kitsu.io/api/edge/anime/11937"
+        },
+        {
+          "id": "42448",
+          "title": "Isekai Quartet Relay PV",
+          "role": "character",
+          "year": 2018,
+          "episodes": 4,
+          "url": "https://kitsu.io/api/edge/anime/42448"
+        },
+        {
+          "id": "42032",
+          "title": "Isekai Quartet",
+          "role": "character",
+          "year": 2019,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/42032"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/10941"
+    },
+    {
+      "id": "7658",
+      "slug": "fate-zero-2nd-season",
+      "title": "Fate/Zero 2nd Season",
+      "titles": {
+        "en": "Fate/Zero Season 2",
+        "en_jp": "Fate/Zero 2nd Season",
+        "en_us": "Fate/Zero Season 2",
+        "ja_jp": "フェイト/ゼロ 2ndシーズン"
+      },
+      "year": 2012,
+      "episodes": 12,
+      "score": 8.22,
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Supernatural",
+        "Thriller",
+        "Magic"
+      ],
+      "synopsis": "As the Fourth Holy Grail War rages on with no clear victor in sight, the remaining Servants and their Masters are called upon by Church supervisor Risei Kotomine, in order to band together and confront an impending threat that could unravel the Grail War and bring about the destruction of Fuyuki City. The uneasy truce soon collapses as Masters demonstrate that they will do anything in their power, no matter how despicable, to win.\nSeeds of doubt are sown between Kiritsugu Emiya and Saber, his Servant, as their conflicting ideologies on heroism and chivalry clash. Meanwhile, an ominous bond forms between Kirei Kotomine, who still seeks to find his purpose in life, and one of the remaining Servants. As the countdown to the end of the war reaches zero, the cost of winning begins to blur the line between victory and defeat.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/7658/small.jpg",
+      "youtube_video_id": "FkZ1euZ-S-Y",
+      "related_anime": [
+        {
+          "id": "323",
+          "title": "Fate/stay night",
+          "role": "sequel",
+          "year": 2006,
+          "episodes": 24,
+          "url": "https://kitsu.io/api/edge/anime/323"
+        },
+        {
+          "id": "4788",
+          "title": "Fate/stay night Movie: Unlimited Blade Works",
+          "role": "sequel",
+          "year": 2010,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/4788"
+        },
+        {
+          "id": "6028",
+          "title": "Fate/Zero",
+          "role": "prequel",
+          "year": 2011,
+          "episodes": 13,
+          "url": "https://kitsu.io/api/edge/anime/6028"
+        },
+        {
+          "id": "6928",
+          "title": "Fate/Zero: Onegai! Einzbern Soudanshitsu",
+          "role": "side_story",
+          "year": 2012,
+          "episodes": 6,
+          "url": "https://kitsu.io/api/edge/anime/6928"
+        },
+        {
+          "id": "9718",
+          "title": "Fate/stay night: Unlimited Blade Works - Prologue",
+          "role": "sequel",
+          "year": 2014,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/9718"
+        },
+        {
+          "id": "8675",
+          "title": "Fate/stay night: Heaven's Feel I. Presage Flower",
+          "role": "sequel",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/8675"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/7658"
+    },
+    {
+      "id": "8674",
+      "slug": "shingeki-no-kyojin-kuinaki-sentaku",
+      "title": "Attack on Titan: No Regrets",
+      "titles": {
+        "en": "Attack on Titan: No Regrets",
+        "en_jp": "Shingeki no Kyojin: Kuinaki Sentaku",
+        "ja_jp": "進撃の巨人 悔いなき選択"
+      },
+      "year": 2014,
+      "episodes": 2,
+      "score": 8.24,
+      "genres": [
+        "Fantasy",
+        "Supernatural",
+        "Action"
+      ],
+      "synopsis": "Many years before becoming the famed captain of the Survey Corps, a young Levi struggles to survive in the capital's garbage dump, the Underground. As the boss of his own criminal operation, Levi attempts to get by with meager earnings while aided by fellow criminals, Isabel Magnolia and Farlan Church. With little hope for the future, Levi accepts a deal from the anti-expedition faction leader Nicholas Lobov, who promises the trio citizenship aboveground if they are able to successfully assassinate Erwin Smith, a squad leader of the Survey Corps.\n\nAs Levi and Erwin cross paths, Erwin acknowledges Levi's agility and skill and gives him the option to either become part of the expedition team, or be turned over to the Military Police, to atone for his crimes. Now closer to the man they are tasked to kill, the group plans to complete their mission and save themselves from a grim demise in the dim recesses of their past home. However, they are about to learn that the surface world is not as liberating as they had thought and that sometimes, freedom can come at a heavy price.\n\nBased on the popular spin-off manga of the same name, Shingeki no Kyojin: Kuinaki Sentaku illustrates the encounter between two of Shingeki no Kyojin's pivotal characters, as well as the events of the 23rd expedition beyond the walls.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/8674/poster_image/small-c5f4cf7baee4145371dca6f768e97c5f.jpeg",
+      "youtube_video_id": "mjUzzGcuJcQ",
+      "related_anime": [
+        {
+          "id": "7442",
+          "title": "Attack on Titan",
+          "role": "parent_story",
+          "year": 2013,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/7442"
+        },
+        {
+          "id": "7694",
+          "title": "Attack on Titan OVA",
+          "role": "other",
+          "year": 2013,
+          "episodes": 3,
+          "url": "https://kitsu.io/api/edge/anime/7694"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/8674"
+    },
+    {
+      "id": "755",
+      "slug": "ouran-koukou-host-club",
+      "title": "Ouran High School Host Club",
+      "titles": {
+        "en": "Ouran High School Host Club",
+        "en_jp": "Ouran Koukou Host Club",
+        "ja_jp": "桜蘭高校ホスト部"
+      },
+      "year": 2006,
+      "episodes": 26,
+      "score": 8.21,
+      "genres": [
+        "Comedy",
+        "School",
+        "Harem",
+        "Romance",
+        "Gender Bender"
+      ],
+      "synopsis": "Haruhi Fujioka is a bright scholarship candidate with no rank or title to speak of—a rare species at Ouran High School, an elite academy for students of high pedigree. When she opens the door to Music Room #3 hoping to find a quiet place to study, Haruhi unexpectedly stumbles upon the Host Club. Led by the princely Tamaki, the club—whose other members include the \"Shadow King\" Kyouya, the mischievous Hitachiin twins, and the childlike Haninozuka \"Honey\" and his strong protector Mori—is where handsome boys with too much time on their hands entertain the girls in the academy.\nIn a frantic attempt to remove herself from the hosts, Haruhi ends up breaking a vase worth eight million yen and is forced into becoming the eccentric group's general errand boy to repay her enormous debt. However, thanks to her convincingly masculine appearance, her naturally genial disposition toward girls, and fascinating commoner status, she is soon promoted to full-time male host and plunged headlong into a glitzy whirlwind of elaborate cosplays, rich food, and exciting shenanigans that only the immensely wealthy Ouran Host Club can pull off.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/755/small.jpg",
+      "youtube_video_id": "NcC5VCE2Its",
+      "related_anime": [],
+      "url": "https://kitsu.io/api/edge/anime/755"
+    },
+    {
+      "id": "11899",
+      "slug": "ansatsu-kyoushitsu-tv-2nd-season-kagaijugyou-hen",
+      "title": "Ansatsu Kyoushitsu 2nd Season: Kagaijugyou-hen",
+      "titles": {
+        "en_jp": "Ansatsu Kyoushitsu 2nd Season: Kagaijugyou-hen",
+        "ja_jp": "暗殺教室　第２期　課外授業編"
+      },
+      "year": 2016,
+      "episodes": 8,
+      "score": 8.24,
+      "genres": [
+        "Action",
+        "Comedy",
+        "School"
+      ],
+      "synopsis": "Shorts of Ansatsu Kyoushitsu (TV) 2nd Season which adapt chapters of the manga which are not in the TV series. \nThe adapted chapters are 78 (\"Takebayashi no Jikan\") and 79 (\"Shihaisha no Jikan, Ni Jikanme\"), which are published in the ninth manga volume.",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/11899/small.jpg",
+      "youtube_video_id": "9GUB5N2ANEY",
+      "related_anime": [
+        {
+          "id": "10877",
+          "title": "Ansatsu Kyoushitsu 2nd Season",
+          "role": "parent_story",
+          "year": 2016,
+          "episodes": 25,
+          "url": "https://kitsu.io/api/edge/anime/10877"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/11899"
+    },
+    {
+      "id": "3505",
+      "slug": "clannad-after-story",
+      "title": "Clannad: After Story",
+      "titles": {
+        "en": "Clannad ~After Story~",
+        "en_jp": "Clannad: After Story",
+        "en_us": "Clannad ~After Story~",
+        "ja_jp": "CLANNAD〜AFTER STORY〜 クラナド アフターストーリー"
+      },
+      "year": 2008,
+      "episodes": 24,
+      "score": 8.23,
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Romance",
+        "Slice of Life",
+        "Supernatural",
+        "Comedy",
+        "Family"
+      ],
+      "synopsis": "Clannad: After Story, the sequel to the critically acclaimed slice-of-life series Clannad, begins after Tomoya Okazaki and Nagisa Furukawa graduate from high school. Together, they experience the emotional rollercoaster of growing up. Unable to decide on a course for his future, Tomoya learns the value of a strong work ethic and discovers the strength of Nagisa's support. Through the couple's dedication and unity of purpose, they push forward to confront their personal problems, deepen their old relationships, and create new bonds.\nTime also moves on in the Illusionary World. As the plains grow cold with the approach of winter, the Illusionary Girl and the Garbage Doll are presented with a difficult situation that reveals the World's true purpose.\nBased on the visual novel by Key and produced by Kyoto Animation, Clannad: After Story is an impactful drama highlighting the importance of family and the struggles of adulthood.\n[Written by MAL Rewrite]",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/3505/small.jpg",
+      "youtube_video_id": "WiTwXIAcm5Q",
+      "related_anime": [
+        {
+          "id": "1962",
+          "title": "Clannad",
+          "role": "prequel",
+          "year": 2007,
+          "episodes": 23,
+          "url": "https://kitsu.io/api/edge/anime/1962"
+        },
+        {
+          "id": "1544",
+          "title": "Clannad Movie",
+          "role": "alternative_version",
+          "year": 2007,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/1544"
+        },
+        {
+          "id": "3438",
+          "title": "Clannad: Mou Hitotsu no Sekai, Tomoyo-hen",
+          "role": "alternative_setting",
+          "year": 2008,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3438"
+        },
+        {
+          "id": "4529",
+          "title": "Clannad: After Story - Mou Hitotsu no Sekai, Kyou-hen",
+          "role": "alternative_setting",
+          "year": 2009,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/4529"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/3505"
+    },
+    {
+      "id": "21",
+      "slug": "neon-genesis-evangelion",
+      "title": "Neon Genesis Evangelion",
+      "titles": {
+        "en": "Neon Genesis Evangelion",
+        "en_jp": "Shinseiki Evangelion",
+        "ja_jp": "新世紀エヴァンゲリオン"
+      },
+      "year": 1995,
+      "episodes": 26,
+      "score": 8.21,
+      "genres": [
+        "Action",
+        "Dementia",
+        "Drama",
+        "Mecha",
+        "Sci-Fi",
+        "Psychological"
+      ],
+      "synopsis": "In the year 2015, the world stands on the brink of destruction. Humanity's last hope lies in the hands of Nerv, a special agency under the United Nations, and their Evangelions, giant machines capable of defeating the Angels who herald Earth's ruin. Gendou Ikari, head of the organization, seeks compatible pilots who can synchronize with the Evangelions and realize their true potential. Aiding in this defensive endeavor are talented personnel Misato Katsuragi, Head of Tactical Operations, and Ritsuko Akagi, Chief Scientist.\n\nFace to face with his father for the first time in years, 14-year-old Shinji Ikari's average life is irreversibly changed when he is whisked away into the depths of Nerv, and into a harrowing new destiny—he must become the pilot of Evangelion Unit-01 with the fate of mankind on his shoulders.\nWritten by Hideaki Anno, Neon Genesis Evangelion is a heroic tale of a young boy who will become a legend. But as this psychological drama unfolds, ancient secrets beneath the big picture begin to bubble to the surface...\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/21/poster_image/small-6662f66b53b64098d873e037b3f59bd2.jpeg",
+      "youtube_video_id": "qW5DCdRp3rk",
+      "related_anime": [
+        {
+          "id": "22",
+          "title": "Neon Genesis Evangelion: Death & Rebirth",
+          "role": "summary",
+          "year": 1997,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/22"
+        },
+        {
+          "id": "23",
+          "title": "Neon Genesis Evangelion: The End of Evangelion",
+          "role": "sequel",
+          "year": 1997,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/23"
+        },
+        {
+          "id": "2519",
+          "title": "Evangelion: 1.0 You Are (Not) Alone",
+          "role": "alternative_version",
+          "year": 2007,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/2519"
+        },
+        {
+          "id": "3481",
+          "title": "Petit Eva: Evangelion@School",
+          "role": "spinoff",
+          "year": 2007,
+          "episodes": 24,
+          "url": "https://kitsu.io/api/edge/anime/3481"
+        },
+        {
+          "id": "3250",
+          "title": "Evangelion: 2.0 You Can (Not) Advance",
+          "role": "alternative_version",
+          "year": 2009,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3250"
+        },
+        {
+          "id": "3251",
+          "title": "Evangelion: 3.0 You Can (Not) Redo",
+          "role": "alternative_version",
+          "year": 2012,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3251"
+        },
+        {
+          "id": "8616",
+          "title": "Peaceful Times (F02) Petit Film",
+          "role": "other",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/8616"
+        },
+        {
+          "id": "10012",
+          "title": "Nihon Animator Mihonichi",
+          "role": "other",
+          "year": 2014,
+          "episodes": 35,
+          "url": "https://kitsu.io/api/edge/anime/10012"
+        },
+        {
+          "id": "45532",
+          "title": "Evangelion Shito, Hakata Shuurai",
+          "role": "other",
+          "year": 2019,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/45532"
+        },
+        {
+          "id": "43724",
+          "title": "Evangelion x KATE CM",
+          "role": "character",
+          "year": 2020,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/43724"
+        },
+        {
+          "id": "43723",
+          "title": "Evangelion × Attack ZERO",
+          "role": "character",
+          "year": 2020,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/43723"
+        },
+        {
+          "id": "3252",
+          "title": "Evangelion: 3.0+1.0 Thrice Upon a Time",
+          "role": "alternative_version",
+          "year": 2021,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/3252"
+        },
+        {
+          "id": "44033",
+          "title": "Shin Gengou Nyankogelion",
+          "role": "other",
+          "year": 2021,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/44033"
+        },
+        {
+          "id": "50575",
+          "title": "Evangelion: Housou 30 Shuunen Kinen Tokubetsu Kougyou",
+          "role": "other",
+          "year": 2026,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/50575"
+        },
+        {
+          "id": "50549",
+          "title": "Evangelion (Shinsaku Series)",
+          "role": "other",
+          "year": null,
+          "episodes": null,
+          "url": "https://kitsu.io/api/edge/anime/50549"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/21"
+    },
+    {
+      "id": "7937",
+      "slug": "avatar-the-last-airbender-book-2-earth",
+      "title": "Avatar: The Last Airbender Book 2: Earth",
+      "titles": {
+        "en": "Avatar: The Last Airbender Book 2: Earth"
+      },
+      "year": 2006,
+      "episodes": 20,
+      "score": 8.23,
+      "genres": [
+        "Anime Influenced",
+        "Fantasy",
+        "Drama",
+        "Comedy",
+        "Adventure",
+        "Action",
+        "Super Power",
+        "Martial Arts"
+      ],
+      "synopsis": "Aang and his friends Katara and Sokka are on a quest to find an Earthbending teacher. After finding important information concerning the war with the Fire Nation, their journey leads to Ba Sing Se, the capital of the Earth Kingdom, where they uncover great internal government corruption.",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/7937/small.jpg",
+      "youtube_video_id": null,
+      "related_anime": [
+        {
+          "id": "7936",
+          "title": "Avatar: The Last Airbender Book 1: Water",
+          "role": "prequel",
+          "year": 2005,
+          "episodes": 20,
+          "url": "https://kitsu.io/api/edge/anime/7936"
+        },
+        {
+          "id": "11107",
+          "title": "Avatar: Super Deformed Shorts",
+          "role": "other",
+          "year": 2007,
+          "episodes": 3,
+          "url": "https://kitsu.io/api/edge/anime/11107"
+        },
+        {
+          "id": "7926",
+          "title": "Avatar: The Last Airbender Book 3: Fire",
+          "role": "sequel",
+          "year": 2007,
+          "episodes": 21,
+          "url": "https://kitsu.io/api/edge/anime/7926"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/7937"
+    },
+    {
+      "id": "8174",
+      "slug": "sword-art-online-ii",
+      "title": "Sword Art Online II",
+      "titles": {
+        "en": "Sword Art Online II",
+        "en_jp": "Sword Art Online II",
+        "en_us": "Sword Art Online II",
+        "ja_jp": "ソードアート・オンライン II"
+      },
+      "year": 2014,
+      "episodes": 24,
+      "score": 6.94,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "Game",
+        "Romance"
+      ],
+      "synopsis": "A year after escaping Sword Art Online, Kazuto Kirigaya has been settling back into the real world. However, his peace is short-lived as a new incident occurs in a game called Gun Gale Online, where a player by the name of Death Gun appears to be killing people in the real world by shooting them in-game. Approached by officials to assist in investigating the murders, Kazuto assumes his persona of Kirito once again and logs into Gun Gale Online, intent on stopping the killer.\n\nOnce inside, Kirito meets Sinon, a highly skilled sniper afflicted by a traumatic past. She is soon dragged in his chase after Death Gun, and together they enter the Bullet of Bullets, a tournament where their target is sure to appear. Uncertain of Death Gun's real powers, Kirito and Sinon race to stop him before he has the chance to claim another life. Not everything goes smoothly, however, as scars from the past impede their progress. In a high-stakes game where the next victim could easily be one of them, Kirito puts his life on the line in the virtual world once more.\n\n(Source: MAL Rewrite)",
+      "poster_image": "https://media.kitsu.app/anime/poster_images/8174/small.jpg",
+      "youtube_video_id": "Wyi8ITQBeNw",
+      "related_anime": [
+        {
+          "id": "7914",
+          "title": "Sword Art Online: Extra Edition",
+          "role": "prequel",
+          "year": 2013,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/7914"
+        },
+        {
+          "id": "9784",
+          "title": "Sword Art Online II: Debriefing",
+          "role": "summary",
+          "year": 2014,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/9784"
+        },
+        {
+          "id": "9963",
+          "title": "Sword Art Online II: Sword Art Offline II",
+          "role": "other",
+          "year": 2014,
+          "episodes": 9,
+          "url": "https://kitsu.io/api/edge/anime/9963"
+        },
+        {
+          "id": "11423",
+          "title": "Sword Art Online Movie: Ordinal Scale",
+          "role": "sequel",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/11423"
+        },
+        {
+          "id": "40949",
+          "title": "Sword Art Online Movie: Ordinal Scale - Sword Art Offline",
+          "role": "sequel",
+          "year": 2017,
+          "episodes": 1,
+          "url": "https://kitsu.io/api/edge/anime/40949"
+        },
+        {
+          "id": "13894",
+          "title": "Sword Art Online Alternative: Gun Gale Online",
+          "role": "alternative_setting",
+          "year": 2018,
+          "episodes": 12,
+          "url": "https://kitsu.io/api/edge/anime/13894"
+        }
+      ],
+      "url": "https://kitsu.io/api/edge/anime/8174"
+    },
+    {
+      "id": "50764",
+      "slug": "kyouran-reijou-nia-liston",
+      "title": "Kyouran Reijou Nia Liston",
+      "titles": {
+        "en": "Nia Liston: The Merciless Maiden",
+        "en_jp": "Kyouran Reijou Nia Liston",
+        "ja_jp": "凶乱令嬢ニア・リストン"
+      },
+      "year": 2026,
+      "episodes": null,
+      "score": null,
+      "genres": [
+        "Action",
+        "Fantasy"
+      ],
+      "synopsis": "A great hero is reborn as the frail young Nia Liston and resolves to live for battle in her new life. (Source: J-Novel Club)",
+      "poster_image": "https://media.kitsu.app/anime/50764/poster_image/small-526ca9bc32b4b99244992a4a7438b841.jpeg",
+      "youtube_video_id": null,
+      "related_anime": [],
+      "url": "https://kitsu.io/api/edge/anime/50764"
+    },
+    {
+      "id": "51012",
+      "slug": "shiotaiou-no-satou-san-ga-ore-ni-dake-amai",
+      "title": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "titles": {
+        "en": "The Cold Sato-san is Only Sweet to Me",
+        "en_jp": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+        "ja_jp": "塩対応の佐藤さんが俺にだけ甘い"
+      },
+      "year": 2026,
+      "episodes": null,
+      "score": null,
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "synopsis": "A reserved girl and an outgoing boy reveal their softer sides to each other as they experience first love.",
+      "poster_image": "https://media.kitsu.app/anime/51012/poster_image/small-cbb8ee1d5beee60e224a445d7adb5000.jpeg",
+      "youtube_video_id": null,
+      "related_anime": [],
+      "url": "https://kitsu.io/api/edge/anime/51012"
+    },
+    {
+      "id": "50261",
+      "slug": "choujun-choujou-senpai",
+      "title": "Choujun! Choujou Senpai",
+      "titles": {
+        "en_jp": "Choujun! Choujou Senpai",
+        "ja_jp": "超巡！超条先輩"
+      },
+      "year": 2026,
+      "episodes": null,
+      "score": null,
+      "genres": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "synopsis": "Psychic police officer Meguru Chojo and his judo expert partner Nao Ippongi solve cases and stir up trouble around Shinjuku.",
+      "poster_image": "https://media.kitsu.app/anime/50261/poster_image/small-d6ff3369cc8a37435b5bf95ed413d4b9.jpeg",
+      "youtube_video_id": null,
+      "related_anime": [],
+      "url": "https://kitsu.io/api/edge/anime/50261"
+    },
+    {
+      "id": "50964",
+      "slug": "battle-spirits-re-zekkai-no-ku",
+      "title": "Battle Spirits [Re] Zekkai No Ku",
+      "titles": {
+        "en_jp": "Battle Spirits [Re] Zekkai No Ku",
+        "ja_jp": "Battle Spirits [Re] 絶界の空"
+      },
+      "year": 2026,
+      "episodes": null,
+      "score": null,
+      "genres": [
+        "Action",
+        "Fantasy"
+      ],
+      "synopsis": "A new Battle Spirits story begins in a world of card-battle adventures.",
+      "poster_image": "https://media.kitsu.app/anime/50964/poster_image/small-d5842d8fbb117c717fd72581d43f3d05.jpeg",
+      "youtube_video_id": null,
+      "related_anime": [],
+      "url": "https://kitsu.io/api/edge/anime/50964"
+    },
+    {
+      "id": "50966",
+      "slug": "chitose-kun-wa-ramune-bin-no-naka-part-2",
+      "title": "Chitose-kun wa Ramune Bin no Naka Part 2",
+      "titles": {
+        "en_jp": "Chitose-kun wa Ramune Bin no Naka Part 2",
+        "ja_jp": "千歳くんはラムネ瓶のなか 2クール"
+      },
+      "year": 2026,
+      "episodes": 11,
+      "score": null,
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "synopsis": "The second part of Chitose-kun wa Ramune Bin no Naka.",
+      "poster_image": "https://media.kitsu.app/anime/50966/poster_image/small-f9712513996118e6fae6a838baa3f62f.jpeg",
+      "youtube_video_id": null,
+      "related_anime": [],
+      "url": "https://kitsu.io/api/edge/anime/50966"
+    },
+    {
+      "id": "50988",
+      "slug": "gensou-suikoden",
+      "title": "Gensou Suikoden",
+      "titles": {
+        "en": "Suikoden: The Anime",
+        "en_jp": "Gensou Suikoden",
+        "ja_jp": "幻想水滸伝"
+      },
+      "year": 2026,
+      "episodes": null,
+      "score": null,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "synopsis": "Childhood friends Riou and Jowy are drawn into war and guided by different beliefs as their homeland's fate changes.",
+      "poster_image": "https://media.kitsu.app/anime/50988/poster_image/small-c9ad50d25d430225fdef552986b7f962.jpeg",
+      "youtube_video_id": null,
+      "related_anime": [],
+      "url": "https://kitsu.io/api/edge/anime/50988"
+    },
+    {
+      "id": "50338",
+      "slug": "mahou-shoujo-ikusei-keikaku-restart",
+      "title": "Mahou Shoujo Ikusei Keikaku: restart",
+      "titles": {
+        "en": "Magical Girl Raising Project: restart",
+        "en_jp": "Mahou Shoujo Ikusei Keikaku: restart",
+        "en_us": "Magical Girl Raising Project: restart",
+        "ja_jp": "魔法少女育成計画 restart"
+      },
+      "year": 2026,
+      "episodes": null,
+      "score": null,
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Mahou Shoujo",
+        "Thriller"
+      ],
+      "synopsis": "The next installment of the Magical Girl Raising Project series follows a new group of magical girls.",
+      "poster_image": null,
+      "youtube_video_id": "-PX7FqZ55tE",
+      "related_anime": [],
+      "url": "https://kitsu.io/anime/50338"
+    }
+  ]
+}
