@@ -26,8 +26,8 @@ AniPick/
 
 ## 배포 서비스
 
-- **서비스:** [AniPick 웹 앱](https://d1er2zzc6dmy3u.cloudfront.net)
-- **상태 확인:** [헬스 체크](https://d1er2zzc6dmy3u.cloudfront.net/health)
+- **배포 URL:** [https://d1er2zzc6dmy3u.cloudfront.net/](https://d1er2zzc6dmy3u.cloudfront.net/)
+- **상태 확인 URL:** [https://d1er2zzc6dmy3u.cloudfront.net/health](https://d1er2zzc6dmy3u.cloudfront.net/health)
 - **구성:** CloudFront → API Gateway HTTP API → 내부 ALB → EC2 앱 서버 → 비공개 RDS MySQL
 
 AWS 실습 환경에 따라 서버가 중지된 동안에는 서비스 링크에 접속할 수 없습니다.
