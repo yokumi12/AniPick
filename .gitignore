@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+data/anime.sqlite3
+.env
+certs/
+data/character-cache.json

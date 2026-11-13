@@ -1,0 +1,4787 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7fc">
+  <title>AniPick | 취향으로 찾는 다음 애니</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #252234;
+      --muted: #817d91;
+      --line: #ece9f2;
+      --surface: #ffffff;
+      --canvas: #f8f7fc;
+      --accent: #7855c7;
+      --accent-dark: #5d3ca8;
+      --accent-soft: #f0ebfb;
+      --shadow: 0 14px 40px rgb(44 34 69 / 7%);
+      font-family: Inter, Pretendard, "Noto Sans KR", "Malgun Gothic", sans-serif;
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #f1eef8;
+      --muted: #aaa5b8;
+      --line: #393544;
+      --surface: #24212d;
+      --canvas: #19171f;
+      --accent: #b39ae8;
+      --accent-dark: #c5b2f1;
+      --accent-soft: #332b43;
+      --shadow: 0 14px 40px rgb(0 0 0 / 20%);
+    }
+
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      min-width: 320px;
+      transition: background-color .18s ease, color .18s ease;
+    }
+
+    button, input { font: inherit; }
+    button { color: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 clamp(20px, 5vw, 76px);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-start,
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 21px;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(145deg, #aa8be8, #7654c6);
+      font-size: 18px;
+      box-shadow: 0 6px 14px rgb(120 85 199 / 22%);
+    }
+
+    .header-icon-button {
+      display: grid;
+      width: 42px;
+      min-width: 42px;
+      height: 42px;
+      place-items: center;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .header-icon-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .header-icon-button[aria-current="page"] {
+      border-color: #c7b8e8;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+
+    .navigation-dialog {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: min(340px, 88vw);
+      max-width: none;
+      height: 100dvh;
+      max-height: 100dvh;
+      margin: 0 auto 0 0;
+      padding: 0;
+      overflow-y: auto;
+      border: 0;
+      border-radius: 0 20px 20px 0;
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .navigation-dialog::backdrop {
+      background: rgb(20 17 30 / 48%);
+    }
+
+    .navigation-drawer {
+      min-height: 100%;
+      padding: 22px 16px max(22px, env(safe-area-inset-bottom));
+    }
+
+    .navigation-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 0 4px;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .navigation-drawer-section + .navigation-drawer-section {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .navigation-drawer-label {
+      margin: 0 0 8px 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .navigation-drawer-list {
+      display: grid;
+      gap: 4px;
+    }
+
+    .navigation-drawer-item {
+      display: flex;
+      width: 100%;
+      min-height: 46px;
+      align-items: center;
+      gap: 12px;
+      padding: 0 11px;
+      border: 0;
+      border-radius: 12px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+    }
+
+    .navigation-drawer-item:hover,
+    .navigation-drawer-item[aria-current="page"] {
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+
+    .navigation-drawer-item svg {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 19px;
+    }
+
+    .profile {
+      display: grid;
+      width: 42px;
+      min-width: 42px;
+      height: 42px;
+      place-items: center;
+      padding: 0;
+      border: 1px solid #e5def3;
+      border-radius: 999px;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      cursor: pointer;
+    }
+
+    .profile svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    :root[data-theme="dark"] .profile {
+      border-color: var(--line);
+    }
+
+    :root[data-theme="dark"] .header-icon-button {
+      border-color: var(--line);
+    }
+
+    main {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 42px 0 70px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      min-height: 220px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 36px clamp(24px, 5vw, 60px);
+      border: 1px solid #eae3f7;
+      border-radius: 26px;
+      background:
+        radial-gradient(ellipse at 88% 12%, rgb(218 203 250 / 68%), transparent 32%),
+        radial-gradient(ellipse at 74% 110%, rgb(237 224 255 / 85%), transparent 42%),
+        linear-gradient(115deg, #fff 8%, #f7f2ff 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      position: absolute;
+      right: 9%;
+      top: 24px;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgb(120 85 199 / 15%);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-copy { position: relative; z-index: 1; }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.25;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-copy > p:last-child {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .hero-stamp {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      width: 104px;
+      height: 104px;
+      flex: 0 0 104px;
+      place-items: center;
+      border: 1px solid rgb(120 85 199 / 20%);
+      border-radius: 32px;
+      color: var(--accent);
+      background: rgb(255 255 255 / 72%);
+      font-size: 42px;
+      transform: rotate(7deg);
+    }
+
+    .ai-recommendation-card {
+      display: grid;
+      gap: 7px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .ai-recommendation-card strong {
+      font-size: 14px;
+    }
+
+    .ai-recommendation-card span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .ai-recommendation-card .ai-recommendation-reason {
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .ai-feature-launchers {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 28px;
+    }
+
+    .ai-feature-launcher {
+      display: grid;
+      gap: 7px;
+      min-height: 92px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: 0 8px 24px rgb(44 34 69 / 3%);
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .ai-feature-launcher strong {
+      font-size: 17px;
+    }
+
+    .ai-feature-launcher span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .ai-feature-dialog {
+      width: min(760px, calc(100% - 32px));
+      max-height: calc(100dvh - 40px);
+      overflow-y: auto;
+    }
+
+    #character-creator-dialog { width: min(700px, calc(100% - 32px)); }
+
+    .ai-feature-status {
+      min-height: 1.6em;
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .curator-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .curator-toolbar select,
+    .curator-toolbar button,
+    .curator-form button,
+    .character-creator-form button {
+      min-height: 40px;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--ink);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .curator-toolbar select {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .curator-toolbar button,
+    .curator-form button,
+    .character-creator-form button {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .curator-messages {
+      display: grid;
+      gap: 10px;
+      max-height: 420px;
+      overflow: auto;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface-soft, var(--surface));
+    }
+
+    .curator-message {
+      display: grid;
+      gap: 8px;
+      justify-self: start;
+      max-width: min(90%, 680px);
+      color: var(--ink);
+    }
+
+    .curator-message[data-role="user"] {
+      justify-self: end;
+    }
+
+    .curator-message-content {
+      margin: 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--surface);
+      font-size: 13px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .curator-message[data-role="user"] .curator-message-content {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .curator-form,
+    .character-creator-form {
+      display: grid;
+      gap: 9px;
+    }
+
+    .curator-form textarea,
+    .character-creator-form textarea {
+      width: 100%;
+      min-height: 74px;
+      resize: vertical;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--surface);
+      color: var(--ink);
+      font: inherit;
+      font-size: 13px;
+    }
+
+    .curator-form button,
+    .character-creator-form button {
+      justify-self: end;
+      min-width: 120px;
+    }
+
+    .curator-form button:disabled,
+    .character-creator-form button:disabled,
+    .curator-toolbar button:disabled {
+      cursor: wait;
+      opacity: .65;
+    }
+
+    .character-creator-result {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .character-creator-result h3,
+    .character-creator-result p {
+      margin: 0;
+    }
+
+    .character-creator-result h3 {
+      font-size: 17px;
+    }
+
+    .character-creator-result strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--accent-dark);
+      font-size: 11px;
+    }
+
+    .character-creator-result p {
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .character-creator-image {
+      display: block;
+      width: min(100%, 512px);
+      margin: 4px auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .character-creator-download {
+      justify-self: start;
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .character-creator-retry {
+      justify-self: start;
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--accent-dark);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .section {
+      margin-top: 34px;
+      padding: 25px 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: 0 8px 24px rgb(44 34 69 / 3%);
+    }
+
+    .settings-page {
+      min-height: 55vh;
+      padding-top: 34px;
+    }
+
+    .settings-intro {
+      margin-bottom: 22px;
+    }
+
+    .settings-intro h1 {
+      font-size: 28px;
+    }
+
+    .settings-intro p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .settings-page > .settings-intro h1 {
+      font-size: 28px;
+    }
+
+    .settings-group {
+      max-width: 820px;
+      margin-top: 18px;
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: 0 8px 24px rgb(44 34 69 / 3%);
+    }
+
+    .settings-group h2 {
+      margin: 0 0 16px;
+      font-size: 16px;
+    }
+
+    .settings-row {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .settings-row-copy {
+      min-width: 0;
+    }
+
+    .settings-row-copy strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .settings-row-copy p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .settings-actions {
+      display: flex;
+      flex: 0 0 auto;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .settings-genre-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .settings-genre-list .genre-chip {
+      min-height: 34px;
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    .settings-about {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .settings-about li {
+      display: grid;
+      gap: 4px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .settings-about strong {
+      font-size: 13px;
+    }
+
+    .settings-about span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .settings-action, .theme-choice {
+      min-height: 38px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .settings-provider-select {
+      min-width: 190px;
+      padding-right: 32px;
+    }
+
+    .api-key-form {
+      display: grid;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .api-key-field {
+      display: grid;
+      grid-template-columns: minmax(110px, .6fr) minmax(180px, 1fr) minmax(120px, .7fr);
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .api-key-field input {
+      width: 100%;
+      min-height: 38px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--surface);
+      color: var(--ink);
+      font: inherit;
+      font-weight: 400;
+    }
+
+    .api-key-field span,
+    .api-key-note {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .api-key-form button {
+      justify-self: start;
+    }
+
+    .api-key-status {
+      min-height: 1.5em;
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .settings-action.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .settings-action.danger {
+      border-color: #e7b8c1;
+      color: #a42e47;
+    }
+
+    :root[data-theme="dark"] .settings-action.primary {
+      color: #211a2d;
+    }
+
+    .theme-choice[aria-pressed="true"] {
+      border-color: #c7b8e8;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+
+    .theme-choice {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .account-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .account-status::before {
+      width: 9px;
+      height: 9px;
+      flex: 0 0 9px;
+      border-radius: 50%;
+      background: #9c96a6;
+      content: "";
+    }
+
+    .account-status[data-logged-in="true"]::before {
+      background: #2caa72;
+    }
+
+    :root[data-theme="dark"] .anime-card,
+    :root[data-theme="dark"] .section,
+    :root[data-theme="dark"] .settings-group,
+    :root[data-theme="dark"] .empty-state,
+    :root[data-theme="dark"] .genre-chip,
+    :root[data-theme="dark"] .search,
+    :root[data-theme="dark"] .save-button,
+    :root[data-theme="dark"] .sort-select,
+    :root[data-theme="dark"] .schedule-day,
+    :root[data-theme="dark"] .schedule-card,
+    :root[data-theme="dark"] .dialog-close,
+    :root[data-theme="dark"] .auth-form input {
+      background-color: var(--surface);
+      color: var(--ink);
+    }
+
+    :root[data-theme="dark"] .section,
+    :root[data-theme="dark"] .anime-card,
+    :root[data-theme="dark"] .settings-group {
+      border-color: var(--line);
+    }
+
+    :root[data-theme="dark"] .filter-toggle,
+    :root[data-theme="dark"] .view-toggle {
+      border-color: var(--line);
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    :root[data-theme="dark"] .schedule-day[aria-pressed="true"],
+    :root[data-theme="dark"] .filter-toggle[aria-expanded="true"],
+    :root[data-theme="dark"] .view-toggle[aria-pressed="true"] {
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+
+    :root[data-theme="dark"] .tag {
+      background: #35313f;
+      color: #d2cde0;
+    }
+
+    :root[data-theme="dark"] .card-actions {
+      border-color: var(--line);
+    }
+
+    :root[data-theme="dark"] dialog {
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    :root[data-theme="dark"] .auth-form label,
+    :root[data-theme="dark"] .dialog-synopsis {
+      color: #d0cadc;
+    }
+
+    :root[data-theme="dark"] .hero {
+      border-color: #393147;
+      background:
+        radial-gradient(ellipse at 88% 12%, rgb(107 81 151 / 35%), transparent 32%),
+        radial-gradient(ellipse at 74% 110%, rgb(69 52 98 / 45%), transparent 42%),
+        linear-gradient(115deg, #24212d 8%, #292333 100%);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-heading h2, .results-heading h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p, .results-heading p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .selected-count {
+      white-space: nowrap;
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .genre-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .genre-chip {
+      min-height: 38px;
+      padding: 8px 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: #686477;
+      cursor: pointer;
+      font-size: 13px;
+      transition: border-color .15s ease, background .15s ease, color .15s ease;
+    }
+
+    .genre-chip:hover { border-color: #c7b8e8; }
+
+    .genre-chip[aria-pressed="true"] {
+      border-color: #d9cef1;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .results-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin: 36px 0 18px;
+    }
+
+    .results-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-toggle,
+    .sort-select,
+    .view-toggle {
+      min-height: 42px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .filter-toggle[aria-expanded="true"],
+    .view-toggle[aria-pressed="true"] {
+      border-color: #d9cef1;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+
+    .sort-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .view-toggle-group {
+      display: flex;
+      gap: 4px;
+    }
+
+    .view-toggle {
+      width: 42px;
+      padding: 0;
+      font-size: 15px;
+    }
+
+    .anime-grid[data-layout="list"] {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .anime-grid[data-layout="list"] .anime-card {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+    }
+
+    .anime-grid[data-layout="list"] .poster {
+      height: 100%;
+      min-height: 190px;
+    }
+
+    .anime-grid[data-layout="list"] .card-body {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .search {
+      display: flex;
+      width: min(280px, 100%);
+      height: 42px;
+      align-items: center;
+      gap: 9px;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--muted);
+    }
+
+    .top-search {
+      width: min(440px, 100%);
+      height: 48px;
+      margin-bottom: 22px;
+    }
+
+    .search:focus-within {
+      border-color: #bba8e4;
+      outline: 3px solid rgb(120 85 199 / 10%);
+    }
+
+    .search input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      color: var(--ink);
+      background: transparent;
+      font-size: 13px;
+    }
+
+    .search input::placeholder { color: #a5a1b0; }
+
+    .demo-note {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .anime-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .schedule-intro { margin: 20px 0 24px; }
+    .schedule-intro h1 { margin: 0; font-size: clamp(26px, 5vw, 36px); }
+    .schedule-intro p,
+    .schedule-source { color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .schedule-days {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+      margin: 18px 0;
+    }
+    .schedule-day {
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+    }
+    .schedule-day[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+
+    .schedule-controls {
+      display: grid;
+      grid-template-columns: minmax(190px, 1.6fr) repeat(3, minmax(115px, 1fr)) auto;
+      align-items: center;
+      gap: 9px;
+      margin: 18px 0 12px;
+    }
+
+    .schedule-search,
+    .schedule-filter,
+    .schedule-layout-button {
+      min-width: 0;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .schedule-search {
+      width: 100%;
+      padding: 0 12px;
+    }
+
+    .schedule-filter {
+      padding: 0 9px;
+    }
+
+    .schedule-layout-toggle {
+      display: flex;
+      gap: 4px;
+    }
+
+    .schedule-layout-button {
+      width: 42px;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .schedule-layout-button[aria-pressed="true"] {
+      border-color: #d9cef1;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+
+    .schedule-status { min-height: 24px; color: var(--muted); font-size: 13px; }
+    .schedule-results-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 16px 0 10px;
+    }
+    .schedule-results-heading h2 { margin: 0; font-size: 18px; }
+    .schedule-results-heading .schedule-status { margin: 0; text-align: right; }
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 12px;
+    }
+    .schedule-grid[data-layout="list"] { grid-template-columns: 1fr; }
+    .schedule-grid[data-layout="list"] .schedule-card { grid-template-columns: 90px minmax(0, 1fr); }
+    .schedule-grid[data-layout="list"] .schedule-poster { width: 90px; height: 118px; }
+    .schedule-card {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+    }
+    .schedule-poster {
+      width: 76px;
+      height: 108px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      object-fit: cover;
+    }
+    .schedule-copy { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; }
+    .schedule-copy h2 { margin: 2px 0 6px; font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; }
+    .schedule-catalog-match {
+      margin-bottom: 7px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .schedule-original-title { margin: 0 0 8px; color: var(--muted); font-size: 11px; }
+    .schedule-time { margin: auto 0 10px; color: var(--accent-dark); font-size: 12px; font-weight: 700; }
+    .schedule-facts { margin: 0 0 8px; color: var(--muted); font-size: 11px; }
+    .schedule-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+    .schedule-link { color: var(--accent-dark); font-size: 12px; font-weight: 700; text-decoration: none; }
+    .schedule-error { padding: 20px; border: 1px solid #e8c6c6; border-radius: 14px; color: #a33d5a; line-height: 1.7; }
+    .mobile-bottom-nav { display: none; }
+
+    :root[data-theme="dark"] .schedule-search,
+    :root[data-theme="dark"] .schedule-filter,
+    :root[data-theme="dark"] .schedule-layout-button {
+      border-color: var(--line);
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    :root[data-theme="dark"] .schedule-layout-button[aria-pressed="true"] {
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+
+    .anime-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: #fff;
+      box-shadow: 0 8px 22px rgb(44 34 69 / 4%);
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .anime-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgb(44 34 69 / 10%);
+    }
+
+    .poster {
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 194px;
+      align-items: end;
+      overflow: hidden;
+      padding: 17px;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      isolation: isolate;
+      text-align: left;
+    }
+
+    .poster::before, .poster::after {
+      position: absolute;
+      z-index: -1;
+      border: 1px solid rgb(255 255 255 / 30%);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .poster::before {
+      top: -55px;
+      right: -22px;
+      width: 174px;
+      height: 174px;
+      background: rgb(255 255 255 / 12%);
+    }
+
+    .poster::after {
+      top: 38px;
+      right: 28px;
+      width: 92px;
+      height: 92px;
+      background: rgb(255 255 255 / 8%);
+    }
+
+    .poster img {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: linear-gradient(145deg, #74639a, #c3a9c8);
+      filter: brightness(.72);
+    }
+
+    .poster-symbol {
+      position: absolute;
+      top: 35px;
+      right: 35px;
+      color: rgb(255 255 255 / 82%);
+      font-size: 50px;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .poster-title {
+      max-width: 85%;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1.25;
+      text-shadow: 0 2px 12px rgb(0 0 0 / 20%);
+    }
+
+    .poster-label {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+      padding: 5px 8px;
+      border: 1px solid rgb(255 255 255 / 35%);
+      border-radius: 999px;
+      background: rgb(28 23 42 / 18%);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .card-body { padding: 15px; }
+
+    .card-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-topline h3 {
+      overflow: hidden;
+      margin: 0;
+      font-size: 15px;
+      letter-spacing: -0.035em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-title-open {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+    }
+
+    .rating {
+      flex: 0 0 auto;
+      color: #b17614;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .meta {
+      margin: 7px 0 12px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      min-height: 24px;
+    }
+
+    .tag {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #f4f2f8;
+      color: #686477;
+      font-size: 10px;
+    }
+
+    .recommendation-reason {
+      min-height: 38px;
+      margin: 12px 0;
+      color: var(--accent-dark);
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      padding-top: 11px;
+      border-top: 1px solid #f1eff5;
+    }
+
+    .save-button {
+      min-height: 34px;
+      border: 0;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .save-button {
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      color: #706b7d;
+    }
+
+    .save-button[aria-pressed="true"] {
+      border-color: #e9d4e2;
+      background: #fff4f8;
+      color: #ae4676;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 54px 20px;
+      border: 1px dashed #dcd6e8;
+      border-radius: 18px;
+      color: var(--muted);
+      background: #fff;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    dialog {
+      width: min(480px, calc(100% - 32px));
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      color: var(--ink);
+      box-shadow: 0 24px 80px rgb(29 21 47 / 25%);
+    }
+
+    #detail-dialog {
+      width: min(820px, calc(100% - 32px));
+      max-height: calc(100dvh - 40px);
+      overflow-y: auto;
+    }
+
+    dialog::backdrop { background: rgb(28 23 42 / 48%); }
+
+    .dialog-content { padding: 25px; }
+
+    #account-menu-dialog {
+      width: min(320px, calc(100% - 32px));
+      margin: 80px 24px auto auto;
+    }
+
+    .account-menu-content { padding: 18px; }
+
+    .account-menu-user {
+      margin: 12px 0;
+      color: var(--muted);
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .account-menu-actions {
+      display: grid;
+      gap: 8px;
+    }
+
+    .account-menu-action {
+      display: flex;
+      min-height: 44px;
+      align-items: center;
+      gap: 12px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 13px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .account-menu-action svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      color: var(--accent-dark);
+    }
+
+    .account-menu-action.danger { color: #a33d5a; }
+
+    .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .dialog-header h2 {
+      margin: 0;
+      font-size: 21px;
+      letter-spacing: -0.04em;
+    }
+
+    .dialog-close {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .dialog-meta {
+      margin: 10px 0 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .dialog-description-label {
+      margin: 18px 0 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .dialog-synopsis {
+      margin: 0;
+      color: #5e5a6c;
+      font-size: 14px;
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
+    .detail-layout {
+      display: grid;
+      grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 18px;
+    }
+
+    .dialog-poster {
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      border-radius: 13px;
+      background: linear-gradient(145deg, #74639a, #c3a9c8);
+      object-fit: cover;
+    }
+
+    .detail-copy .dialog-meta { margin-top: 0; }
+    .detail-copy .tags { margin-bottom: 18px; }
+
+    .detail-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .detail-link {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .detail-link.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .detail-link:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
+
+    .synopsis-ai-status {
+      min-height: 1.4em;
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .ai-tag-status {
+      min-height: 1.4em;
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .detail-media-section {
+      margin-top: 26px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail-media-section h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .related-anime-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .related-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .related-heading h3 { margin: 0; }
+    .related-sort-control { color: var(--muted); font-size: 11px; }
+    .related-sort-select {
+      min-height: 34px;
+      margin-left: 5px;
+      padding: 0 7px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .related-anime-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--accent-dark);
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .related-anime-link span {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .detail-media-note,
+    .trailer-status {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .character-load-button {
+      min-height: 40px;
+      margin-top: 10px;
+      padding: 0 14px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .character-load-button:disabled {
+      cursor: wait;
+      opacity: .65;
+    }
+
+    .character-status {
+      min-height: 20px;
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .character-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .character-card {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--surface);
+    }
+
+    .character-card.no-image {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .character-image {
+      width: 64px;
+      height: 82px;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      object-fit: cover;
+    }
+
+    .character-name {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .character-role {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--accent-dark);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .character-description {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+      white-space: pre-line;
+    }
+
+    .character-source {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--accent-dark);
+      font-size: 11px;
+    }
+
+    .trailer-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin-top: 12px;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #17151c;
+    }
+
+    .trailer-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .auth-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .auth-form label {
+      display: grid;
+      gap: 7px;
+      color: #5e5a6c;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .auth-form input {
+      min-height: 44px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .auth-form input:focus {
+      border-color: #bba8e4;
+      outline: 3px solid rgb(120 85 199 / 10%);
+    }
+
+    .auth-submit {
+      min-height: 44px;
+      margin-top: 4px;
+      border: 0;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--accent);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .auth-message {
+      min-height: 20px;
+      margin: 0;
+      color: #ae3655;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .auth-switch {
+      display: block;
+      margin: 14px auto 0;
+      padding: 5px;
+      border: 0;
+      color: var(--accent-dark);
+      background: transparent;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 40px;
+      color: #9691a1;
+      font-size: 11px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 3px solid rgb(120 85 199 / 35%);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .anime-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 650px) {
+      .topbar { height: 64px; gap: 8px; padding: 0 14px; }
+      .topbar-start, .header-actions { gap: 6px; }
+      .header-icon-button { width: 38px; min-width: 38px; height: 38px; border-radius: 12px; }
+      .header-icon-button svg { width: 19px; height: 19px; }
+      .profile { width: 38px; min-width: 38px; height: 38px; }
+      main { width: min(100% - 28px, 520px); padding: 22px 0 calc(86px + env(safe-area-inset-bottom)); }
+      .hero { min-height: 190px; border-radius: 20px; }
+      .hero-stamp { width: 74px; height: 74px; flex-basis: 74px; border-radius: 24px; font-size: 32px; }
+      .hero::after { right: 5%; width: 118px; height: 118px; }
+      .section { padding: 21px 19px; }
+      .anime-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .poster { height: 160px; }
+      .card-body { padding: 12px; }
+      .card-topline { align-items: flex-start; }
+      .card-topline h3 { white-space: normal; }
+      .results-heading { align-items: stretch; flex-direction: column; }
+      .results-controls { justify-content: space-between; gap: 5px; }
+      .filter-toggle { padding: 0 8px; }
+      .sort-select { min-width: 0; padding: 0 6px; }
+      .anime-grid[data-layout="list"] .anime-card { grid-template-columns: 104px minmax(0, 1fr); }
+      .anime-grid[data-layout="list"] .poster { min-height: 100%; }
+      .anime-grid[data-layout="list"] .card-body { padding: 11px; }
+      .search { width: 100%; }
+      .settings-page { padding-top: 14px; }
+      .settings-group { padding: 18px; }
+      .settings-row { align-items: flex-start; flex-direction: column; justify-content: center; padding: 14px 0; }
+      .settings-actions { width: 100%; }
+      .api-key-field { grid-template-columns: 1fr; gap: 6px; }
+      .api-key-form button { width: 100%; }
+      .ai-feature-launchers { grid-template-columns: 1fr; }
+      .curator-toolbar { align-items: stretch; flex-direction: column; }
+      .curator-toolbar button,
+      .curator-form button,
+      .character-creator-form button { width: 100%; }
+      .dialog-content { padding: 19px; }
+      .detail-layout { grid-template-columns: 105px minmax(0, 1fr); gap: 14px; }
+      .detail-actions { flex-direction: column; }
+      .detail-link { width: 100%; }
+      .mobile-bottom-nav {
+        position: fixed;
+        z-index: 20;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        padding: 7px 8px calc(7px + env(safe-area-inset-bottom));
+        border-top: 1px solid var(--line);
+        background: color-mix(in srgb, var(--surface) 96%, transparent);
+        box-shadow: 0 -8px 24px rgb(44 34 69 / 8%);
+        backdrop-filter: blur(14px);
+      }
+      .mobile-nav-action {
+        display: flex;
+        min-height: 48px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        border: 0;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .mobile-nav-action svg { width: 18px; height: 18px; }
+      .mobile-nav-action[aria-current="page"] {
+        background: var(--accent-soft);
+        color: var(--accent-dark);
+      }
+      .schedule-days { gap: 4px; }
+      .schedule-day { min-height: 40px; border-radius: 9px; font-size: 12px; }
+      .schedule-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+      .schedule-search { grid-column: 1 / -1; }
+      .schedule-layout-toggle { justify-content: flex-end; }
+      .schedule-results-heading { align-items: flex-start; flex-direction: column; gap: 2px; }
+      .schedule-results-heading .schedule-status { text-align: left; }
+      .schedule-card { grid-template-columns: 66px minmax(0, 1fr); gap: 11px; padding: 11px; }
+      .schedule-poster { width: 66px; height: 96px; }
+    }
+
+    @media (max-width: 390px) {
+      .brand { gap: 7px; font-size: 17px; }
+      .brand-mark { width: 32px; height: 32px; border-radius: 10px; }
+      .anime-grid { grid-template-columns: 1fr; }
+      .poster { height: 190px; }
+      .hero-stamp { display: none; }
+    }
+
+    @media (max-width: 360px) {
+      .brand > span:not(.brand-mark) { display: none; }
+      .topbar { padding-right: 10px; padding-left: 10px; }
+      .header-icon-button { width: 34px; min-width: 34px; height: 36px; }
+      .header-actions { gap: 4px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-start">
+      <button class="header-icon-button" id="menu-button" type="button"
+        aria-label="메뉴 열기" aria-haspopup="dialog" aria-controls="navigation-dialog"
+        aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round"></path>
+        </svg>
+      </button>
+      <a class="brand" href="#recommendations" aria-label="AniPick 홈">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span>AniPick</span>
+      </a>
+    </div>
+    <div class="header-actions">
+      <button class="header-icon-button" id="header-search-button" type="button"
+        aria-label="작품 검색">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"></circle>
+          <path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+        </svg>
+      </button>
+      <button class="header-icon-button" id="theme-toggle" type="button"
+        aria-label="다크 모드로 전환">
+        <svg class="theme-sun-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+          <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+            stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+        </svg>
+        <svg class="theme-moon-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" hidden>
+          <path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.7 8.7 0 1 0 20.2 15.1Z"
+            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </button>
+      <button class="header-icon-button" id="settings-button" type="button" aria-label="설정">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M10.8 2.5h2.4l.6 2.4a7.5 7.5 0 0 1 1.7.7l2.1-1.1 2 2-1.1 2.1a7.5 7.5 0 0 1 .7 1.7l2.4.6v2.4l-2.4.6a7.5 7.5 0 0 1-.7 1.7l1.1 2.1-2 2-2.1-1.1a7.5 7.5 0 0 1-1.7.7l-.6 2.4h-2.4l-.6-2.4a7.5 7.5 0 0 1-1.7-.7l-2.1 1.1-2-2 1.1-2.1a7.5 7.5 0 0 1-.7-1.7l-2.4-.6v-2.4l2.4-.6a7.5 7.5 0 0 1 .7-1.7L4.4 6.5l2-2 2.1 1.1a7.5 7.5 0 0 1 1.7-.7l.6-2.4Z"
+            stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"></circle>
+        </svg>
+      </button>
+      <button class="profile" id="account-button" type="button" aria-label="로그인">
+      <svg class="account-login-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M13 4h6v16h-6M13 12H3m0 0 4-4m-4 4 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <svg class="account-user-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" hidden>
+        <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"></circle>
+        <path d="M4.5 20c.7-3.6 3.2-5.5 7.5-5.5s6.8 1.9 7.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+      </svg>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="navigation-dialog" id="navigation-dialog" aria-label="빠른 이동 메뉴">
+    <div class="navigation-drawer">
+      <div class="navigation-drawer-header">
+        <span>메뉴</span>
+        <button class="header-icon-button" id="close-navigation" type="button" aria-label="메뉴 닫기">×</button>
+      </div>
+      <nav aria-label="AniPick 이동 메뉴">
+        <section class="navigation-drawer-section">
+          <h2 class="navigation-drawer-label">메뉴</h2>
+          <div class="navigation-drawer-list">
+            <button class="navigation-drawer-item" id="home-nav" type="button"
+              data-navigation-action="home" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"
+                  stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path>
+              </svg><span>홈</span>
+            </button>
+            <button class="navigation-drawer-item" id="schedule-nav" type="button"
+              data-navigation-action="schedule">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.7"></rect>
+                <path d="M7 3v4m10-4v4M3 10h18m-13 4h3m-3 3h7" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round"></path>
+              </svg><span>요일별 방영표</span>
+            </button>
+            <button class="navigation-drawer-item" type="button" data-navigation-action="explore">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.7"></circle>
+                <path d="m16.2 16.2 4.3 4.3M8 11h6m-3-3v6" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round"></path>
+              </svg><span>전체 작품</span>
+            </button>
+            <button class="navigation-drawer-item" id="saved-nav" type="button"
+              data-navigation-action="saved">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-4-6 4V4.5Z"
+                  stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path>
+              </svg><span>찜한 작품 <span id="saved-count">0</span></span>
+            </button>
+          </div>
+        </section>
+        <section class="navigation-drawer-section">
+          <h2 class="navigation-drawer-label">작품 둘러보기</h2>
+          <div class="navigation-drawer-list">
+            <button class="navigation-drawer-item" type="button" data-navigation-action="popular">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"
+                  stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path>
+              </svg><span>평점 높은 작품</span>
+            </button>
+            <button class="navigation-drawer-item" type="button" data-navigation-action="newest">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 18V6m0 12h16M7 15l4-4 3 2 5-6m-4 0h4v4"
+                  stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg><span>최신 작품</span>
+            </button>
+          </div>
+        </section>
+        <section class="navigation-drawer-section">
+          <h2 class="navigation-drawer-label">내 AniPick</h2>
+          <div class="navigation-drawer-list">
+            <button class="navigation-drawer-item" id="settings-nav" type="button"
+              data-navigation-action="settings">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M10.8 2.5h2.4l.6 2.4a7.5 7.5 0 0 1 1.7.7l2.1-1.1 2 2-1.1 2.1a7.5 7.5 0 0 1 .7 1.7l2.4.6v2.4l-2.4.6a7.5 7.5 0 0 1-.7 1.7l1.1 2.1-2 2-2.1-1.1a7.5 7.5 0 0 1-1.7.7l-.6 2.4h-2.4l-.6-2.4a7.5 7.5 0 0 1-1.7-.7l-2.1 1.1-2-2 1.1-2.1a7.5 7.5 0 0 1-.7-1.7l-2.4-.6v-2.4l2.4-.6a7.5 7.5 0 0 1 .7-1.7L4.4 6.5l2-2 2.1 1.1a7.5 7.5 0 0 1 1.7-.7l.6-2.4Z"
+                  stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"></circle>
+              </svg><span>설정</span>
+            </button>
+          </div>
+        </section>
+      </nav>
+    </div>
+  </dialog>
+
+  <main>
+    <div id="home-view">
+    <label class="search top-search">
+      <span aria-hidden="true">⌕</span>
+      <input id="search-input" type="search" aria-label="작품 제목 검색" placeholder="작품 제목 검색" autocomplete="off">
+    </label>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">ANIME, PICKED FOR YOU</p>
+        <h1 id="hero-title">다음 애니,<br>취향 따라 골라볼까요?</h1>
+        <p>좋아하는 장르를 고르면 어울리는 작품과 추천 이유를 보여드려요.</p>
+      </div>
+      <div class="hero-stamp" aria-hidden="true">✦</div>
+    </section>
+
+    <section class="ai-feature-launchers" aria-label="AI 창작 기능">
+      <button class="ai-feature-launcher" id="open-curator-dialog" type="button">
+        <strong>AI 큐레이터에게 애니 추천받기</strong>
+        <span>원하는 작품을 바로 물어보고, 대화하며 취향을 더 좁혀보세요.</span>
+      </button>
+      <button class="ai-feature-launcher" id="open-character-creator-dialog" type="button">
+        <strong>나만의 애니 캐릭터 만들기</strong>
+        <span>텍스트 설정과 오리지널 캐릭터 이미지를 만들어요.</span>
+      </button>
+    </section>
+
+    <section class="section" id="preferences" aria-labelledby="preferences-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="preferences-title">요즘 끌리는 장르</h2>
+          <p>여러 개를 선택할 수 있어요. 선택한 장르와 겹치는 작품을 먼저 보여줘요.</p>
+        </div>
+        <span class="selected-count" id="selected-count" aria-live="polite"></span>
+      </div>
+      <div class="genre-list" id="genre-list" aria-label="선호 장르"></div>
+    </section>
+
+    <section id="recommendations" aria-labelledby="results-title">
+      <div class="results-heading">
+        <div>
+          <h2 id="results-title">취향에 맞는 작품</h2>
+          <p id="sort-description">선호 장르가 많이 겹치는 순서로 보여드려요.</p>
+        </div>
+        <div class="results-controls">
+          <button class="filter-toggle" id="filter-toggle" type="button"
+            aria-controls="preferences" aria-expanded="true">장르 필터</button>
+          <label class="sort-control" for="sort-select">
+            정렬
+            <select class="sort-select" id="sort-select">
+              <option value="recommended">추천순</option>
+              <option value="taste">내 취향순</option>
+              <option value="popular">평점순</option>
+              <option value="newest">최신순</option>
+              <option value="name">이름순</option>
+            </select>
+          </label>
+          <div class="view-toggle-group" role="group" aria-label="작품 표시 방식">
+            <button class="view-toggle" type="button" data-layout-choice="grid"
+              aria-label="그리드 보기" aria-pressed="true" title="그리드 보기">▦</button>
+            <button class="view-toggle" type="button" data-layout-choice="list"
+              aria-label="리스트 보기" aria-pressed="false" title="리스트 보기">☰</button>
+          </div>
+        </div>
+      </div>
+      <p class="demo-note" id="catalog-status" role="status">작품 목록을 불러오는 중이에요.</p>
+      <div class="anime-grid" id="anime-grid" aria-live="polite"></div>
+    </section>
+
+    <footer>
+      작품 정보 출처: Kitsu API · 포스터 이미지는 Kitsu에서 제공하는 이미지 URL을 사용합니다.<br>
+      추천은 장르와 시놉시스의 TF-IDF 유사도를 이용하며, 생성형 AI 추천은 아닙니다.
+    </footer>
+    </div>
+
+    <section class="settings-page" id="schedule-view" aria-labelledby="schedule-title" hidden>
+      <div class="schedule-intro">
+        <p class="eyebrow">THIS WEEK ON AIR</p>
+        <h1 id="schedule-title">요일별 방영표</h1>
+        <p>요일별 방영 예정 작품을 검색·필터링하고, AniPick 목록에 있는 작품을 구분해요.</p>
+      </div>
+      <div class="schedule-days" role="group" aria-label="요일 선택">
+        <button class="schedule-day" type="button" data-schedule-day="monday">월</button>
+        <button class="schedule-day" type="button" data-schedule-day="tuesday">화</button>
+        <button class="schedule-day" type="button" data-schedule-day="wednesday">수</button>
+        <button class="schedule-day" type="button" data-schedule-day="thursday">목</button>
+        <button class="schedule-day" type="button" data-schedule-day="friday">금</button>
+        <button class="schedule-day" type="button" data-schedule-day="saturday">토</button>
+        <button class="schedule-day" type="button" data-schedule-day="sunday">일</button>
+      </div>
+      <div class="schedule-controls" role="search" aria-label="방영 작품 검색과 필터">
+        <input class="schedule-search" id="schedule-search" type="search"
+          placeholder="작품 제목 검색" aria-label="방영 작품 제목 검색" autocomplete="off">
+        <select class="schedule-filter" id="schedule-genre-filter" aria-label="장르 필터">
+          <option value="">장르 전체</option>
+        </select>
+        <select class="schedule-filter" id="schedule-year-filter" aria-label="연도 필터">
+          <option value="">연도 전체</option>
+        </select>
+        <select class="schedule-filter" id="schedule-sort" aria-label="방영 작품 정렬">
+          <option value="popular">인기순</option>
+          <option value="newest">최신순</option>
+          <option value="rating">평점순</option>
+          <option value="name">이름순</option>
+          <option value="time">방영 시간순</option>
+          <option value="taste">내 취향순</option>
+        </select>
+        <div class="schedule-layout-toggle" role="group" aria-label="방영 작품 표시 방식">
+          <button class="schedule-layout-button" type="button" data-schedule-layout="grid"
+            aria-label="방영 작품 그리드 보기" aria-pressed="true" title="그리드 보기">▦</button>
+          <button class="schedule-layout-button" type="button" data-schedule-layout="list"
+            aria-label="방영 작품 목록 보기" aria-pressed="false" title="목록 보기">☰</button>
+        </div>
+      </div>
+      <div class="schedule-results-heading">
+        <h2 id="schedule-date-label">오늘 방영작</h2>
+        <p class="schedule-status" id="schedule-status" role="status" aria-live="polite"></p>
+      </div>
+      <div class="schedule-grid" id="schedule-grid" aria-live="polite"></div>
+      <p class="schedule-source">
+        방영 정보: <a href="https://anilist.co/" target="_blank" rel="noopener noreferrer">AniList 공개 API</a>
+        · 한국 시간 기준이며, 방영 일정은 바뀔 수 있어요.
+      </p>
+    </section>
+
+    <section class="settings-page" id="settings-view" aria-labelledby="settings-title" hidden>
+      <div class="settings-intro">
+        <h1 id="settings-title">설정</h1>
+        <p>계정, 화면 테마, AI 제공자, 기본 추천 취향을 설정할 수 있어요.</p>
+      </div>
+      <section class="settings-group" aria-labelledby="account-settings-title">
+        <h2 id="account-settings-title">계정</h2>
+        <div class="settings-row">
+          <div class="settings-row-copy">
+            <strong class="account-status" id="settings-account-status" data-logged-in="false">로그아웃 상태</strong>
+            <p id="settings-account-description">로그인하면 찜 목록을 계정에 저장할 수 있어요.</p>
+          </div>
+          <div class="settings-actions" id="settings-account-actions">
+            <button class="settings-action" id="settings-register" type="button">회원가입</button>
+            <button class="settings-action primary" id="settings-login" type="button">로그인</button>
+          </div>
+        </div>
+      </section>
+      <section class="settings-group" aria-labelledby="appearance-settings-title">
+        <h2 id="appearance-settings-title">화면</h2>
+        <div class="settings-row">
+          <div class="settings-row-copy">
+            <strong>테마</strong>
+            <p>원하는 화면 모드를 선택하세요. 설정은 이 브라우저에 저장됩니다.</p>
+          </div>
+          <div class="settings-actions" role="group" aria-label="화면 테마">
+            <button class="theme-choice" type="button" data-theme-choice="light" aria-pressed="true">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+                <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+              </svg>
+              라이트
+            </button>
+            <button class="theme-choice" type="button" data-theme-choice="dark" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" aria-hidden="true">
+                <path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.7 8.7 0 1 0 20.2 15.1Z"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              다크
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="settings-group" aria-labelledby="ai-settings-title">
+        <h2 id="ai-settings-title">AI 제공자</h2>
+        <div class="settings-row">
+          <div class="settings-row-copy">
+            <strong>AI 기능에 사용할 제공자</strong>
+            <p id="ai-provider-status" aria-live="polite">
+              AI 제공자 설정을 확인하고 있어요.
+            </p>
+          </div>
+          <div class="settings-actions">
+            <select class="settings-action settings-provider-select" id="ai-provider-select"
+              aria-label="AI 제공자" disabled>
+              <option value="">불러오는 중…</option>
+            </select>
+          </div>
+        </div>
+        <form class="api-key-form" id="api-key-form" hidden>
+          <p class="api-key-note">
+            로그인한 계정에 연결해 암호화된 키를 데이터베이스에 저장해요.
+            빈 입력란은 기존 키를 유지합니다. 키 사용료는 각 제공업체 계정에 청구될 수 있어요.
+            OpenAI 키는 캐릭터 이미지 생성에도 사용돼요.
+          </p>
+          <label class="api-key-field" for="openai-api-key">
+            OpenAI API 키
+            <input id="openai-api-key" name="openai" type="password"
+              autocomplete="new-password" spellcheck="false"
+              placeholder="새 키를 입력할 때만 작성">
+            <span id="openai-api-key-status">설정 상태 확인 중</span>
+          </label>
+          <button class="settings-action" type="button" data-remove-api-key="openai">
+            저장된 OpenAI 키 삭제
+          </button>
+          <label class="api-key-field" for="gemini-api-key">
+            Gemini API 키
+            <input id="gemini-api-key" name="gemini" type="password"
+              autocomplete="new-password" spellcheck="false"
+              placeholder="새 키를 입력할 때만 작성">
+            <span id="gemini-api-key-status">설정 상태 확인 중</span>
+          </label>
+          <button class="settings-action" type="button" data-remove-api-key="gemini">
+            저장된 Gemini 키 삭제
+          </button>
+          <label class="api-key-field" for="claude-api-key">
+            Claude API 키
+            <input id="claude-api-key" name="claude" type="password"
+              autocomplete="new-password" spellcheck="false"
+              placeholder="새 키를 입력할 때만 작성">
+            <span id="claude-api-key-status">설정 상태 확인 중</span>
+          </label>
+          <button class="settings-action" type="button" data-remove-api-key="claude">
+            저장된 Claude 키 삭제
+          </button>
+          <button class="settings-action primary" type="submit">API 키 저장</button>
+          <p class="api-key-status" id="api-key-status" role="status" aria-live="polite"></p>
+        </form>
+        <p class="api-key-note" id="api-key-access-note" role="status" aria-live="polite" hidden>
+          계정별 API 키를 저장하려면 로그인해주세요.
+        </p>
+      </section>
+      <section class="settings-group" aria-labelledby="recommendation-settings-title">
+        <h2 id="recommendation-settings-title">추천 취향</h2>
+        <div class="settings-row">
+          <div class="settings-row-copy">
+            <strong>기본 선호 장르</strong>
+            <p>선택한 장르는 이 브라우저에 저장되며, 다음 방문 때 기본 추천에 사용돼요.</p>
+          </div>
+          <div class="settings-actions">
+            <button class="settings-action" id="reset-preferences" type="button">기본값으로 초기화</button>
+          </div>
+        </div>
+        <div class="settings-genre-list" id="settings-genre-list" aria-label="기본 선호 장르"></div>
+      </section>
+      <section class="settings-group" aria-labelledby="about-settings-title">
+        <h2 id="about-settings-title">서비스 정보</h2>
+        <ul class="settings-about">
+          <li>
+            <strong>작품 데이터</strong>
+            <span>Kitsu 공개 API에서 작품 정보, 예고편 ID, 시즌·관련 작품 정보를 가져와요. 등록된 예고편은 YouTube에서 재생해요.</span>
+          </li>
+          <li>
+            <strong>추천 방식</strong>
+            <span>시놉시스의 TF-IDF 벡터와 장르를 코사인 유사도로 비교하는 콘텐츠 기반 추천이에요. 생성형 AI나 학습형 모델은 사용하지 않아요. 로그인하면 찜 작품과 선호 장르도 반영해요.</span>
+          </li>
+          <li>
+            <strong>저장 정보</strong>
+            <span>계정과 찜 목록은 서버 데이터베이스에 저장하고, 테마와 기본 선호 장르는 현재 브라우저에 저장해요.</span>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <dialog class="ai-feature-dialog" id="ai-curator-dialog"
+    aria-labelledby="ai-curator-title">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2 id="ai-curator-title">AI 큐레이터에게 물어보기</h2>
+        <button class="dialog-close" id="close-curator-dialog" type="button"
+          aria-label="큐레이터 창 닫기">×</button>
+      </div>
+      <p class="dialog-meta">
+        원하는 애니를 바로 물어보거나 대화로 취향을 좁혀보세요. 등록된 작품만 추천하며,
+        로그인하면 대화 기록을 계정에 저장합니다.
+      </p>
+      <div class="curator-toolbar">
+        <select id="curator-conversation-select" aria-label="저장된 큐레이터 대화" hidden>
+          <option value="">새 대화</option>
+        </select>
+        <button id="curator-new-chat" type="button">새 대화</button>
+        <button id="curator-delete-chat" type="button" class="settings-action danger"
+          hidden>대화 삭제</button>
+      </div>
+      <div class="curator-messages" id="curator-messages" role="log"
+        aria-live="polite" aria-label="큐레이터 대화"></div>
+      <p class="ai-feature-status" id="curator-status" role="status" aria-live="polite"></p>
+      <form class="curator-form" id="curator-form">
+        <textarea id="curator-input" maxlength="300" required
+          aria-label="큐레이터에게 보낼 메시지"
+          placeholder="예: 주인공이 압도적으로 강한 통쾌한 액션 애니 추천해줘"></textarea>
+        <button id="curator-submit" type="submit">보내기</button>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog class="ai-feature-dialog" id="character-creator-dialog"
+    aria-labelledby="character-creator-title">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2 id="character-creator-title">나만의 애니 캐릭터 만들기</h2>
+        <button class="dialog-close" id="close-character-creator-dialog"
+          type="button" aria-label="캐릭터 창작 창 닫기">×</button>
+      </div>
+      <p class="dialog-meta">
+        캐릭터 설정은 설정에서 선택한 AI가 만들고, 이미지는 GPT 또는 Gemini가 생성해요.
+        Claude는 이미지 생성 기능을 제공하지 않아 이미지 생성에 사용할 수 없어요.
+        각 제공자의 API 키와 요금이 적용되며 이미지는 서버에 저장하지 않아요.
+      </p>
+      <form class="character-creator-form" id="character-creator-form">
+        <textarea id="character-creator-prompt" maxlength="300" required
+          aria-label="창작 캐릭터 구상"
+          placeholder="예: 바다 위를 달리는 기차를 지키는 수줍은 정비사"></textarea>
+        <label for="character-image-provider">이미지 생성 AI</label>
+        <select id="character-image-provider" class="settings-action"
+          aria-describedby="character-image-provider-note">
+          <option value="openai">GPT (OpenAI)</option>
+          <option value="gemini">Gemini</option>
+        </select>
+        <p class="dialog-meta" id="character-image-provider-note">
+          Claude는 캐릭터 설정 생성에 사용할 수 있지만 이미지는 만들 수 없어요.
+        </p>
+        <button id="character-creator-submit" type="submit">캐릭터와 이미지 만들기</button>
+      </form>
+      <p class="ai-feature-status" id="character-creator-status"
+        role="status" aria-live="polite"></p>
+      <div id="character-creator-result"></div>
+    </div>
+  </dialog>
+
+  <nav class="mobile-bottom-nav" aria-label="빠른 이동">
+    <button class="mobile-nav-action" type="button" data-mobile-action="home" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path></svg>
+      <span>홈</span>
+    </button>
+    <button class="mobile-nav-action" type="button" data-mobile-action="schedule">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.7"></rect><path d="M7 3v4m10-4v4M3 10h18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+      <span>방영표</span>
+    </button>
+    <button class="mobile-nav-action" type="button" data-mobile-action="saved">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-4-6 4V4.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path></svg>
+      <span>찜 <span id="mobile-saved-count">0</span></span>
+    </button>
+    <button class="mobile-nav-action" type="button" data-mobile-action="shortcuts">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+      <span>바로가기</span>
+    </button>
+    <button class="mobile-nav-action" type="button" data-mobile-action="search">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"></circle><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+      <span>검색</span>
+    </button>
+  </nav>
+
+  <dialog id="detail-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2 id="dialog-title"></h2>
+        <button class="dialog-close" type="button" aria-label="닫기">×</button>
+      </div>
+      <div class="detail-layout">
+        <img class="dialog-poster" id="dialog-poster" alt="">
+        <div class="detail-copy">
+          <p class="dialog-meta" id="dialog-meta"></p>
+          <div class="tags" id="dialog-tags"></div>
+          <p class="dialog-description-label">AI 분위기·소재 태그</p>
+          <div class="tags" id="dialog-ai-tags"></div>
+          <button class="detail-link" id="dialog-ai-tag-button" type="button" hidden>
+            줄거리에서 AI 태그 만들기
+          </button>
+          <p class="ai-tag-status" id="dialog-ai-tag-status"
+            role="status" aria-live="polite"></p>
+          <p class="dialog-description-label" id="dialog-description-label">작품 소개 · Kitsu 원문</p>
+          <p class="dialog-synopsis" id="dialog-synopsis"></p>
+          <button class="detail-link" id="dialog-synopsis-ai-button" type="button" hidden>
+            AI로 한국어 줄거리 요약
+          </button>
+          <p class="synopsis-ai-status" id="dialog-synopsis-ai-status"
+            role="status" aria-live="polite"></p>
+          <div class="detail-actions">
+            <a class="detail-link primary" id="trailer-search" target="_blank" rel="noopener noreferrer">
+              유튜브에서 공식 예고편 찾기
+            </a>
+            <a class="detail-link" id="streaming-search" target="_blank" rel="noopener noreferrer">
+              시청 가능한 스트리밍 확인
+            </a>
+            <a class="detail-link" id="kitsu-source" target="_blank" rel="noopener noreferrer">
+              Kitsu 작품 정보
+            </a>
+          </div>
+        </div>
+      </div>
+      <section class="detail-media-section" aria-labelledby="trailer-title">
+        <h3 id="trailer-title">예고편 미리보기</h3>
+        <p class="trailer-status" id="trailer-status" role="status">예고편 정보를 확인하는 중이에요.</p>
+        <div class="trailer-frame" id="trailer-frame" hidden>
+          <iframe id="trailer-player" title="작품 예고편" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="detail-media-note">작품 데이터에 등록된 YouTube 예고편을 연결해요. 공식 채널 영상인지와 재생 가능 여부는 YouTube에서 확인해주세요.</p>
+      </section>
+      <section class="detail-media-section" id="similar-section" aria-labelledby="similar-title" hidden>
+        <h3 id="similar-title">비슷한 작품</h3>
+        <p class="detail-media-note">
+          시놉시스의 주요 단어와 장르를 비교해 가까운 작품을 찾아요. 유사도는 자동 계산 결과예요.
+        </p>
+        <div class="related-anime-list" id="similar-anime-list"></div>
+      </section>
+      <section class="detail-media-section" aria-labelledby="characters-title">
+        <h3 id="characters-title">등장 캐릭터</h3>
+        <p class="detail-media-note">
+          AniList의 캐릭터 정보와 이미지를 표시하고, 설정한 생성형 AI가 이름과 제공된 소개를 한국어로 번역·요약해요.
+          AI 설명은 공식 번역이 아니며, 원문에 없는 설정은 추가하지 않아요.
+        </p>
+        <button class="character-load-button" id="character-load-button" type="button">
+          등장 캐릭터 불러오기
+        </button>
+        <p class="character-status" id="character-status" role="status" aria-live="polite"></p>
+        <div class="character-list" id="character-list"></div>
+      </section>
+      <section class="detail-media-section" id="related-section" aria-labelledby="related-title" hidden>
+        <div class="related-heading">
+          <h3 id="related-title">시즌 및 관련 작품</h3>
+          <label class="related-sort-control" for="related-sort-select">
+            정렬
+            <select class="related-sort-select" id="related-sort-select">
+              <option value="year">연도순</option>
+              <option value="title">이름순</option>
+            </select>
+          </label>
+        </div>
+        <div class="related-anime-list" id="related-anime-list"></div>
+      </section>
+      <section class="detail-media-section" aria-labelledby="streaming-title">
+        <h3 id="streaming-title">시청 가능한 스트리밍 서비스</h3>
+        <p class="detail-media-note">JustWatch에서 작품명을 검색해 현재 이용 가능한 합법 스트리밍 서비스를 확인할 수 있어요. 지역과 시점에 따라 제공처가 달라질 수 있습니다.</p>
+      </section>
+    </div>
+  </dialog>
+
+  <dialog id="delete-account-dialog" aria-labelledby="delete-account-title">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2 id="delete-account-title">계정 삭제</h2>
+        <button class="dialog-close delete-account-close" type="button" aria-label="닫기">×</button>
+      </div>
+      <p class="dialog-meta">계정을 삭제하면 찜 목록과 로그인 정보도 함께 삭제되며 되돌릴 수 없어요. 본인 확인을 위해 비밀번호를 입력해주세요.</p>
+      <form class="auth-form" id="delete-account-form">
+        <label for="delete-account-password">비밀번호</label>
+        <input id="delete-account-password" name="password" type="password"
+          maxlength="128" autocomplete="current-password" required>
+        <p class="auth-message" id="delete-account-message" role="alert" aria-live="polite"></p>
+        <button class="auth-submit" type="submit">계정과 찜 목록 삭제</button>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog id="auth-dialog" aria-labelledby="auth-title">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2 id="auth-title">로그인</h2>
+        <button class="dialog-close auth-close" type="button" aria-label="닫기">×</button>
+      </div>
+      <p class="dialog-meta" id="auth-description">찜한 작품을 계정에 저장해보세요.</p>
+      <form class="auth-form" id="auth-form">
+        <label for="auth-username">아이디</label>
+        <input id="auth-username" name="username" type="text" minlength="4"
+          maxlength="20" pattern="[A-Za-z0-9_]{4,20}" autocomplete="username"
+          autocapitalize="none" spellcheck="false" required>
+        <label for="auth-password">비밀번호</label>
+        <input id="auth-password" name="password" type="password" minlength="8"
+          maxlength="128" autocomplete="current-password" required>
+        <p class="auth-message" id="auth-message" role="alert" aria-live="polite"></p>
+        <button class="auth-submit" id="auth-submit" type="submit">로그인</button>
+      </form>
+      <button class="auth-switch" id="auth-switch" type="button">처음이신가요? 회원가입</button>
+    </div>
+  </dialog>
+
+  <dialog id="account-menu-dialog" aria-labelledby="account-menu-title">
+    <div class="account-menu-content">
+      <div class="dialog-header">
+        <h2 id="account-menu-title">내 계정</h2>
+        <button class="dialog-close account-menu-close" type="button" aria-label="닫기">×</button>
+      </div>
+      <p class="account-menu-user" id="account-menu-user"></p>
+      <div class="account-menu-actions">
+        <button class="account-menu-action" id="account-menu-settings" type="button">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.4-6.4-1.4 1.4M7 17l-1.4 1.4m12.8 0L17 17M7 7 5.6 5.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+          </svg>
+          계정 설정
+        </button>
+        <button class="account-menu-action" id="account-menu-logout" type="button">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M10 4H5v16h5M14 8l4 4-4 4m4-4H9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          로그아웃
+        </button>
+        <button class="account-menu-action danger" id="account-menu-delete" type="button">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M9 7V4h6v3m3 0-1 13H7L6 7m4 4v5m4-5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          계정 삭제
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const genreLabels = {
+      Action: "액션", Adventure: "모험", "Anime Influenced": "애니메이션풍",
+      Comedy: "코미디", Dementia: "초현실", Demons: "악마", Drama: "드라마",
+      Ecchi: "에치", Family: "가족", Fantasy: "판타지", Food: "음식",
+      Friendship: "우정", Game: "게임", "Gender Bender": "성별 변환",
+      Gore: "고어", Harem: "하렘", Horror: "공포", Magic: "마법",
+      "Martial Arts": "무술", Mecha: "메카", Military: "밀리터리",
+      Music: "음악", Mystery: "미스터리", Parody: "패러디", Police: "경찰",
+      Political: "정치", Psychological: "심리", Romance: "로맨스",
+      School: "학원", "Sci-Fi": "SF", "Slice of Life": "일상", Space: "우주",
+      Sports: "스포츠", "Super Power": "초능력", Supernatural: "초자연",
+      Thriller: "스릴러", Vampire: "뱀파이어", "Mahou Shoujo": "마법소녀"
+    };
+    let genres = [];
+    let animeList = [];
+    const dayLabels = {
+      monday: "월", tuesday: "화", wednesday: "수", thursday: "목",
+      friday: "금", saturday: "토", sunday: "일"
+    };
+    let activeScheduleDay = "";
+    let scheduleRequestId = 0;
+    let activeScheduleItems = [];
+    let activeScheduleDate = "";
+    let scheduleLayout = localStorage.getItem("anipick-schedule-layout") === "list"
+      ? "list"
+      : "grid";
+    let catalogLayout = localStorage.getItem("anipick-catalog-layout") === "list"
+      ? "list"
+      : "grid";
+    const selectedGenres = new Set();
+    const savedIds = new Set();
+    const genreList = document.querySelector("#genre-list");
+    const animeGrid = document.querySelector("#anime-grid");
+    const searchInput = document.querySelector("#search-input");
+    const sortSelect = document.querySelector("#sort-select");
+    const preferencesSection = document.querySelector("#preferences");
+    const scheduleGrid = document.querySelector("#schedule-grid");
+    const scheduleStatus = document.querySelector("#schedule-status");
+    const scheduleSearch = document.querySelector("#schedule-search");
+    const scheduleGenreFilter = document.querySelector("#schedule-genre-filter");
+    const scheduleYearFilter = document.querySelector("#schedule-year-filter");
+    const scheduleSort = document.querySelector("#schedule-sort");
+    const mobileBottomNav = document.querySelector(".mobile-bottom-nav");
+    const navigationDialog = document.querySelector("#navigation-dialog");
+    const detailDialog = document.querySelector("#detail-dialog");
+    const synopsisAiButton = document.querySelector("#dialog-synopsis-ai-button");
+    const synopsisAiStatus = document.querySelector("#dialog-synopsis-ai-status");
+    const aiTagButton = document.querySelector("#dialog-ai-tag-button");
+    const aiTagStatus = document.querySelector("#dialog-ai-tag-status");
+    const aiTagList = document.querySelector("#dialog-ai-tags");
+    const relatedSortSelect = document.querySelector("#related-sort-select");
+    const characterLoadButton = document.querySelector("#character-load-button");
+    const characterStatus = document.querySelector("#character-status");
+    const characterList = document.querySelector("#character-list");
+    const aiProviderSelect = document.querySelector("#ai-provider-select");
+    const aiProviderStatus = document.querySelector("#ai-provider-status");
+    const apiKeyForm = document.querySelector("#api-key-form");
+    const apiKeyStatus = document.querySelector("#api-key-status");
+    const apiKeyAccessNote = document.querySelector("#api-key-access-note");
+    const AI_PROVIDER_STORAGE_KEY = "anipick-ai-provider";
+    const curatorForm = document.querySelector("#curator-form");
+    const curatorInput = document.querySelector("#curator-input");
+    const curatorSubmit = document.querySelector("#curator-submit");
+    const curatorMessagesElement = document.querySelector("#curator-messages");
+    const curatorStatus = document.querySelector("#curator-status");
+    const curatorConversationSelect =
+      document.querySelector("#curator-conversation-select");
+    const curatorNewChatButton = document.querySelector("#curator-new-chat");
+    const curatorDeleteChatButton = document.querySelector("#curator-delete-chat");
+    let curatorMessages = [];
+    let curatorConversationId = null;
+    let curatorConversationRequestId = 0;
+    let curatorConversationListRequestId = 0;
+    const characterCreatorForm =
+      document.querySelector("#character-creator-form");
+    const characterCreatorInput =
+      document.querySelector("#character-creator-prompt");
+    const characterImageProviderSelect =
+      document.querySelector("#character-image-provider");
+    const characterCreatorSubmit =
+      document.querySelector("#character-creator-submit");
+    const characterCreatorStatus =
+      document.querySelector("#character-creator-status");
+    const characterCreatorResult =
+      document.querySelector("#character-creator-result");
+    const curatorDialog = document.querySelector("#ai-curator-dialog");
+    const characterCreatorDialog =
+      document.querySelector("#character-creator-dialog");
+    const catalogStatus = document.querySelector("#catalog-status");
+    const authDialog = document.querySelector("#auth-dialog");
+    const authForm = document.querySelector("#auth-form");
+    const accountMenuDialog = document.querySelector("#account-menu-dialog");
+    const deleteAccountDialog = document.querySelector("#delete-account-dialog");
+    const deleteAccountForm = document.querySelector("#delete-account-form");
+    let currentUser = null;
+    let activeSynopsisAnimeId = null;
+    let showingAiSynopsis = false;
+    let tasteScores = new Map();
+    let tasteReasons = new Map();
+    let tasteGenreWeights = {};
+    let aiSearch = { query: "", items: [] };
+    let aiSearchTimer = null;
+    let csrfToken = null;
+    let activeRelatedAnime = null;
+    let activeSimilarAnimeId = "";
+    let similarRequestId = 0;
+    let activeCharacterAnimeId = "";
+    let characterRequestId = 0;
+    let aiProviderOptions = new Map();
+    let defaultAiProvider = null;
+    let authMode = "login";
+    let showingSaved = false;
+    let defaultGenres = [];
+    let currentTheme = localStorage.getItem("anipick-theme") === "dark"
+      ? "dark"
+      : "light";
+
+    function applyTheme(theme) {
+      currentTheme = theme === "dark" ? "dark" : "light";
+      document.documentElement.dataset.theme = currentTheme;
+      localStorage.setItem("anipick-theme", currentTheme);
+      document.querySelector('meta[name="theme-color"]').content =
+        currentTheme === "dark" ? "#19171f" : "#f8f7fc";
+      document.querySelectorAll("[data-theme-choice]").forEach((button) => {
+        button.setAttribute(
+          "aria-pressed",
+          String(button.dataset.themeChoice === currentTheme)
+        );
+      });
+      const themeToggle = document.querySelector("#theme-toggle");
+      themeToggle.setAttribute(
+        "aria-label",
+        currentTheme === "dark" ? "라이트 모드로 전환" : "다크 모드로 전환"
+      );
+      document.querySelector(".theme-sun-icon").hidden = currentTheme !== "dark";
+      document.querySelector(".theme-moon-icon").hidden = currentTheme === "dark";
+    }
+
+    function showHome() {
+      document.querySelector("#home-view").hidden = false;
+      document.querySelector("#schedule-view").hidden = true;
+      document.querySelector("#settings-view").hidden = true;
+      document.querySelector("#settings-button").removeAttribute("aria-current");
+      updateDrawerNavigation("home");
+      updateMobileNavigation("home");
+      if (window.location.hash === "#settings" || window.location.hash === "#schedule") {
+        window.history.replaceState(
+          null,
+          "",
+          `${window.location.pathname}${window.location.search}#recommendations`
+        );
+      }
+    }
+
+    function showSchedule(day = activeScheduleDay || getKoreaWeekday()) {
+      document.querySelector("#home-view").hidden = true;
+      document.querySelector("#schedule-view").hidden = false;
+      document.querySelector("#settings-view").hidden = true;
+      document.querySelector("#settings-button").removeAttribute("aria-current");
+      updateDrawerNavigation("schedule");
+      updateMobileNavigation("schedule");
+      loadSchedule(day);
+    }
+
+    function getKoreaWeekday() {
+      return new Intl.DateTimeFormat("en-US", {
+        weekday: "long",
+        timeZone: "Asia/Seoul"
+      }).format(new Date()).toLowerCase();
+    }
+
+    function normalizeTitleForMatch(title) {
+      return String(title || "")
+        .normalize("NFKC")
+        .toLocaleLowerCase()
+        .replace(/[\p{P}\p{S}\s]/gu, "");
+    }
+
+    function findScheduleCatalogMatch(anime) {
+      const airingTitles = new Set([
+        anime.title,
+        anime.title_ko,
+        anime.original_title,
+        ...(anime.title_synonyms || [])
+      ].map(normalizeTitleForMatch).filter(Boolean));
+      return animeList.find((catalogAnime) => [
+        catalogAnime.title_ko,
+        catalogAnime.title,
+        ...Object.values(catalogAnime.titles || {})
+      ].map(normalizeTitleForMatch).some((title) => title && airingTitles.has(title)));
+    }
+
+    function scheduleTasteScore({ anime, catalogMatch }) {
+      const animeGenres = anime.genres || [];
+      const genrePart = animeGenres.length
+        ? animeGenres.reduce(
+          (sum, genre) => sum + (tasteGenreWeights[genre] || 0),
+          0
+        ) / animeGenres.length
+        : 0;
+      const catalogPart = catalogMatch ? (tasteScores.get(catalogMatch.id) || 0) : 0;
+      return genrePart * 0.6 + catalogPart * 0.4;
+    }
+
+    function renderSchedule(items, day, date) {
+      activeScheduleItems = items;
+      activeScheduleDate = date;
+      document.querySelector("#schedule-date-label").textContent =
+        `${dayLabels[day]}요일 방영작`;
+      populateScheduleFilters(items);
+      renderScheduleResults();
+    }
+
+    function populateScheduleFilters(items) {
+      const currentGenre = scheduleGenreFilter.value;
+      const genresInSchedule = [...new Set(
+        items.flatMap((anime) => anime.genres || [])
+          .filter((genre) => typeof genre === "string" && genre.trim())
+      )].sort((a, b) => genreLabel(a).localeCompare(genreLabel(b), "ko"));
+      scheduleGenreFilter.innerHTML = '<option value="">장르 전체</option>' +
+        genresInSchedule.map((genre) =>
+          `<option value="${escapeHtml(genre)}">${escapeHtml(genreLabel(genre))}</option>`
+        ).join("");
+      scheduleGenreFilter.value = genresInSchedule.includes(currentGenre)
+        ? currentGenre
+        : "";
+
+      const currentYear = scheduleYearFilter.value;
+      const years = [...new Set(items.map((anime) => anime.year)
+        .filter((year) => Number.isInteger(year) && year > 0))]
+        .sort((a, b) => b - a);
+      scheduleYearFilter.innerHTML = '<option value="">연도 전체</option>' +
+        years.map((year) =>
+          `<option value="${year}">${year}년</option>`
+        ).join("");
+      scheduleYearFilter.value = years.includes(Number(currentYear))
+        ? currentYear
+        : "";
+    }
+
+    function compareScheduleNumber(a, b, field) {
+      const first = Number(a[field]);
+      const second = Number(b[field]);
+      const firstValid = a[field] !== null && a[field] !== undefined &&
+        Number.isFinite(first);
+      const secondValid = b[field] !== null && b[field] !== undefined &&
+        Number.isFinite(second);
+      if (firstValid !== secondValid) return firstValid ? -1 : 1;
+      return firstValid ? second - first : 0;
+    }
+
+    function renderScheduleResults() {
+      const entries = activeScheduleItems.map((anime) => ({
+        anime,
+        catalogMatch: findScheduleCatalogMatch(anime)
+      }));
+
+      const query = scheduleSearch.value.trim().toLocaleLowerCase("ko");
+      const filtered = entries.filter(({ anime, catalogMatch }) => {
+        const titleMatches = !query || [
+          anime.title,
+          anime.title_ko,
+          anime.original_title,
+          ...(anime.title_synonyms || []),
+          catalogMatch?.title_ko,
+          catalogMatch?.title,
+          ...Object.values(catalogMatch?.titles || {})
+        ].some((title) => String(title || "").toLocaleLowerCase("ko").includes(query));
+        const genreMatches = !scheduleGenreFilter.value ||
+          (anime.genres || []).includes(scheduleGenreFilter.value);
+        const yearMatches = !scheduleYearFilter.value ||
+          String(anime.year || "") === scheduleYearFilter.value;
+        return titleMatches && genreMatches && yearMatches;
+      });
+
+      const comparators = {
+        popular: (a, b) => compareScheduleNumber(a.anime, b.anime, "popularity"),
+        newest: (a, b) => compareScheduleNumber(a.anime, b.anime, "year"),
+        rating: (a, b) => compareScheduleNumber(a.anime, b.anime, "score"),
+        taste: (a, b) => scheduleTasteScore(b) - scheduleTasteScore(a),
+        name: (a, b) => String(
+          a.catalogMatch?.title_ko || a.anime.title_ko || a.anime.title || ""
+        ).localeCompare(
+          String(b.catalogMatch?.title_ko || b.anime.title_ko || b.anime.title || ""),
+          "ko",
+          { sensitivity: "base" }
+        ),
+        time: (a, b) => String(a.anime.broadcast_time || "99:99").localeCompare(
+          String(b.anime.broadcast_time || "99:99"), "en", { numeric: true }
+        )
+      };
+      const compare = comparators[scheduleSort.value] || comparators.popular;
+      filtered.sort((a, b) =>
+        compare(a, b) ||
+        String(a.anime.broadcast_time || "99:99").localeCompare(
+          String(b.anime.broadcast_time || "99:99"), "en", { numeric: true }
+        )
+      );
+
+      if (!filtered.length) {
+        scheduleGrid.innerHTML = `<div class="empty-state">${
+          activeScheduleItems.length
+            ? "검색 조건에 맞는 방영작이 없어요."
+            : "이 요일에 등록된 방영 예정 작품이 없어요."
+        }</div>`;
+        scheduleStatus.textContent = `${dayLabels[activeScheduleDay]}요일 · ${activeScheduleDate} · 검색 결과 0개`;
+        return;
+      }
+
+      const matchingCount = filtered.filter((entry) => entry.catalogMatch).length;
+      scheduleGrid.innerHTML = filtered.map(({ anime, catalogMatch }) => {
+        const title = escapeHtml(
+          catalogMatch?.title_ko || anime.title_ko || anime.title || "제목 정보 없음"
+        );
+        const poster = typeof anime.image_url === "string" &&
+          anime.image_url.startsWith("https://")
+          ? `<img class="schedule-poster" src="${escapeHtml(anime.image_url)}" alt="" loading="lazy">`
+          : '<div class="schedule-poster" aria-hidden="true"></div>';
+        const badge = catalogMatch
+          ? '<span class="schedule-catalog-match">AniPick 작품 목록</span>'
+          : "";
+        const originalTitle = anime.original_title
+          ? `<p class="schedule-original-title">${escapeHtml(anime.original_title)}</p>`
+          : "";
+        const time = anime.broadcast_time
+          ? `${escapeHtml(anime.broadcast_date || activeScheduleDate)} ${escapeHtml(anime.broadcast_time)} · 한국 시간`
+          : "방영 시간 정보 없음";
+        const episode = Number.isInteger(anime.episode) && anime.episode > 0
+          ? ` · ${anime.episode}화`
+          : "";
+        const facts = [
+          Number.isInteger(anime.year) ? `${anime.year}년` : "",
+          Number.isFinite(Number(anime.score)) && anime.score !== null
+            ? `★ ${(Number(anime.score) / 10).toFixed(1)}`
+            : ""
+        ].filter(Boolean).join(" · ");
+        return `<article class="schedule-card">${poster}<div class="schedule-copy">
+          <h2>${title}</h2>${badge}${originalTitle}<p class="schedule-time">${time}${episode}</p>
+          ${facts ? `<p class="schedule-facts">${escapeHtml(facts)}</p>` : ""}
+          <div class="schedule-tags">${(anime.genres || []).map((genre) =>
+            `<span class="tag">${escapeHtml(genreLabel(genre))}</span>`
+          ).join("")}</div>
+          <a class="schedule-link" href="https://anilist.co/anime/${encodeURIComponent(anime.id)}"
+            target="_blank" rel="noopener noreferrer">AniList 작품 정보 ↗</a>
+        </div></article>`;
+      }).join("");
+      scheduleStatus.textContent =
+        `${dayLabels[activeScheduleDay]}요일 · ${activeScheduleDate} · ${filtered.length}개 작품 · AniPick 목록 ${matchingCount}개`;
+    }
+
+    async function loadSchedule(day) {
+      activeScheduleDay = Object.prototype.hasOwnProperty.call(dayLabels, day)
+        ? day
+        : getKoreaWeekday();
+      document.querySelector("#schedule-date-label").textContent =
+        `${dayLabels[activeScheduleDay]}요일 방영작`;
+      activeScheduleItems = [];
+      const requestId = ++scheduleRequestId;
+      document.querySelectorAll("[data-schedule-day]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.scheduleDay === activeScheduleDay));
+      });
+      scheduleStatus.textContent = `${dayLabels[activeScheduleDay]}요일 방영 정보를 불러오는 중이에요.`;
+      scheduleGrid.innerHTML = "";
+      try {
+        const response = await fetch(`/api/schedule?day=${encodeURIComponent(activeScheduleDay)}`);
+        const payload = await response.json();
+        if (!response.ok) throw new Error(payload.error || `Schedule request failed (${response.status})`);
+        if (!Array.isArray(payload.items) || typeof payload.date !== "string") {
+          throw new Error("Schedule response has an unexpected format");
+        }
+        if (requestId === scheduleRequestId) {
+          renderSchedule(payload.items, activeScheduleDay, payload.date);
+        }
+      } catch (error) {
+        if (requestId !== scheduleRequestId) return;
+        console.error("Could not load airing schedule:", error);
+        scheduleStatus.textContent = "방영 정보를 불러오지 못했어요.";
+        scheduleGrid.innerHTML = `<div class="schedule-error">
+          ${escapeHtml(error.message || "잠시 후 다시 시도해주세요.")}
+          <button class="settings-action" type="button" data-schedule-retry>다시 시도</button>
+        </div>`;
+      }
+    }
+
+    function updateMobileNavigation(activeAction) {
+      mobileBottomNav.querySelectorAll("[data-mobile-action]").forEach((button) => {
+        if (button.dataset.mobileAction === activeAction) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    function updateDrawerNavigation(activeAction) {
+      document.querySelectorAll("[data-navigation-action]").forEach((button) => {
+        if (button.dataset.navigationAction === activeAction) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    function closeNavigation() {
+      if (navigationDialog.open) navigationDialog.close();
+      document.querySelector("#menu-button").setAttribute("aria-expanded", "false");
+    }
+
+    function showCatalog(title, sortBy, usePreferredGenres = false) {
+      showHome();
+      showingSaved = false;
+      searchInput.value = "";
+      selectedGenres.clear();
+      if (usePreferredGenres) {
+        for (const preferred of defaultGenres) selectedGenres.add(preferred);
+      }
+      sortSelect.value = sortBy;
+      document.querySelector("#results-title").textContent = title;
+      renderGenres();
+      updateSortDescription();
+      renderAnime();
+    }
+
+    function focusSearch() {
+      closeNavigation();
+      const scheduleView = document.querySelector("#schedule-view");
+      const settingsView = document.querySelector("#settings-view");
+      if (!scheduleView.hidden) {
+        updateMobileNavigation("search");
+        scheduleSearch.focus({ preventScroll: true });
+        return;
+      }
+      if (!settingsView.hidden) showCatalog("취향에 맞는 작품", "recommended", true);
+      updateMobileNavigation("search");
+      searchInput.focus({ preventScroll: true });
+      window.scrollTo(0, 0);
+    }
+
+    function navigateToSettings() {
+      closeNavigation();
+      if (window.location.hash !== "#settings") {
+        window.location.hash = "settings";
+      } else {
+        showSettings();
+      }
+    }
+
+    function navigateFromMenu(action) {
+      closeNavigation();
+      if (action === "home") {
+        showCatalog("취향에 맞는 작품", "recommended", true);
+      } else if (action === "schedule") {
+        navigateToSchedule();
+      } else if (action === "explore") {
+        showCatalog("전체 작품", "recommended");
+        updateDrawerNavigation("explore");
+        document.querySelector("#recommendations").scrollIntoView({ block: "start" });
+      } else if (action === "saved") {
+        showSavedAnime();
+      } else if (action === "popular") {
+        showCatalog("평점 높은 작품", "popular");
+        updateDrawerNavigation("popular");
+        document.querySelector("#recommendations").scrollIntoView({ block: "start" });
+      } else if (action === "newest") {
+        showCatalog("최신 작품", "newest");
+        updateDrawerNavigation("newest");
+        document.querySelector("#recommendations").scrollIntoView({ block: "start" });
+      } else if (action === "settings") {
+        navigateToSettings();
+      }
+    }
+
+    function showSavedAnime() {
+      updateMobileNavigation("saved");
+      updateDrawerNavigation("saved");
+      if (!currentUser) {
+        showCatalog("취향에 맞는 작품", "recommended");
+        updateMobileNavigation("saved");
+        updateDrawerNavigation("saved");
+        openAuthDialog("login");
+        document.querySelector("#auth-message").textContent =
+          "찜 목록을 보려면 로그인해주세요.";
+        return;
+      }
+      showHome();
+      searchInput.value = "";
+      selectedGenres.clear();
+      showingSaved = true;
+      document.querySelector("#results-title").textContent = "내가 찜한 작품";
+      renderGenres();
+      renderAnime();
+      updateMobileNavigation("saved");
+      updateDrawerNavigation("saved");
+    }
+
+    function applyScheduleLayout(layout) {
+      scheduleLayout = layout === "list" ? "list" : "grid";
+      scheduleGrid.dataset.layout = scheduleLayout;
+      document.querySelectorAll("[data-schedule-layout]").forEach((button) => {
+        button.setAttribute(
+          "aria-pressed",
+          String(button.dataset.scheduleLayout === scheduleLayout)
+        );
+      });
+      localStorage.setItem("anipick-schedule-layout", scheduleLayout);
+    }
+
+    function applyCatalogLayout(layout) {
+      catalogLayout = layout === "list" ? "list" : "grid";
+      animeGrid.dataset.layout = catalogLayout;
+      document.querySelectorAll("[data-layout-choice]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.layoutChoice === catalogLayout));
+      });
+      localStorage.setItem("anipick-catalog-layout", catalogLayout);
+    }
+
+    function navigateToSchedule() {
+      if (window.location.hash !== "#schedule") {
+        window.location.hash = "schedule";
+      } else {
+        showSchedule();
+      }
+    }
+
+    function showSettings() {
+      document.querySelector("#home-view").hidden = true;
+      document.querySelector("#schedule-view").hidden = true;
+      document.querySelector("#settings-view").hidden = false;
+      document.querySelector("#settings-button").setAttribute("aria-current", "page");
+      updateDrawerNavigation("settings");
+      updateMobileNavigation("settings");
+      updateSettingsAccount();
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, (character) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      })[character]);
+    }
+
+    function genreLabel(genre) {
+      return genreLabels[genre] || genre;
+    }
+
+    function safePosterUrl(url) {
+      return typeof url === "string" && url.startsWith("https://media.kitsu.app/")
+        ? url
+        : "";
+    }
+
+    function safeCharacterImageUrl(value) {
+      try {
+        const url = new URL(value);
+        return url.protocol === "https:" &&
+          url.hostname === "s4.anilist.co" &&
+          url.pathname.startsWith("/file/anilistcdn/character/")
+          ? url.href
+          : "";
+      } catch {
+        return "";
+      }
+    }
+
+    function safeCharacterPageUrl(value) {
+      return typeof value === "string" &&
+        /^https:\/\/anilist\.co\/character\/\d+(?:\/[^?#]*)?$/.test(value)
+        ? value
+        : "";
+    }
+
+    function renderCharacters(payload) {
+      const roleLabels = {
+        MAIN: "주요 인물",
+        SUPPORTING: "조연",
+        BACKGROUND: "단역",
+        UNKNOWN: "역할 정보 없음"
+      };
+      const providerLabels = {
+        openai: "OpenAI",
+        gemini: "Gemini",
+        claude: "Claude"
+      };
+      const characters = Array.isArray(payload.characters) ? payload.characters : [];
+      if (!characters.length) {
+        characterStatus.textContent = "AniList에 등록된 캐릭터 정보가 없어요.";
+        return;
+      }
+      characterStatus.textContent =
+        `AniList 출처 · ${providerLabels[payload.provider] || "AI"} 한국어 번역·요약 · AI 결과는 공식 번역이 아니에요.`;
+      characterList.innerHTML = characters.map((character) => {
+        const imageUrl = safeCharacterImageUrl(character.image_url);
+        const pageUrl = safeCharacterPageUrl(character.url);
+        const image = imageUrl
+          ? `<img class="character-image" src="${escapeHtml(imageUrl)}" alt="${escapeHtml(character.name_ko)}" loading="lazy">`
+          : "";
+        const description = character.explanation_ko
+          ? `<p class="character-description">${escapeHtml(character.explanation_ko)}</p>`
+          : `<p class="character-description">제공된 캐릭터 소개가 없어 설명을 만들지 않았어요.</p>`;
+        const name = escapeHtml(character.name_ko);
+        const originalName = character.native_name
+          ? ` <span lang="ja">(${escapeHtml(character.native_name)})</span>`
+          : "";
+        const source = pageUrl
+          ? `<a class="character-source" href="${escapeHtml(pageUrl)}" target="_blank" rel="noopener noreferrer">AniList 원본 정보</a>`
+          : "";
+        return `<article class="character-card${image ? "" : " no-image"}">${image}<div><h4 class="character-name">${name}${originalName}</h4><span class="character-role">${escapeHtml(roleLabels[character.role] || roleLabels.UNKNOWN)}</span>${description}${source}</div></article>`;
+      }).join("");
+    }
+
+    async function loadCharacterInfo() {
+      if (!activeCharacterAnimeId) return;
+      const requestId = ++characterRequestId;
+      characterLoadButton.disabled = true;
+      characterStatus.textContent = "캐릭터 정보와 한국어 번역을 불러오고 있어요.";
+      characterList.replaceChildren();
+      try {
+        const providerQuery = aiProviderSelect.value
+          ? `&provider=${encodeURIComponent(aiProviderSelect.value)}`
+          : "";
+        const response = await fetch(
+          `/api/characters?anime_id=${encodeURIComponent(activeCharacterAnimeId)}${providerQuery}`
+        );
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || `Character request failed (${response.status})`);
+        }
+        if (requestId !== characterRequestId) return;
+        renderCharacters(payload);
+      } catch (error) {
+        if (requestId !== characterRequestId) return;
+        console.error("Could not load Korean character information:", error);
+        characterStatus.textContent =
+          error.message || "캐릭터 정보를 불러오지 못했어요. 잠시 후 다시 시도해주세요.";
+      } finally {
+        if (requestId === characterRequestId) {
+          characterLoadButton.disabled = false;
+          characterLoadButton.textContent = "다시 불러오기";
+        }
+      }
+    }
+
+    async function loadAiProviderSettings() {
+      try {
+        const response = await fetch("/api/ai/providers");
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || `AI settings request failed (${response.status})`);
+        }
+        if (!Array.isArray(payload.providers)) {
+          throw new Error("AI provider settings have an unexpected format");
+        }
+        apiKeyForm.hidden = payload.key_management_enabled !== true;
+        apiKeyAccessNote.hidden =
+          payload.authenticated === true && payload.key_management_enabled === true;
+        apiKeyAccessNote.textContent = payload.authenticated
+          ? "운영 환경에서 계정별 API 키를 저장하려면 서버에 ANIPICK_API_KEY_ENCRYPTION_KEY를 설정해야 해요."
+          : "계정별 API 키를 저장하려면 로그인해주세요.";
+        const providers = new Map(payload.providers.map((provider) => [
+          provider.id,
+          provider
+        ]));
+        const defaultProvider = providers.get(payload.default_provider);
+        if (!defaultProvider) {
+          throw new Error("The default AI provider is not available");
+        }
+        aiProviderOptions = providers;
+        defaultAiProvider = defaultProvider;
+
+        aiProviderSelect.replaceChildren();
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.textContent = `서버 기본값 (${defaultProvider.label})`;
+        defaultOption.disabled = !defaultProvider.configured;
+        aiProviderSelect.append(defaultOption);
+        payload.providers.forEach((provider) => {
+          const option = document.createElement("option");
+          option.value = provider.id;
+          option.textContent = provider.configured
+            ? provider.label
+            : `${provider.label} (API 키 미설정)`;
+          option.disabled = !provider.configured;
+          aiProviderSelect.append(option);
+        });
+
+        const savedProvider = localStorage.getItem(AI_PROVIDER_STORAGE_KEY);
+        if (
+          savedProvider
+          && (!providers.has(savedProvider) || !providers.get(savedProvider).configured)
+        ) {
+          localStorage.removeItem(AI_PROVIDER_STORAGE_KEY);
+        }
+        aiProviderSelect.value = savedProvider
+          && providers.has(savedProvider)
+          && providers.get(savedProvider).configured
+          ? savedProvider
+          : "";
+        aiProviderSelect.disabled = false;
+        updateApiKeyStatuses(providers);
+        updateAiProviderStatus(providers, defaultProvider);
+      } catch (error) {
+        console.error("Could not load AI provider settings:", error);
+        aiProviderSelect.disabled = true;
+        aiProviderStatus.textContent =
+          error.message || "AI 제공자 설정을 불러오지 못했어요.";
+      }
+    }
+
+    function updateApiKeyStatuses(providers) {
+      const providerKeys = [
+        ["openai", "#openai-api-key-status"],
+        ["gemini", "#gemini-api-key-status"],
+        ["claude", "#claude-api-key-status"],
+      ];
+      providerKeys.forEach(([providerId, selector]) => {
+        const provider = providers.get(providerId);
+        document.querySelector(selector).textContent = provider?.configured
+          ? provider.personal_configured
+            ? "이 계정에 저장됨 · 입력하지 않으면 유지"
+            : "서버 기본 키 사용 중 · 개인 키를 입력할 수 있어요"
+          : "미설정";
+        const removeButton = apiKeyForm.querySelector(
+          `[data-remove-api-key="${providerId}"]`
+        );
+        removeButton.hidden = provider?.personal_configured !== true;
+      });
+    }
+
+    apiKeyForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const submitButton = apiKeyForm.querySelector('button[type="submit"]');
+      const apiKeys = Object.fromEntries(
+        [...apiKeyForm.querySelectorAll("input[name]")].map((input) => [
+          input.name,
+          input.value,
+        ])
+      );
+      submitButton.disabled = true;
+      apiKeyStatus.textContent = "서버에 안전하게 저장하는 중이에요.";
+      try {
+        const response = await fetch("/api/ai/keys", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": csrfToken,
+          },
+          body: JSON.stringify(apiKeys),
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || `API key save failed (${response.status})`);
+        }
+        apiKeyForm.reset();
+        await loadAiProviderSettings();
+        apiKeyStatus.textContent =
+          "계정에 암호화해 저장했어요. 키 값은 다시 표시되지 않으며 입력하지 않은 키는 유지됩니다.";
+      } catch (error) {
+        apiKeyStatus.textContent =
+          error.message || "API 키를 저장하지 못했어요. 다시 시도해주세요.";
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+
+    apiKeyForm.querySelectorAll("[data-remove-api-key]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const provider = button.dataset.removeApiKey;
+        button.disabled = true;
+        apiKeyStatus.textContent = "저장된 키를 삭제하는 중이에요.";
+        try {
+          const response = await fetch("/api/ai/keys", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRF-Token": csrfToken,
+            },
+            body: JSON.stringify({ delete: provider }),
+          });
+          const payload = await response.json();
+          if (!response.ok) {
+            throw new Error(payload.error || `API key delete failed (${response.status})`);
+          }
+          await loadAiProviderSettings();
+          apiKeyStatus.textContent = "계정에 저장된 키를 삭제했어요.";
+        } catch (error) {
+          apiKeyStatus.textContent =
+            error.message || "저장된 키를 삭제하지 못했어요.";
+        } finally {
+          button.disabled = false;
+        }
+      });
+    });
+
+    function updateAiProviderStatus(providers, defaultProvider) {
+      const selectedProvider = aiProviderSelect.value
+        ? providers.get(aiProviderSelect.value)
+        : defaultProvider;
+      if (!selectedProvider) {
+        aiProviderStatus.textContent = "선택한 AI 제공자를 확인할 수 없어요.";
+        return;
+      }
+      if (!selectedProvider.configured) {
+        aiProviderStatus.textContent = currentUser
+          ? `${selectedProvider.key_name}이 설정되지 않았어요. 아래에서 계정 키를 저장할 수 있어요.`
+          : `${selectedProvider.key_name}이 설정되지 않았어요. 로그인 후 계정 키를 저장하거나 서버 키를 설정해주세요.`;
+        return;
+      }
+      const scope = aiProviderSelect.value
+        ? "제공자 선택은 이 브라우저에 저장돼요."
+        : "서버 기본 설정을 사용해요.";
+      aiProviderStatus.textContent =
+        `${selectedProvider.label}을(를) 사용합니다. ${scope} 이 계정에 저장된 키가 있으면 우선 사용해요.`;
+    }
+
+    function renderSynopsis(anime) {
+      const label = document.querySelector("#dialog-description-label");
+      const synopsis = document.querySelector("#dialog-synopsis");
+      if (anime.synopsis_ko) {
+        label.textContent = "한국어 작품 소개";
+        synopsis.textContent = anime.synopsis_ko;
+        synopsisAiButton.hidden = true;
+        synopsisAiStatus.textContent = "";
+        return;
+      }
+
+      const showAiSummary = Boolean(anime.ai_synopsis_ko && showingAiSynopsis);
+      label.textContent = showAiSummary
+        ? "AI 한국어 요약 · 원문 기반"
+        : "작품 소개 · Kitsu 원문";
+      synopsis.textContent = showAiSummary
+        ? anime.ai_synopsis_ko
+        : anime.synopsis || "등록된 줄거리 정보가 없어요.";
+      synopsisAiButton.hidden = !anime.synopsis;
+      synopsisAiButton.disabled = false;
+      synopsisAiButton.textContent = anime.ai_synopsis_ko
+        ? showAiSummary ? "원문 줄거리 보기" : "AI 한국어 요약 보기"
+        : "AI로 한국어 줄거리 요약";
+    }
+
+    async function handleAiSynopsisClick() {
+      const anime = animeList.find((item) => item.id === activeSynopsisAnimeId);
+      if (!anime || anime.synopsis_ko) return;
+      if (anime.ai_synopsis_ko) {
+        showingAiSynopsis = !showingAiSynopsis;
+        renderSynopsis(anime);
+        return;
+      }
+
+      synopsisAiButton.disabled = true;
+      synopsisAiStatus.textContent = "원문 줄거리를 바탕으로 한국어 요약을 만들고 있어요…";
+      const provider = aiProviderSelect.value || defaultAiProvider?.id;
+      try {
+        const response = await fetch("/api/ai/synopsis", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(
+            provider ? { anime_id: anime.id, provider } : { anime_id: anime.id }
+          )
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || `AI synopsis failed (${response.status})`);
+        }
+        if (activeSynopsisAnimeId !== anime.id) return;
+        anime.ai_synopsis_ko = payload.summary;
+        showingAiSynopsis = true;
+        renderSynopsis(anime);
+        synopsisAiStatus.textContent = payload.cached
+          ? "저장된 한국어 요약을 표시했어요."
+          : "한국어 요약을 만들었어요. 원문 내용을 간결하게 정리한 비공식 요약입니다.";
+      } catch (error) {
+        console.error("Could not summarize anime synopsis:", error);
+        if (activeSynopsisAnimeId === anime.id) {
+          synopsisAiStatus.textContent =
+            error.message || "한국어 요약을 만들지 못했어요. 잠시 후 다시 시도해주세요.";
+        }
+      } finally {
+        if (activeSynopsisAnimeId === anime.id) {
+          synopsisAiButton.disabled = false;
+        }
+      }
+    }
+
+    function renderAiTags(anime) {
+      aiTagList.innerHTML = (anime.ai_tags || []).map((tag) => {
+        const category = tag.category === "mood" ? "분위기" : "소재";
+        return `<span class="tag">${category} · ${escapeHtml(tag.name)}</span>`;
+      }).join("");
+      aiTagButton.hidden = !anime.synopsis;
+      aiTagButton.disabled = false;
+      aiTagButton.textContent = anime.ai_tags?.length
+        ? "저장된 AI 태그 확인"
+        : "줄거리에서 AI 태그 만들기";
+    }
+
+    async function handleAiTagClick() {
+      const anime = animeList.find((item) => item.id === activeSynopsisAnimeId);
+      if (!anime) return;
+
+      aiTagButton.disabled = true;
+      aiTagStatus.textContent = "줄거리에서 분위기와 소재를 찾고 있어요…";
+      const provider = aiProviderSelect.value || defaultAiProvider?.id;
+      try {
+        const response = await fetch("/api/ai/tags", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(
+            provider ? { anime_id: anime.id, provider } : { anime_id: anime.id }
+          )
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || `AI tagging failed (${response.status})`);
+        }
+        if (activeSynopsisAnimeId !== anime.id) return;
+        anime.ai_tags = payload.tags;
+        renderAiTags(anime);
+        aiTagStatus.textContent = payload.cached
+          ? "저장된 AI 태그를 표시했어요."
+          : "줄거리에서 추출한 태그예요. 분류는 자동 생성 결과입니다.";
+      } catch (error) {
+        console.error("Could not generate anime tags:", error);
+        if (activeSynopsisAnimeId === anime.id) {
+          aiTagStatus.textContent =
+            error.message || "AI 태그를 만들지 못했어요. 잠시 후 다시 시도해주세요.";
+        }
+      } finally {
+        if (activeSynopsisAnimeId === anime.id) {
+          aiTagButton.disabled = false;
+        }
+      }
+    }
+
+    function renderCuratorMessages() {
+      curatorMessagesElement.replaceChildren();
+      if (!curatorMessages.length) {
+        const welcome = document.createElement("p");
+        welcome.className = "ai-feature-status";
+        welcome.textContent =
+          "보고 싶은 애니 조건을 바로 적어 추천받거나, 좋아하는 분위기와 피하고 싶은 요소를 말하며 취향을 좁혀보세요.";
+        curatorMessagesElement.append(welcome);
+        return;
+      }
+
+      for (const message of curatorMessages) {
+        const entry = document.createElement("article");
+        entry.className = "curator-message";
+        entry.dataset.role = message.role;
+        const content = document.createElement("p");
+        content.className = "curator-message-content";
+        content.textContent = message.content;
+        entry.append(content);
+
+        if (message.role === "assistant") {
+          for (const recommendation of message.recommendations || []) {
+            const anime = animeList.find(
+              (item) => item.id === String(recommendation.id)
+            );
+            if (!anime) continue;
+            const card = document.createElement("button");
+            card.className = "ai-recommendation-card";
+            card.type = "button";
+            card.dataset.detail = anime.id;
+            const title = document.createElement("strong");
+            title.textContent = anime.title_ko || anime.title;
+            const reason = document.createElement("span");
+            reason.className = "ai-recommendation-reason";
+            reason.textContent = recommendation.reason;
+            card.append(title, reason);
+            entry.append(card);
+          }
+        }
+        curatorMessagesElement.append(entry);
+      }
+      curatorMessagesElement.scrollTop = curatorMessagesElement.scrollHeight;
+    }
+
+    async function loadCuratorConversations(preferredId, openSelected = true) {
+      if (!currentUser) return;
+      const requestId = ++curatorConversationListRequestId;
+      try {
+        const response = await fetch("/api/ai/curator/conversations");
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || "저장된 대화를 불러오지 못했어요.");
+        }
+        if (requestId !== curatorConversationListRequestId) return;
+        const conversations = Array.isArray(payload.items) ? payload.items : [];
+        curatorConversationSelect.replaceChildren();
+        const newOption = document.createElement("option");
+        newOption.value = "";
+        newOption.textContent = "새 대화";
+        curatorConversationSelect.append(newOption);
+        for (const conversation of conversations) {
+          const option = document.createElement("option");
+          option.value = conversation.id;
+          option.textContent = conversation.title;
+          curatorConversationSelect.append(option);
+        }
+        curatorConversationSelect.hidden = false;
+        const selectedId = preferredId ||
+          (conversations[0] ? conversations[0].id : "");
+        curatorConversationSelect.value = selectedId;
+        curatorConversationId = selectedId || null;
+        updateCuratorDeleteButton();
+        if (openSelected && selectedId) {
+          await openCuratorConversation(selectedId);
+        } else if (!selectedId && openSelected) {
+          curatorConversationId = null;
+          curatorMessages = [];
+          renderCuratorMessages();
+        }
+      } catch (error) {
+        console.error("Could not load saved curator conversations:", error);
+        curatorStatus.textContent =
+          error.message || "저장된 대화를 불러오지 못했어요.";
+      }
+    }
+
+    async function openCuratorConversation(conversationId) {
+      const requestId = ++curatorConversationRequestId;
+      try {
+        const response = await fetch(
+          `/api/ai/curator/conversations/${encodeURIComponent(conversationId)}`
+        );
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || "저장된 대화를 불러오지 못했어요.");
+        }
+        if (requestId !== curatorConversationRequestId) return;
+        curatorConversationId = payload.id;
+        updateCuratorDeleteButton();
+        curatorMessages = Array.isArray(payload.messages)
+          ? payload.messages
+          : [];
+        renderCuratorMessages();
+        curatorStatus.textContent = "로그인 계정에 저장된 대화예요.";
+      } catch (error) {
+        console.error("Could not open curator conversation:", error);
+        curatorStatus.textContent =
+          error.message || "저장된 대화를 불러오지 못했어요.";
+      }
+    }
+
+    async function refreshCuratorState() {
+      curatorConversationListRequestId += 1;
+      curatorConversationRequestId += 1;
+      curatorMessages = [];
+      curatorConversationId = null;
+      updateCuratorDeleteButton();
+      if (currentUser) {
+        curatorConversationSelect.replaceChildren();
+        curatorConversationSelect.hidden = false;
+        renderCuratorMessages();
+        curatorStatus.textContent = "로그인 계정에 대화를 저장합니다.";
+        await loadCuratorConversations(null, true);
+        return;
+      }
+
+      curatorConversationSelect.hidden = true;
+      curatorConversationSelect.replaceChildren();
+      curatorDeleteChatButton.hidden = true;
+      curatorStatus.textContent =
+        "비로그인 대화는 현재 화면에서만 유지돼요. 로그인하면 계정에 저장할 수 있어요.";
+      renderCuratorMessages();
+    }
+
+    function startCuratorConversation() {
+      curatorConversationRequestId += 1;
+      curatorConversationId = null;
+      curatorMessages = [];
+      curatorConversationSelect.value = "";
+      updateCuratorDeleteButton();
+      curatorStatus.textContent = currentUser
+        ? "새 대화를 시작해요. 메시지를 보내면 계정에 저장됩니다."
+        : "새 대화를 시작해요. 비로그인 대화는 현재 화면에서만 유지돼요.";
+      renderCuratorMessages();
+      curatorInput.focus();
+    }
+
+    async function sendCuratorMessage(event) {
+      event.preventDefault();
+      const message = curatorInput.value.trim();
+      if (!message) return;
+      curatorSubmit.disabled = true;
+      curatorNewChatButton.disabled = true;
+      curatorConversationSelect.disabled = true;
+      curatorDeleteChatButton.disabled = true;
+      curatorStatus.textContent = "취향을 살펴보고 카탈로그에서 답을 찾고 있어요…";
+      const provider = aiProviderSelect.value || defaultAiProvider?.id;
+      const body = {
+        message,
+        ...(provider ? { provider } : {})
+      };
+      if (currentUser) {
+        if (curatorConversationId) {
+          body.conversation_id = curatorConversationId;
+        }
+      } else {
+        body.history = curatorMessages.slice(-8).map((item) => ({
+          role: item.role,
+          content: item.content.slice(0, 400),
+          ...(item.recommendations
+            ? {
+              recommendations: item.recommendations
+                .slice(0, 5)
+                .map((recommendation) => ({
+                  id: recommendation.id,
+                  reason: ""
+                }))
+            }
+            : {})
+        }));
+      }
+      try {
+        const response = await fetch("/api/ai/curator", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...(currentUser && csrfToken
+              ? { "X-CSRF-Token": csrfToken }
+              : {})
+          },
+          body: JSON.stringify(body)
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || `Curator request failed (${response.status})`);
+        }
+        curatorMessages.push(
+          { role: "user", content: message },
+          {
+            role: "assistant",
+            content: payload.message,
+            recommendations: payload.recommendations || []
+          }
+        );
+        curatorMessages = curatorMessages.slice(-40);
+        if (currentUser) {
+          curatorConversationId = payload.conversation_id;
+          curatorConversationSelect.value = curatorConversationId;
+          await loadCuratorConversations(curatorConversationId, false);
+          curatorStatus.textContent = "대화를 계정에 저장했어요.";
+        } else {
+          curatorStatus.textContent = "현재 화면에서 대화를 이어갈 수 있어요.";
+        }
+        curatorInput.value = "";
+        renderCuratorMessages();
+      } catch (error) {
+        console.error("Could not send curator message:", error);
+        curatorStatus.textContent =
+          error.message || "큐레이터에게 메시지를 보내지 못했어요.";
+      } finally {
+        curatorSubmit.disabled = false;
+        curatorNewChatButton.disabled = false;
+        curatorConversationSelect.disabled = false;
+        updateCuratorDeleteButton();
+      }
+    }
+
+    function updateCuratorDeleteButton() {
+      curatorDeleteChatButton.hidden = !currentUser || !curatorConversationId;
+      curatorDeleteChatButton.disabled =
+        curatorSubmit.disabled || !currentUser || !curatorConversationId;
+    }
+
+    async function deleteCuratorConversation() {
+      if (!currentUser || !curatorConversationId) return;
+      if (!window.confirm("이 큐레이터 대화와 메시지를 모두 삭제할까요?")) return;
+      const conversationId = curatorConversationId;
+      curatorConversationRequestId += 1;
+      curatorDeleteChatButton.disabled = true;
+      curatorStatus.textContent = "대화를 삭제하는 중이에요.";
+      try {
+        const response = await fetch(
+          `/api/ai/curator/conversations/${encodeURIComponent(conversationId)}`,
+          {
+            method: "DELETE",
+            headers: { "X-CSRF-Token": csrfToken },
+          }
+        );
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || "대화를 삭제하지 못했어요.");
+        }
+        curatorConversationId = null;
+        curatorMessages = [];
+        await loadCuratorConversations(null, true);
+        curatorStatus.textContent = "대화와 메시지를 삭제했어요.";
+      } catch (error) {
+        curatorStatus.textContent =
+          error.message || "대화를 삭제하지 못했어요. 다시 시도해주세요.";
+      } finally {
+        updateCuratorDeleteButton();
+      }
+    }
+
+    async function generateCharacterImage(
+      prompt, character, result, imageProvider, imageProviderLabel
+    ) {
+      characterCreatorSubmit.disabled = true;
+      const retryButton = result.querySelector(".character-creator-retry");
+      if (retryButton) retryButton.disabled = true;
+      characterCreatorStatus.textContent = "캐릭터 이미지를 생성하고 있어요…";
+      try {
+        const response = await fetch("/api/ai/character/image", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt, character, image_provider: imageProvider })
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || `Image generation failed (${response.status})`);
+        }
+        if (
+          payload.mime_type !== "image/png"
+          || typeof payload.image !== "string"
+          || !payload.image
+        ) {
+          throw new Error("이미지 생성 결과 형식이 올바르지 않아요.");
+        }
+        const image = document.createElement("img");
+        image.className = "character-creator-image";
+        image.src = `data:${payload.mime_type};base64,${payload.image}`;
+        image.alt = `${character.name} 캐릭터 이미지`;
+        const download = document.createElement("a");
+        download.className = "character-creator-download";
+        download.href = image.src;
+        download.download = "anipick-original-character.png";
+        download.textContent = "캐릭터 이미지 다운로드";
+        result.querySelector(".character-creator-retry")?.remove();
+        result.querySelector(".character-creator-image")?.remove();
+        result.querySelector(".character-creator-download")?.remove();
+        result.append(image, download);
+        characterCreatorStatus.textContent =
+          `${imageProviderLabel}가 이미지를 만들었어요. 이미지는 현재 화면에서만 확인할 수 있어요.`;
+      } catch (error) {
+        console.error("Could not generate an original character image:", error);
+        characterCreatorStatus.textContent =
+          `캐릭터 설정은 만들었지만 이미지 생성에 실패했어요: ${
+            error.message || "잠시 후 다시 시도해주세요."
+          }`;
+        if (!result.querySelector(".character-creator-retry")) {
+          const retry = document.createElement("button");
+          retry.className = "character-creator-retry";
+          retry.type = "button";
+          retry.textContent = "이미지 다시 만들기";
+          retry.addEventListener("click", () => {
+            void generateCharacterImage(
+              prompt,
+              character,
+              result,
+              imageProvider,
+              imageProviderLabel
+            );
+          });
+          result.append(retry);
+        }
+      } finally {
+        characterCreatorSubmit.disabled = false;
+        const retry = result.querySelector(".character-creator-retry");
+        if (retry) retry.disabled = false;
+      }
+    }
+
+    async function createCharacter(event) {
+      event.preventDefault();
+      const prompt = characterCreatorInput.value.trim();
+      if (!prompt) return;
+      characterCreatorSubmit.disabled = true;
+      characterCreatorResult.replaceChildren();
+      characterCreatorStatus.textContent = "새 캐릭터 설정을 만들고 있어요…";
+      const provider = aiProviderSelect.value || defaultAiProvider?.id;
+      const imageProvider = characterImageProviderSelect.value || "openai";
+      try {
+        const response = await fetch("/api/ai/character", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(
+            provider ? { prompt, provider } : { prompt }
+          )
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || `Character creation failed (${response.status})`);
+        }
+        const character = payload.character;
+        const result = document.createElement("article");
+        result.className = "character-creator-result";
+        const title = document.createElement("h3");
+        title.textContent = character.name;
+        result.append(title);
+        const fields = [
+          ["역할", character.role],
+          ["외모", character.appearance],
+          ["성격", character.personality],
+          ["능력", character.ability],
+          ["배경", character.backstory],
+          ["대사", character.quote]
+        ];
+        for (const [label, value] of fields) {
+          const paragraph = document.createElement("p");
+          const strong = document.createElement("strong");
+          strong.textContent = label;
+          paragraph.append(strong, document.createTextNode(value));
+          result.append(paragraph);
+        }
+        characterCreatorResult.append(result);
+        const imageProviderLabels = { openai: "GPT (OpenAI)", gemini: "Gemini" };
+        await generateCharacterImage(
+          prompt,
+          character,
+          result,
+          imageProvider,
+          imageProviderLabels[imageProvider] || "이미지 생성 AI"
+        );
+      } catch (error) {
+        console.error("Could not create an original character:", error);
+        characterCreatorStatus.textContent =
+          error.message || "캐릭터를 만들지 못했어요. 잠시 후 다시 시도해주세요.";
+      } finally {
+        characterCreatorSubmit.disabled = false;
+      }
+    }
+
+    function loadTrailer(anime) {
+      const status = document.querySelector("#trailer-status");
+      const frame = document.querySelector("#trailer-frame");
+      const player = document.querySelector("#trailer-player");
+      frame.hidden = true;
+      player.removeAttribute("src");
+      const videoId = anime.youtube_video_id;
+      if (!videoId || !/^[A-Za-z0-9_-]{6,20}$/.test(videoId)) {
+        status.textContent = "등록된 예고편이 없어요. 아래 버튼에서 작품 예고편을 찾아보세요.";
+        return;
+      }
+
+      player.src = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`;
+      frame.hidden = false;
+      status.textContent = "작품 데이터에 등록된 예고편을 연결했어요.";
+    }
+
+    async function loadTaste() {
+      tasteScores = new Map();
+      tasteReasons = new Map();
+      tasteGenreWeights = {};
+      if (!currentUser) return;
+      try {
+        const genresQuery = encodeURIComponent([...selectedGenres].join(","));
+        const response = await fetch(`/api/recommendations?genres=${genresQuery}`);
+        if (!response.ok) {
+          if (response.status !== 401) {
+            throw new Error(`Taste recommendation request failed (${response.status})`);
+          }
+          return;
+        }
+        const payload = await response.json();
+        for (const item of payload.items || []) {
+          tasteScores.set(item.id, item.score);
+          tasteReasons.set(item.id, item.reason || "");
+        }
+        tasteGenreWeights = payload.genre_weights || {};
+      } catch (error) {
+        console.error("Could not load taste recommendations:", error);
+      }
+    }
+
+    function requestAiSearch(query) {
+      clearTimeout(aiSearchTimer);
+      aiSearchTimer = setTimeout(async () => {
+        try {
+          const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+          const payload = await response.json();
+          if (!response.ok) {
+            throw new Error(payload.error || `Search request failed (${response.status})`);
+          }
+          aiSearch = { query, items: payload.items || [] };
+          if (searchInput.value.trim().toLocaleLowerCase("ko") === query) {
+            renderAnime();
+          }
+        } catch (error) {
+          console.error("Could not search synopsis and genre data:", error);
+          aiSearch = { query, items: [], error: error.message };
+          if (searchInput.value.trim().toLocaleLowerCase("ko") === query) {
+            renderAnime();
+          }
+        }
+      }, 350);
+    }
+
+    async function renderSimilarAnime(anime) {
+      const section = document.querySelector("#similar-section");
+      const list = document.querySelector("#similar-anime-list");
+      const requestId = ++similarRequestId;
+      activeSimilarAnimeId = anime.id;
+      section.hidden = true;
+      list.replaceChildren();
+      try {
+        const response = await fetch(
+          `/api/anime/${encodeURIComponent(anime.id)}/similar`
+        );
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || `Similar anime request failed (${response.status})`);
+        }
+        if (requestId !== similarRequestId || activeSimilarAnimeId !== anime.id) return;
+        const html = (payload.items || []).map((hit) => {
+          const match = animeList.find((item) => item.id === hit.id);
+          if (!match) return "";
+          const shared = (hit.shared_genres || []).map(genreLabel).join(", ");
+          const sharedTags = (hit.shared_tags || []).join(", ");
+          const facts = [
+            `유사도 ${Math.round(hit.score * 100)}%`,
+            shared,
+            sharedTags ? `AI 태그 ${sharedTags}` : ""
+          ].filter(Boolean).join(" · ");
+          return `<button type="button" class="related-anime-link" data-detail="${escapeHtml(match.id)}">${escapeHtml(match.title_ko || match.title)}<span>${escapeHtml(facts)}</span></button>`;
+        }).join("");
+        list.innerHTML = html;
+        section.hidden = !html;
+      } catch (error) {
+        if (requestId !== similarRequestId) return;
+        console.error("Could not load similar anime:", error);
+        section.hidden = false;
+        list.innerHTML =
+          '<p class="detail-media-note">비슷한 작품을 불러오지 못했어요. 잠시 후 다시 열어주세요.</p>';
+      }
+    }
+
+    function renderRelatedAnime(anime) {
+      activeRelatedAnime = anime;
+      const section = document.querySelector("#related-section");
+      const list = document.querySelector("#related-anime-list");
+      const roleLabels = {
+        prequel: "이전 작품",
+        sequel: "후속 시즌·작품",
+        alternative_version: "다른 버전",
+        side_story: "외전",
+        spinoff: "스핀오프",
+        parent_story: "본편",
+        summary: "총집편",
+        full_story: "관련 작품"
+      };
+      const related = (anime.related_anime || [])
+        .filter((item) => item && item.id && (item.title_ko || item.title));
+      if (relatedSortSelect.value === "title") {
+        related.sort((a, b) =>
+          (a.title_ko || a.title).localeCompare(b.title_ko || b.title, "ko")
+        );
+      } else {
+        related.sort((a, b) =>
+          (a.year || Number.MAX_SAFE_INTEGER) - (b.year || Number.MAX_SAFE_INTEGER)
+        );
+      }
+      section.hidden = related.length === 0;
+      list.innerHTML = related.map((item) => {
+        const title = escapeHtml(item.title_ko || item.title);
+        const role = escapeHtml(roleLabels[item.role] || "관련 작품");
+        const facts = [
+          item.year ? String(item.year) : "",
+          item.episodes ? `${item.episodes}화` : ""
+        ].filter(Boolean).join(" · ");
+        const href = `https://kitsu.io/anime/${encodeURIComponent(item.id)}`;
+        return `<a class="related-anime-link" href="${href}" target="_blank" rel="noopener noreferrer">${title}<span>${role}${facts ? ` · ${escapeHtml(facts)}` : ""}</span></a>`;
+      }).join("");
+    }
+
+    async function initialize() {
+      try {
+        const [animeResponse, genreResponse] = await Promise.all([
+          fetch("/api/anime"),
+          fetch("/api/genres")
+        ]);
+        if (!animeResponse.ok || !genreResponse.ok) {
+          throw new Error(`Catalog request failed (${animeResponse.status}/${genreResponse.status})`);
+        }
+        const [animePayload, genrePayload] = await Promise.all([
+          animeResponse.json(),
+          genreResponse.json()
+        ]);
+        if (!Array.isArray(animePayload.items) || !Array.isArray(genrePayload.items)) {
+          throw new Error("Catalog response has an unexpected format");
+        }
+
+        animeList = animePayload.items;
+        genres = genrePayload.items;
+        await refreshAuthState();
+        loadPreferredGenres();
+        await loadTaste();
+
+        catalogStatus.textContent =
+          `${animeList.length}개 작품 · 장르와 시놉시스 기반 추천 · 에치/성인 콘텐츠 제외`;
+        renderGenres();
+        renderSettingsGenres();
+        renderAnime();
+        if (window.location.hash === "#schedule") showSchedule();
+      } catch (error) {
+        console.error("Could not load the anime catalog:", error);
+        catalogStatus.textContent =
+          "작품 정보를 불러오지 못했어요. PowerShell에서 python server.py를 실행했는지 확인해주세요.";
+        animeGrid.innerHTML = `
+          <div class="empty-state">
+            로컬 서버에 연결할 수 없어요.<br>
+            프로젝트 폴더에서 <code>python server.py</code>를 실행한 뒤 새로고침해주세요.
+          </div>`;
+      }
+    }
+
+    function renderGenres() {
+      genreList.innerHTML = genres.map((genre) => `
+        <button class="genre-chip" type="button" data-genre="${escapeHtml(genre)}"
+          aria-pressed="${selectedGenres.has(genre)}">${escapeHtml(genreLabel(genre))}</button>
+      `).join("");
+      document.querySelector("#selected-count").textContent =
+        `${selectedGenres.size}개 선택`;
+    }
+
+    function loadPreferredGenres() {
+      const stored = localStorage.getItem("anipick-preferred-genres");
+      if (stored !== null) {
+        try {
+          const parsed = JSON.parse(stored);
+          if (!Array.isArray(parsed)) {
+            throw new Error("Stored preferred genres must be an array");
+          }
+          defaultGenres = parsed.filter(
+            (genre) => typeof genre === "string" && genres.includes(genre)
+          );
+        } catch (error) {
+          console.error("Could not load saved genre preferences:", error);
+          defaultGenres = [];
+        }
+      } else {
+        defaultGenres = ["Action", "Fantasy"].filter((genre) => genres.includes(genre));
+      }
+      selectedGenres.clear();
+      for (const genre of defaultGenres) selectedGenres.add(genre);
+      savePreferredGenres();
+    }
+
+    function savePreferredGenres() {
+      defaultGenres = genres.filter((genre) => selectedGenres.has(genre));
+      localStorage.setItem(
+        "anipick-preferred-genres",
+        JSON.stringify(defaultGenres)
+      );
+      renderSettingsGenres();
+    }
+
+    function renderSettingsGenres() {
+      const settingsGenreList = document.querySelector("#settings-genre-list");
+      if (!settingsGenreList || !genres.length) return;
+      settingsGenreList.innerHTML = genres.map((genre) => `
+        <button class="genre-chip" type="button" data-setting-genre="${escapeHtml(genre)}"
+          aria-pressed="${defaultGenres.includes(genre)}">${escapeHtml(genreLabel(genre))}</button>
+      `).join("");
+    }
+
+    function resetPreferredGenres() {
+      selectedGenres.clear();
+      for (const genre of ["Action", "Fantasy"]) {
+        if (genres.includes(genre)) selectedGenres.add(genre);
+      }
+      savePreferredGenres();
+      renderGenres();
+      loadTaste().then(renderAnime);
+    }
+
+    function compareOptionalNumberDescending(a, b, property) {
+      const aValue = Number(a[property]);
+      const bValue = Number(b[property]);
+      const aHasValue = a[property] !== null && a[property] !== undefined &&
+        a[property] !== "" && Number.isFinite(aValue);
+      const bHasValue = b[property] !== null && b[property] !== undefined &&
+        b[property] !== "" && Number.isFinite(bValue);
+      if (aHasValue !== bHasValue) return aHasValue ? -1 : 1;
+      return aHasValue ? bValue - aValue : 0;
+    }
+
+    function compareAnime(a, b, sortBy) {
+      const titleComparison = (a.title_ko || a.title || "").localeCompare(
+        b.title_ko || b.title || "", "ko", { sensitivity: "base" }
+      );
+      if (sortBy === "taste") {
+        return (b.tasteScore || 0) - (a.tasteScore || 0) ||
+          compareOptionalNumberDescending(a, b, "score") || titleComparison;
+      }
+      if (sortBy === "popular") {
+        return compareOptionalNumberDescending(a, b, "score") || titleComparison;
+      }
+      if (sortBy === "newest") {
+        return compareOptionalNumberDescending(a, b, "year") ||
+          compareOptionalNumberDescending(a, b, "score") || titleComparison;
+      }
+      if (sortBy === "name") {
+        return titleComparison || compareOptionalNumberDescending(a, b, "score");
+      }
+      return b.matchRatio - a.matchRatio ||
+        compareOptionalNumberDescending(a, b, "score") || titleComparison;
+    }
+
+    function updateSortDescription() {
+      const descriptions = {
+        recommended: "선호 장르가 많이 겹치는 순서로 보여드려요.",
+        taste: currentUser
+          ? "찜한 작품의 줄거리·장르와 가까운 순서로 보여드려요."
+          : "로그인하고 작품을 찜하면 취향에 맞는 순서로 보여드려요.",
+        popular: "Kitsu 평점이 높은 작품부터 보여드려요.",
+        newest: "제작 연도가 최신인 작품부터 보여드려요.",
+        name: "한국어 제목 가나다순으로 보여드려요.",
+        taste: currentUser
+          ? "찜한 작품의 줄거리·장르와 가까운 순서로 보여드려요."
+          : "로그인하고 작품을 찜하면 취향에 맞는 순서로 보여드려요."
+      };
+      document.querySelector("#sort-description").textContent =
+        descriptions[sortSelect.value] || descriptions.recommended;
+    }
+
+    function setGenreFiltersVisible(visible) {
+      preferencesSection.hidden = !visible;
+      document.querySelector("#filter-toggle").setAttribute(
+        "aria-expanded", String(visible)
+      );
+    }
+
+    function getFilteredAnime() {
+      const query = searchInput.value.trim().toLocaleLowerCase("ko");
+      return animeList
+        .map((anime) => {
+          const matchedGenres = anime.genres.filter((genre) => selectedGenres.has(genre));
+          const matchRatio = selectedGenres.size
+            ? matchedGenres.length / selectedGenres.size
+            : Number(anime.score || 0) / 10;
+          return {
+            ...anime,
+            matchedGenres,
+            matchRatio,
+            tasteScore: tasteScores.get(anime.id) || 0,
+            tasteReason: tasteReasons.get(anime.id) || ""
+          };
+        })
+        .filter((anime) => !showingSaved || savedIds.has(anime.id))
+        .filter((anime) => [
+          anime.title_ko,
+          anime.title,
+          ...Object.values(anime.titles || {})
+        ].some((title) => String(title || "").toLocaleLowerCase().includes(query)))
+        .sort((a, b) => compareAnime(a, b, sortSelect.value));
+    }
+
+    function renderAnime() {
+      let filtered = getFilteredAnime();
+      const rawQuery = searchInput.value.trim().toLocaleLowerCase("ko");
+      let searchPending = false;
+      if (!filtered.length && rawQuery && !showingSaved) {
+        if (aiSearch.query === rawQuery) {
+          filtered = aiSearch.items.map((hit) => {
+            const match = animeList.find((item) => item.id === hit.id);
+            return match
+              ? {
+                ...match,
+                matchedGenres: [],
+                matchRatio: 0,
+                tasteScore: tasteScores.get(match.id) || 0,
+                tasteReason: tasteReasons.get(match.id) || "",
+                aiReason: hit.reason
+              }
+              : null;
+          }).filter(Boolean);
+        } else {
+          searchPending = true;
+          requestAiSearch(rawQuery);
+        }
+      }
+      document.querySelector("#saved-count").textContent = savedIds.size;
+      document.querySelector("#mobile-saved-count").textContent = savedIds.size;
+
+      if (!filtered.length) {
+        animeGrid.innerHTML = `
+          <div class="empty-state">
+            ${showingSaved
+              ? "아직 찜한 작품이 없어요.<br>마음에 드는 작품을 찜해 목록에 모아보세요."
+              : searchPending
+                ? "제목과 일치하는 작품이 없어 줄거리와 장르로 비슷한 작품을 찾는 중이에요…"
+                : aiSearch.error && aiSearch.query === rawQuery
+                  ? "비슷한 작품 검색에 실패했어요. 잠시 후 다시 시도해주세요."
+                  : "검색 결과가 없어요.<br>다른 제목이나 '힐링', '전투 많은' 같은 키워드로 검색해보세요."}
+          </div>`;
+        return;
+      }
+
+      animeGrid.innerHTML = filtered.map((anime) => {
+        const reason = anime.aiReason
+          ? escapeHtml(anime.aiReason)
+          : sortSelect.value === "taste"
+            ? escapeHtml(anime.tasteReason || (currentUser
+              ? "찜 목록을 늘리면 취향 추천이 더 정확해져요"
+              : "로그인하고 찜하면 취향 추천을 받을 수 있어요"))
+            : anime.matchedGenres.length
+          ? `선호 장르 ${anime.matchedGenres.map(genreLabel).map(escapeHtml).join(", ")}와 잘 맞아요`
+          : selectedGenres.size
+            ? "등록된 장르 정보가 없어 선호 장르 일치 여부를 판단할 수 없어요"
+            : "평점이 높은 작품부터 보여드려요";
+        const title = escapeHtml(anime.title_ko || anime.title);
+        const poster = safePosterUrl(anime.poster_image);
+        const year = anime.year ? escapeHtml(anime.year) : "연도 정보 없음";
+        const episodeCount = anime.episodes
+          ? `${escapeHtml(anime.episodes)}화`
+          : "화수 정보 없음";
+        const score = anime.score === null || anime.score === undefined ||
+          anime.score === ""
+          ? Number.NaN
+          : Number(anime.score);
+        return `
+          <article class="anime-card" data-anime-id="${escapeHtml(anime.id)}">
+            <button class="poster" type="button" data-detail="${escapeHtml(anime.id)}" aria-label="${title} 상세 보기">
+              ${poster ? `<img src="${escapeHtml(poster)}" alt="" loading="lazy">` : ""}
+              <span class="poster-title">${title}</span>
+            </button>
+            <div class="card-body">
+              <div class="card-topline">
+                <h3><button class="card-title-open" type="button" data-detail="${escapeHtml(anime.id)}">${title}</button></h3>
+                <span class="rating" aria-label="${Number.isFinite(score) ? `Kitsu 평점 ${score.toFixed(1)}점` : "Kitsu 평점 정보 없음"}">
+                  ${Number.isFinite(score) ? `★ ${score.toFixed(1)}` : "평점 없음"}
+                </span>
+              </div>
+              <p class="meta">${year} · ${episodeCount}</p>
+              <div class="tags">${anime.genres.map((genre) => `<span class="tag">${escapeHtml(genreLabel(genre))}</span>`).join("")}</div>
+              <p class="recommendation-reason">${reason}</p>
+              <div class="card-actions">
+                <button class="save-button" type="button" data-save="${escapeHtml(anime.id)}"
+                  aria-pressed="${savedIds.has(anime.id)}">
+                  ${savedIds.has(anime.id) ? "♥ 찜함" : "♡ 찜하기"}
+                </button>
+              </div>
+            </div>
+          </article>`;
+      }).join("");
+    }
+
+    function updateAccountButton() {
+      const button = document.querySelector("#account-button");
+      button.setAttribute(
+        "aria-label",
+        currentUser ? `${currentUser.username} 계정 메뉴` : "로그인"
+      );
+      button.title = currentUser ? `${currentUser.username} 계정 메뉴` : "로그인";
+      document.querySelector(".account-login-icon").toggleAttribute("hidden", Boolean(currentUser));
+      document.querySelector(".account-user-icon").toggleAttribute("hidden", !currentUser);
+      document.querySelector("#account-menu-user").textContent =
+        currentUser ? `로그인됨 · ${currentUser.username}` : "";
+      updateSettingsAccount();
+    }
+
+    function updateSettingsAccount() {
+      if (!document.querySelector("#settings-account-status")) return;
+      const status = document.querySelector("#settings-account-status");
+      const description = document.querySelector("#settings-account-description");
+      const actions = document.querySelector("#settings-account-actions");
+      if (currentUser) {
+        status.textContent = `로그인됨 · ${currentUser.username}`;
+        status.dataset.loggedIn = "true";
+        description.textContent = "이 계정으로 찜 목록을 저장하고 있어요.";
+        actions.innerHTML = `
+          <button class="settings-action" id="settings-logout" type="button">로그아웃</button>
+          <button class="settings-action danger" id="settings-delete-account" type="button">계정 삭제</button>`;
+        document.querySelector("#settings-logout").addEventListener("click", logout);
+        document.querySelector("#settings-delete-account").addEventListener(
+          "click",
+          openDeleteAccountDialog
+        );
+      } else {
+        status.textContent = "로그아웃 상태";
+        status.dataset.loggedIn = "false";
+        description.textContent = "로그인하면 찜 목록을 계정에 저장할 수 있어요.";
+        actions.innerHTML = `
+          <button class="settings-action" id="settings-register" type="button">회원가입</button>
+          <button class="settings-action primary" id="settings-login" type="button">로그인</button>`;
+        document.querySelector("#settings-register").addEventListener(
+          "click",
+          () => openAuthDialog("register")
+        );
+        document.querySelector("#settings-login").addEventListener(
+          "click",
+          () => openAuthDialog("login")
+        );
+      }
+    }
+
+    async function refreshAuthState() {
+      const response = await fetch("/api/me");
+      if (!response.ok) throw new Error(`Login status request failed (${response.status})`);
+      const payload = await response.json();
+      if (!payload.user) {
+        currentUser = null;
+        csrfToken = null;
+        savedIds.clear();
+        apiKeyForm.reset();
+        updateAccountButton();
+        await loadAiProviderSettings();
+        await refreshCuratorState();
+        return;
+      }
+      currentUser = payload.user;
+      csrfToken = payload.csrf_token;
+      const favoritesResponse = await fetch("/api/favorites");
+      if (!favoritesResponse.ok) {
+        throw new Error(`Favorite list request failed (${favoritesResponse.status})`);
+      }
+      const favoritesPayload = await favoritesResponse.json();
+      savedIds.clear();
+      for (const animeId of favoritesPayload.items) savedIds.add(animeId);
+      updateAccountButton();
+      await loadAiProviderSettings();
+      await refreshCuratorState();
+    }
+
+    function openAuthDialog(mode = "login") {
+      setAuthMode(mode);
+      document.querySelector("#auth-message").textContent = "";
+      authDialog.showModal();
+      document.querySelector("#auth-username").focus();
+    }
+
+    function openAccountMenu() {
+      if (!currentUser) {
+        openAuthDialog("login");
+        return;
+      }
+      accountMenuDialog.showModal();
+    }
+
+    function setAuthMode(mode) {
+      authMode = mode;
+      const registering = authMode === "register";
+      document.querySelector("#auth-title").textContent =
+        registering ? "회원가입" : "로그인";
+      document.querySelector("#auth-submit").textContent =
+        registering ? "가입하고 찜 시작하기" : "로그인";
+      document.querySelector("#auth-description").textContent = registering
+        ? "아이디는 영문·숫자·밑줄로 4~20자, 비밀번호는 8자 이상 입력해주세요."
+        : "찜한 작품을 계정에 저장해보세요.";
+      document.querySelector("#auth-username").minLength = registering ? 4 : 1;
+      document.querySelector("#auth-username").pattern =
+        registering ? "[A-Za-z0-9_]{4,20}" : "[A-Za-z0-9_]{1,20}";
+      document.querySelector("#auth-password").autocomplete =
+        registering ? "new-password" : "current-password";
+      document.querySelector("#auth-password").minLength = registering ? 8 : 1;
+      document.querySelector("#auth-switch").textContent = registering
+        ? "이미 계정이 있나요? 로그인"
+        : "처음이신가요? 회원가입";
+    }
+
+    async function handleAuthentication(event) {
+      event.preventDefault();
+      const message = document.querySelector("#auth-message");
+      const formData = new FormData(authForm);
+      const endpoint = authMode === "register"
+        ? "/api/auth/register"
+        : "/api/auth/login";
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: formData.get("username"),
+            password: formData.get("password")
+          })
+        });
+        const payload = await response.json();
+        if (!response.ok) throw new Error(payload.error || "로그인에 실패했어요.");
+        currentUser = payload.user;
+        csrfToken = payload.csrf_token;
+        await refreshAuthState();
+        await loadTaste();
+        authDialog.close();
+        authForm.reset();
+        updateSortDescription();
+        renderAnime();
+      } catch (error) {
+        console.error("Authentication failed:", error);
+        message.textContent = error.message || "요청을 처리하지 못했어요.";
+      }
+    }
+
+    async function logout() {
+      try {
+        const response = await fetch("/api/auth/logout", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": csrfToken
+          },
+          body: "{}"
+        });
+        if (!response.ok) {
+          const payload = await response.json();
+          throw new Error(payload.error || `Logout failed (${response.status})`);
+        }
+        currentUser = null;
+        csrfToken = null;
+        savedIds.clear();
+        tasteScores.clear();
+        tasteReasons.clear();
+        tasteGenreWeights = {};
+        showingSaved = false;
+        document.querySelector("#results-title").textContent = "취향에 맞는 작품";
+        await loadAiProviderSettings();
+        await refreshCuratorState();
+        accountMenuDialog.close();
+        updateAccountButton();
+        updateSortDescription();
+        renderAnime();
+      } catch (error) {
+        console.error("Could not log out:", error);
+        catalogStatus.textContent = "로그아웃하지 못했어요. 잠시 후 다시 시도해주세요.";
+      }
+    }
+
+    function openDeleteAccountDialog() {
+      accountMenuDialog.close();
+      deleteAccountForm.reset();
+      document.querySelector("#delete-account-message").textContent = "";
+      deleteAccountDialog.showModal();
+      document.querySelector("#delete-account-password").focus();
+    }
+
+    async function deleteAccount(event) {
+      event.preventDefault();
+      const message = document.querySelector("#delete-account-message");
+      const formData = new FormData(deleteAccountForm);
+      try {
+        const response = await fetch("/api/auth/delete", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": csrfToken
+          },
+          body: JSON.stringify({ password: formData.get("password") })
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || `Account deletion failed (${response.status})`);
+        }
+        currentUser = null;
+        csrfToken = null;
+        savedIds.clear();
+        tasteScores.clear();
+        tasteReasons.clear();
+        tasteGenreWeights = {};
+        showingSaved = false;
+        document.querySelector("#results-title").textContent = "취향에 맞는 작품";
+        await refreshCuratorState();
+        updateAccountButton();
+        updateSortDescription();
+        renderAnime();
+        deleteAccountDialog.close();
+        showHome();
+        catalogStatus.textContent = "계정과 찜 목록을 삭제했어요. 작품 탐색은 계속할 수 있어요.";
+      } catch (error) {
+        console.error("Could not delete account:", error);
+        message.textContent = error.message || "계정을 삭제하지 못했어요. 다시 시도해주세요.";
+      }
+    }
+
+    genreList.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-genre]");
+      if (!button) return;
+      showingSaved = false;
+      document.querySelector("#results-title").textContent = "취향에 맞는 작품";
+      const genre = button.dataset.genre;
+      if (selectedGenres.has(genre)) selectedGenres.delete(genre);
+      else selectedGenres.add(genre);
+      savePreferredGenres();
+      renderGenres();
+      loadTaste().then(renderAnime);
+    });
+
+    document.querySelector("#settings-genre-list").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-setting-genre]");
+      if (!button) return;
+      const genre = button.dataset.settingGenre;
+      if (selectedGenres.has(genre)) selectedGenres.delete(genre);
+      else selectedGenres.add(genre);
+      savePreferredGenres();
+      renderGenres();
+      loadTaste().then(renderAnime);
+    });
+
+    async function handleAnimeClick(event) {
+      const saveButton = event.target.closest("[data-save]");
+      if (saveButton) {
+        if (!currentUser) {
+          openAuthDialog("login");
+          document.querySelector("#auth-message").textContent =
+            "찜 기능을 사용하려면 로그인해주세요.";
+          return;
+        }
+        try {
+          const animeId = saveButton.dataset.save;
+          const saved = !savedIds.has(animeId);
+          const response = await fetch("/api/favorites", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRF-Token": csrfToken
+            },
+            body: JSON.stringify({ anime_id: animeId, saved })
+          });
+          if (!response.ok) {
+            const payload = await response.json();
+            throw new Error(payload.error || `Favorite request failed (${response.status})`);
+          }
+          if (saved) savedIds.add(animeId);
+          else savedIds.delete(animeId);
+          await loadTaste();
+          renderAnime();
+          if (scheduleSort.value === "taste" && activeScheduleItems.length) {
+            renderScheduleResults();
+          }
+        } catch (error) {
+          console.error("Could not save favorite:", error);
+          catalogStatus.textContent = "찜 목록을 저장하지 못했어요. 로컬 서버 상태를 확인해주세요.";
+        }
+        return;
+      }
+
+      const detailButton = event.target.closest("[data-detail]");
+      const card = event.target.closest(".anime-card");
+      const animeId = detailButton?.dataset.detail || card?.dataset.animeId;
+      if (!animeId) return;
+      const anime = animeList.find((item) => item.id === animeId);
+      if (!anime) return;
+      const displayTitle = anime.title_ko || anime.title;
+      document.querySelector("#dialog-title").textContent = displayTitle;
+      const poster = document.querySelector("#dialog-poster");
+      poster.alt = `${displayTitle} 포스터`;
+      const posterUrl = safePosterUrl(anime.poster_image);
+      if (posterUrl) poster.src = posterUrl;
+      else poster.removeAttribute("src");
+      poster.hidden = !posterUrl;
+      document.querySelector("#dialog-meta").textContent =
+        `${anime.year || "연도 정보 없음"} · ${anime.episodes ? `${anime.episodes}화` : "화수 정보 없음"} · Kitsu 평점 ${anime.score ?? "정보 없음"}`;
+      document.querySelector("#dialog-tags").innerHTML =
+        anime.genres.map((genre) => `<span class="tag">${escapeHtml(genreLabel(genre))}</span>`).join("");
+      activeSynopsisAnimeId = anime.id;
+      showingAiSynopsis = Boolean(anime.ai_synopsis_ko);
+      synopsisAiStatus.textContent = "";
+      aiTagStatus.textContent = "";
+      renderAiTags(anime);
+      renderSynopsis(anime);
+      activeCharacterAnimeId = anime.id;
+      characterRequestId += 1;
+      characterLoadButton.disabled = false;
+      characterLoadButton.textContent = "등장 캐릭터 불러오기";
+      characterStatus.textContent = "";
+      characterList.replaceChildren();
+      const searchTitle = anime.title_ko || anime.titles?.en || anime.title;
+      document.querySelector("#trailer-search").href =
+        `https://www.youtube.com/results?search_query=${encodeURIComponent(`${searchTitle} official trailer`)}`;
+      document.querySelector("#streaming-search").href =
+        `https://www.justwatch.com/kr/search?q=${encodeURIComponent(searchTitle)}`;
+      document.querySelector("#kitsu-source").href =
+        `https://kitsu.io/anime/${encodeURIComponent(anime.id)}`;
+      renderRelatedAnime(anime);
+      if (!detailDialog.open) detailDialog.showModal();
+      detailDialog.scrollTop = 0;
+      loadTrailer(anime);
+      renderSimilarAnime(anime);
+    }
+
+    animeGrid.addEventListener("click", handleAnimeClick);
+    curatorMessagesElement.addEventListener("click", handleAnimeClick);
+    document.querySelector("#similar-anime-list").addEventListener(
+      "click", handleAnimeClick
+    );
+    document.querySelector("#open-curator-dialog").addEventListener("click", () => {
+      curatorDialog.showModal();
+      curatorInput.focus();
+    });
+    document.querySelector("#close-curator-dialog").addEventListener(
+      "click", () => curatorDialog.close()
+    );
+    document.querySelector("#open-character-creator-dialog").addEventListener(
+      "click",
+      () => {
+        characterCreatorDialog.showModal();
+        characterCreatorInput.focus();
+      }
+    );
+    document.querySelector("#close-character-creator-dialog").addEventListener(
+      "click", () => characterCreatorDialog.close()
+    );
+    for (const dialog of [curatorDialog, characterCreatorDialog]) {
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+    }
+    curatorForm.addEventListener("submit", sendCuratorMessage);
+    curatorNewChatButton.addEventListener("click", startCuratorConversation);
+    curatorDeleteChatButton.addEventListener("click", deleteCuratorConversation);
+    curatorConversationSelect.addEventListener("change", () => {
+      if (curatorConversationSelect.value) {
+        curatorConversationId = curatorConversationSelect.value;
+        updateCuratorDeleteButton();
+        openCuratorConversation(curatorConversationSelect.value);
+      } else {
+        startCuratorConversation();
+      }
+    });
+    characterCreatorForm.addEventListener("submit", createCharacter);
+
+    detailDialog.querySelector(".dialog-close").addEventListener(
+      "click", () => detailDialog.close()
+    );
+    aiTagButton.addEventListener("click", handleAiTagClick);
+    synopsisAiButton.addEventListener("click", handleAiSynopsisClick);
+    characterLoadButton.addEventListener("click", loadCharacterInfo);
+    document.querySelector(".auth-close").addEventListener("click", () => authDialog.close());
+    document.querySelector(".account-menu-close").addEventListener(
+      "click",
+      () => accountMenuDialog.close()
+    );
+    document.querySelector("#account-menu-settings").addEventListener("click", () => {
+      accountMenuDialog.close();
+      showSettings();
+      window.location.hash = "settings";
+    });
+    document.querySelector("#account-menu-logout").addEventListener("click", logout);
+    document.querySelector("#account-menu-delete").addEventListener(
+      "click",
+      openDeleteAccountDialog
+    );
+    accountMenuDialog.addEventListener("click", (event) => {
+      if (event.target === accountMenuDialog) accountMenuDialog.close();
+    });
+    document.querySelector(".delete-account-close").addEventListener(
+      "click",
+      () => deleteAccountDialog.close()
+    );
+    deleteAccountDialog.addEventListener("click", (event) => {
+      if (event.target === deleteAccountDialog) deleteAccountDialog.close();
+    });
+    detailDialog.addEventListener("close", () => {
+      document.querySelector("#trailer-player").removeAttribute("src");
+      characterRequestId += 1;
+      similarRequestId += 1;
+      activeSimilarAnimeId = "";
+    });
+    detailDialog.addEventListener("click", (event) => {
+      if (event.target === detailDialog) detailDialog.close();
+    });
+    searchInput.addEventListener("input", renderAnime);
+    relatedSortSelect.addEventListener("change", () => {
+      if (activeRelatedAnime) renderRelatedAnime(activeRelatedAnime);
+    });
+    sortSelect.addEventListener("change", () => {
+      updateSortDescription();
+      renderAnime();
+    });
+    document.querySelector("#filter-toggle").addEventListener("click", () => {
+      setGenreFiltersVisible(preferencesSection.hidden);
+    });
+    document.querySelector(".schedule-days").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-schedule-day]");
+      if (button) loadSchedule(button.dataset.scheduleDay);
+    });
+    scheduleSearch.addEventListener("input", renderScheduleResults);
+    scheduleGenreFilter.addEventListener("change", renderScheduleResults);
+    scheduleYearFilter.addEventListener("change", renderScheduleResults);
+    scheduleSort.addEventListener("change", () => {
+      localStorage.setItem("anipick-schedule-sort", scheduleSort.value);
+      renderScheduleResults();
+    });
+    document.querySelectorAll("[data-schedule-layout]").forEach((button) => {
+      button.addEventListener("click", () => applyScheduleLayout(button.dataset.scheduleLayout));
+    });
+    scheduleGrid.addEventListener("click", (event) => {
+      if (event.target.closest("[data-schedule-retry]")) {
+        loadSchedule(activeScheduleDay);
+      }
+    });
+    document.querySelectorAll("[data-layout-choice]").forEach((button) => {
+      button.addEventListener("click", () => applyCatalogLayout(button.dataset.layoutChoice));
+    });
+    document.querySelector(".brand").addEventListener("click", (event) => {
+      event.preventDefault();
+      showCatalog("취향에 맞는 작품", "recommended", true);
+    });
+    document.querySelector("#account-button").addEventListener("click", openAccountMenu);
+    document.querySelector("#menu-button").addEventListener("click", () => {
+      if (!navigationDialog.open) navigationDialog.showModal();
+      document.querySelector("#menu-button").setAttribute("aria-expanded", "true");
+    });
+    document.querySelector("#close-navigation").addEventListener("click", closeNavigation);
+    navigationDialog.addEventListener("close", () => {
+      document.querySelector("#menu-button").setAttribute("aria-expanded", "false");
+    });
+    navigationDialog.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      closeNavigation();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navigationDialog.open) {
+        event.preventDefault();
+        closeNavigation();
+      }
+    });
+    navigationDialog.addEventListener("click", (event) => {
+      if (event.target === navigationDialog) {
+        closeNavigation();
+        return;
+      }
+      const item = event.target.closest("[data-navigation-action]");
+      if (item) navigateFromMenu(item.dataset.navigationAction);
+    });
+    document.querySelector("#header-search-button").addEventListener("click", focusSearch);
+    document.querySelector("#theme-toggle").addEventListener("click", () => {
+      applyTheme(currentTheme === "dark" ? "light" : "dark");
+    });
+    document.querySelector("#settings-button").addEventListener("click", navigateToSettings);
+    mobileBottomNav.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-mobile-action]");
+      if (!button) return;
+      const action = button.dataset.mobileAction;
+      if (action === "home") {
+        showCatalog("취향에 맞는 작품", "recommended", true);
+      } else if (action === "schedule") {
+        navigateToSchedule();
+      } else if (action === "saved") {
+        showSavedAnime();
+      } else if (action === "shortcuts") {
+        if (!navigationDialog.open) navigationDialog.showModal();
+        document.querySelector("#menu-button").setAttribute("aria-expanded", "true");
+      } else if (action === "search") {
+        focusSearch();
+      }
+    });
+    document.querySelectorAll("[data-theme-choice]").forEach((button) => {
+      button.addEventListener("click", () => applyTheme(button.dataset.themeChoice));
+    });
+    document.querySelector("#reset-preferences").addEventListener(
+      "click",
+      resetPreferredGenres
+    );
+    aiProviderSelect.addEventListener("change", () => {
+      if (aiProviderSelect.value) {
+        localStorage.setItem(AI_PROVIDER_STORAGE_KEY, aiProviderSelect.value);
+      } else {
+        localStorage.removeItem(AI_PROVIDER_STORAGE_KEY);
+      }
+      updateAiProviderStatus(aiProviderOptions, defaultAiProvider);
+    });
+    document.querySelector("#auth-switch").addEventListener("click", () => {
+      setAuthMode(authMode === "login" ? "register" : "login");
+      document.querySelector("#auth-message").textContent = "";
+    });
+    authForm.addEventListener("submit", handleAuthentication);
+    deleteAccountForm.addEventListener("submit", deleteAccount);
+    window.addEventListener("hashchange", () => {
+      if (window.location.hash === "#settings") showSettings();
+      else if (window.location.hash === "#schedule") showSchedule();
+      else showHome();
+    });
+
+    applyTheme(currentTheme);
+    applyCatalogLayout(catalogLayout);
+    if (["popular", "newest", "rating", "name", "time", "taste"].includes(
+      localStorage.getItem("anipick-schedule-sort")
+    )) {
+      scheduleSort.value = localStorage.getItem("anipick-schedule-sort");
+    }
+    applyScheduleLayout(scheduleLayout);
+    updateSortDescription();
+    if (window.location.hash === "#settings") showSettings();
+    initialize();
+  </script>
+</body>
+</html>

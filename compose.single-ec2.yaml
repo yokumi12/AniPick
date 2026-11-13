@@ -1,0 +1,87 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: anipick-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?MYSQL_ROOT_PASSWORD is required}
+      MYSQL_DATABASE: ${ANIPICK_MYSQL_DATABASE:-anipick}
+      ANIPICK_MYSQL_PASSWORD: ${ANIPICK_MYSQL_PASSWORD:?ANIPICK_MYSQL_PASSWORD is required}
+    command:
+      - --require_secure_transport=ON
+      - --ssl-ca=/etc/mysql/certs/ca.pem
+      - --ssl-cert=/etc/mysql/certs/server-cert.pem
+      - --ssl-key=/etc/mysql/certs/server-key.pem
+      - --innodb-buffer-pool-size=384M
+      - --max-connections=30
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./certs/mysql/ca.pem:/etc/mysql/certs/ca.pem:ro
+      - ./certs/mysql/server-cert.pem:/etc/mysql/certs/server-cert.pem:ro
+      - ./certs/mysql/server-key.pem:/etc/mysql/certs/server-key.pem:ro
+      - ./scripts/aws/mysql-init.sh:/docker-entrypoint-initdb.d/10-anipick-user.sh:ro
+    mem_limit: 768m
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - mysqladmin ping --host=127.0.0.1 --user=root --password="$${MYSQL_ROOT_PASSWORD}" --silent
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 60s
+    logging:
+      driver: local
+      options:
+        max-size: 10m
+        max-file: "3"
+
+  app:
+    image: anipick:single-ec2
+    build:
+      context: .
+    container_name: anipick-app
+    restart: unless-stopped
+    init: true
+    env_file:
+      - .env
+    environment:
+      ANIPICK_ENV: production
+      ANIPICK_HOST: 0.0.0.0
+      ANIPICK_MYSQL_HOST: mysql
+      ANIPICK_MYSQL_PORT: "3306"
+      ANIPICK_MYSQL_SSL_CA: /etc/anipick/certs/mysql/ca.pem
+      PORT: "8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./certs/mysql/ca.pem:/etc/anipick/certs/mysql/ca.pem:ro
+    mem_limit: 512m
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    logging:
+      driver: local
+      options:
+        max-size: 10m
+        max-file: "3"
+
+volumes:
+  mysql-data:

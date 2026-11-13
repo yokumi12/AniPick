@@ -1,0 +1,44 @@
+services:
+  app:
+    image: anipick:prod
+    build:
+      context: .
+    container_name: anipick-app
+    restart: unless-stopped
+    init: true
+    env_file:
+      - .env
+    environment:
+      ANIPICK_ENV: production
+      ANIPICK_HOST: 0.0.0.0
+      ANIPICK_MYSQL_SSL_CA: /etc/ssl/certs/rds-global-bundle.pem
+      PORT: "8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - /etc/anipick/certs/rds-global-bundle.pem:/etc/ssl/certs/rds-global-bundle.pem:ro
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: ${ANIPICK_LOG_GROUP}
+        awslogs-region: ${AWS_REGION}
+        awslogs-stream: anipick
+        awslogs-create-group: "false"
